@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>智飨科技食品餐饮安全网管理后台</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="智飨科技-食品餐饮安全网 " />
+    <meta name="author" content="hhp" />
+    <meta name="keyword" content="智能化餐饮,智飨科技,物联网,食品安全,智能厨房,家宴,餐饮标准化管理" />
+    <link rel="icon" href="/images/logo1.png" type="image/x-icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="application/x-javascript">
+        addEventListener("load",
+            function() {
+                setTimeout(hideURLbar, 0);
+            }, false
+        );
+        function hideURLbar(){
+            window.scrollTo(0,1);
+        }
+    </script>
+    <link href="css/style.css" rel="stylesheet">
+    <link href="/css/common/bootstrap/bootstrap.css" type="text/css" rel="stylesheet" media="all">
+    <link href="css/form.css" rel="stylesheet">
+    <link href="css/icons.css" rel="stylesheet">
+    <link href="/css/common/style/loginstyle.css" type="text/css" rel="stylesheet" media="all">
+    <link href="/css/common/font/font-awesome.css" rel="stylesheet">
+    <link href="/css/common/verify/verify.css" type="text/css" rel="stylesheet" media="all">
+    <link href="css/common/jquery/jquery-confirm.min.css" rel="stylesheet" type="text/css" />
+    <link href="/css/index/index.css" type="text/css" rel="stylesheet" media="all">
+    <script src="/js/common/jquery/jquery-2.2.3.min.js"></script>
+    <script src="/js/common/jquery/jquery.form.js"></script>
+</head>
+<body id="skin-blur-violate">
+<!-- login-page -->
+<div class="login-page about">
+    <div class="container">
+        <h3 class="w3ls-title w3ls-title1" style="color:#fff">登录您的账号</h3>
+        <p style="text-align: center;color:#fff">欢迎使用智飨科技平台管理系统</p>
+        <div class="login-agileinfo">
+            <form action="" method="post" id="loginForm">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <input class="agile-ltext tooltip-show" style="color:#ffffff" data-toggle="tooltip" title="请输入用户名" type="text" name="userName" placeholder="请输入您的用户名">
+                </div>
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <input class="agile-ltext tooltip-show" style="color:#ffffff" data-toggle="tooltip" title="请输入密码" type="password" name="password" placeholder="请输入您的密码">
+                </div>
+                <input class="btn-alt" type="button" value="登录" onclick="login()">
+            </form>
+        </div>
+    </div>
+</div>
+<div class="toTopRocket"><a href="javascript:void(0);" title="返回顶部"></a></div>
+<script type="text/javascript" src="/js/common/foot/foot.js"></script>
+<script src="/js/common/minicart/minicart.js"></script>
+<script>
+    w3ls.render();
+    w3ls.cart.on('w3sb_checkout', function (evt) {
+        var items, len, i;
+
+        if (this.subtotal() > 0) {
+            items = this.items();
+
+            for (i = 0, len = items.length; i < len; i++) {
+            }
+        }
+    });
+</script>
+<script src="/js/common/smoothScroll/SmoothScroll.min.js"></script>
+<script src="js/scroll.min.js"></script>
+<script src="js/functions-login.js"></script>
+<script type="text/javascript" src="/js/common/easing/easing.js"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function($) {
+        $(".scroll").click(function(event){
+            event.preventDefault();
+            $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+        });
+    });
+</script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $(".verify-img-panel").css("width","auto");
+        $(".verify-img-panel").css("height","auto");
+
+        $(".verify-bar-area").css("width","auto");
+        $(".verify-bar-area").css("background","transparent");
+        $(".verify-bar-area").css("color","#ffffff");
+    });
+</script>
+<script src="/js/common/bootstrap/bootstrap.js"></script>
+<script src="/js/common/jquery/jquery.form.js"></script>
+<script src="/js/common/jquery/jquery.validate.min.js"></script>
+<script src="//at.alicdn.com/t/font_1057246_6biqhztni1l.js"></script>
+<script src="/js/common/jquery/jquery-confirm-mychange.min.js"></script>
+<script src="/js/common/myCommon.js" type="text/javascript"></script>
+<script src="/js/index/index.js"></script>
+</body>
+</html>

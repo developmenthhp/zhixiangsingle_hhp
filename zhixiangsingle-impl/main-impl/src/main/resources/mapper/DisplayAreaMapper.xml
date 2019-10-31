@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.zhixiangsingle.dao.displayArea.DisplayAreaMapper">
+	<sql id="Base_Column_List">
+		id, area,sdid sdId,pid
+	</sql>
+    <sql id="selectAllKey">
+        <trim suffixOverrides=",">
+			<if test="id != null" >
+				d.id,
+			</if>
+            <if test="area != null and area != ''" >
+				d.area,
+            </if>
+            <if test="pid != null" >
+				d.pid,
+            </if>
+			<if test="sdId != null" >
+				d.sdid sdId,
+			</if>
+			<if test="siteName != null and siteName != ''" >
+				#{siteName} siteName,
+			</if>
+			<if test="sitePhoto != null and sitePhoto != ''" >
+				#{sitePhoto} sitePhoto,
+			</if>
+			<if test="picturePrefix != null and picturePrefix != ''" >
+				#{picturePrefix} picturePrefix,
+			</if>
+        </trim>
+    </sql>
+	<sql id="insertAllKey">
+		<trim suffixOverrides=",">
+			<if test="area != null and area != ''" >
+				area,
+			</if>
+			<if test="pid != null" >
+				pid,
+			</if>
+			<if test="sdId != null" >
+				sdid,
+			</if>
+		</trim>
+	</sql>
+	<sql id="insertAllValue">
+		<trim suffixOverrides=",">
+			<if test="area != null and area != ''" >
+				#{area},
+			</if>
+			<if test="pid != null" >
+				#{pid},
+			</if>
+			<if test="sdId != null" >
+				#{sdId},
+			</if>
+		</trim>
+	</sql>
+	<sql id="updateAllValue">
+		<trim suffixOverrides=",">
+			<if test="area != null and area != ''" >
+				area = #{area,jdbcType=VARCHAR},
+			</if>
+			<if test="pid != null" >
+				pid = #{pid,jdbcType=INTEGER},
+			</if>
+			<if test="sdId != null" >
+				sdid = #{sdId,jdbcType=INTEGER},
+			</if>
+		</trim>
+	</sql>
+    <sql id="whereAllValue">
+        <where>
+            <if test='sdId != null and sdId != -1 ' >
+				AND d.sdid = #{sdId}
+            </if>
+			<if test="id != null and id != -1" >
+				AND d.id = #{id}
+			</if>
+			<if test="pid != null and pid != -1" >
+				AND d.pid = #{pid}
+			</if>
+        </where>
+		ORDER BY
+		d.id DESC
+		<if test='start != null and start != -1' >
+			LIMIT #{start},#{end}
+		</if>
+    </sql>
+	<sql id="whereFullNameAllValue">
+		<where>
+			<if test='sdId != null and sdId != -1 ' >
+				AND d.sdid = #{sdId}
+			</if>
+			<if test="id != null and id != -1" >
+				AND d.id = #{id}
+			</if>
+			<if test="pid != null and pid != -1" >
+				AND d.pid = #{pid}
+			</if>
+		</where>
+	</sql>
+	<!-- 查找所有分类记录条数 start -->
+	<select id="findDisplayAreaTotal" resultType="java.lang.Integer">
+		SELECT
+			COUNT(mu.id)
+		FROM
+		displayarea d
+		<include refid="whereAllValue"/>
+	</select>
+	<!-- 查找所有分类记录条数 end -->
+	<!-- 查找所有食材记录 start -->
+	<select id="findDisplayAreaList" resultType="java.util.Map">
+		SELECT
+			<include refid="selectAllKey"/>
+		FROM
+		displayarea d
+		<include refid="whereAllValue"/>
+	</select>
+	<!-- 查找单个 start -->
+	<select id="findDisplayArea" resultType="java.util.Map">
+		SELECT
+		<include refid="selectAllKey"/>
+		FROM
+		displayarea d
+		<include refid="whereFullNameAllValue"/>
+	</select>
+	<!-- 查找单个 end -->
+	<!-- 查找所有食材记录 end -->
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		DELETE FROM displayarea
+        WHERE id = #{id,jdbcType=INTEGER} and sdid = #{sdId,jdbcType=INTEGER}
+	</delete>
+	<insert id="insertSelective" useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO displayarea(<include refid="insertAllKey"/>) VALUES(<include refid="insertAllValue"/>);
+	</insert>
+	<update id="updateByPrimaryKey">
+		UPDATE displayarea
+		<set>
+			<include refid="updateAllValue"/>
+		</set>
+		WHERE id = #{id,jdbcType=INTEGER} and sdid = #{sdId,jdbcType=INTEGER}
+	</update>
+</mapper>

@@ -1,0 +1,102 @@
+{
+  "22":{
+  "morningStartTime": "04:30:00",
+  "morningEndTime": "17:30:00",
+  "noonStartTime": "05:30:00",
+  "noonEndTime": "17:30:00",
+  "eveningStartTime": "07:00:00",
+  "eveningEndTime": "17:30:00",
+  "middleStartTime": "07:30:00",
+  "middleEndTime": "22:00:00"
+  },
+  "21":{
+    "morningStartTime": "04:30:00",
+    "morningEndTime": "17:30:00",
+    "noonStartTime": "05:30:00",
+    "noonEndTime": "17:30:00",
+    "eveningStartTime": "07:00:00",
+    "eveningEndTime": "17:30:00",
+    "middleStartTime": "07:30:00",
+    "middleEndTime": "22:00:00"
+  },
+  "23":{
+    "morningStartTime": "04:30:00",
+    "morningEndTime": "17:30:00",
+    "noonStartTime": "05:30:00",
+    "noonEndTime": "17:30:00",
+    "eveningStartTime": "07:00:00",
+    "eveningEndTime": "17:30:00",
+    "middleStartTime": "07:30:00",
+    "middleEndTime": "22:00:00"
+  },
+  "27":{
+    "morningStartTime": "04:30:00",
+    "morningEndTime": "17:30:00",
+    "noonStartTime": "05:30:00",
+    "noonEndTime": "17:30:00",
+    "eveningStartTime": "07:00:00",
+    "eveningEndTime": "17:30:00",
+    "middleStartTime": "07:30:00",
+    "middleEndTime": "22:00:00"
+  },
+  "28":{
+    "morningStartTime": "04:30:00",
+    "morningEndTime": "17:30:00",
+    "noonStartTime": "05:30:00",
+    "noonEndTime": "17:30:00",
+    "eveningStartTime": "07:00:00",
+    "eveningEndTime": "17:30:00",
+    "middleStartTime": "07:30:00",
+    "middleEndTime": "22:00:00"
+  },
+  "31":{
+    "morningStartTime": "04:30:00",
+    "morningEndTime": "17:30:00",
+    "noonStartTime": "05:30:00",
+    "noonEndTime": "17:30:00",
+    "eveningStartTime": "07:00:00",
+    "eveningEndTime": "17:30:00",
+    "middleStartTime": "07:30:00",
+    "middleEndTime": "22:00:00"
+  },
+  "32":{
+    "morningStartTime": "04:30:00",
+    "morningEndTime": "17:30:00",
+    "noonStartTime": "05:30:00",
+    "noonEndTime": "17:30:00",
+    "eveningStartTime": "07:00:00",
+    "eveningEndTime": "17:30:00",
+    "middleStartTime": "07:30:00",
+    "middleEndTime": "22:00:00"
+  },
+  "33":{
+    "morningStartTime": "04:30:00",
+    "morningEndTime": "17:30:00",
+    "noonStartTime": "05:30:00",
+    "noonEndTime": "17:30:00",
+    "eveningStartTime": "07:00:00",
+    "eveningEndTime": "17:30:00",
+    "middleStartTime": "07:30:00",
+    "middleEndTime": "22:00:00"
+  },
+  "34":{
+    "morningStartTime": "04:30:00",
+    "morningEndTime": "17:30:00",
+    "noonStartTime": "05:30:00",
+    "noonEndTime": "17:30:00",
+    "eveningStartTime": "07:00:00",
+    "eveningEndTime": "17:30:00",
+    "middleStartTime": "07:30:00",
+    "middleEndTime": "22:00:00"
+  },
+  "35":{
+    "morningStartTime": "04:30:00",
+    "morningEndTime": "17:30:00",
+    "noonStartTime": "05:30:00",
+    "noonEndTime": "17:30:00",
+    "eveningStartTime": "07:00:00",
+    "eveningEndTime": "17:30:00",
+    "middleStartTime": "07:30:00",
+    "middleEndTime": "22:00:00"
+  }
+}

@@ -1,0 +1,406 @@
+.img{
+    list-style:none;
+    display: block;
+    padding: 2em;
+    width:100%;
+    height:100%;
+}
+.num{
+    list-style:none;
+    margin-top:-20px;
+}
+.out {
+    width: 45%;
+    float: left;
+    margin: 0 0 0 2.5em;
+}
+
+
+.img li {
+    position:absolute;
+    top:0px;
+    left:0px;
+
+
+    display:none;
+    width:100%;
+    height:100%;
+
+}
+.w3ls-add-grids .num {
+    position:absolute;
+
+
+    bottom:0px;
+    left:0px;
+    font-size:0px;
+    text-align:center;
+    width:100%;
+}
+.num li {
+    width:20px;
+    height:20px;
+    background:#666666;
+    color:#FFFFFF;
+    text-align:center;
+    line-height:20px;
+    display:inline-block;
+    font-size:16px;
+    border-radius:50%;
+    margin-right:10px;
+    cursor:pointer;
+}
+.w3ls-add-grids .btn {
+    position:absolute;
+    top:50%;
+    margin-top:-30px;
+
+
+
+    width:30px;
+    height:60px;
+    background:rgba(0,0,0,0.5);
+    color:#FFFFFF;
+    text-align:center;
+    line-height:60px;
+    font-size:40px;
+    display:none;
+    cursor:pointer;
+}
+.w3ls-add-grids .num li.active-1 {
+    background:#AA0000;
+}
+.w3ls-add-grids:hover .btn {
+    display:block
+}
+.w3ls-add-grids .left {
+    left:0px;
+    /*margin-top:-33%;*/
+}
+.w3ls-add-grids .right {
+    right:0px;
+    /*margin-top:-11.5%;
+    margin-left:94%;*/
+}
+
+.w3ls-add-grids .top {
+    position:absolute;
+    width:100%;
+    top:0%;
+    background:rgba(0,0,0,0.5);
+    color:#FFFFFF;
+    cursor:pointer;
+    /* 超过隐藏 */
+    overflow: hidden;
+    /* ③显示省略符号来代表被修剪的文本 */
+    text-overflow: ellipsis;
+    /* ③ nowrap 文本不会换行，文本会在同一行上继续，直到遇到<br>标签（开始换行）为止 */
+    white-space: nowrap;
+
+}
+
+.w3ls-add-grids .top span{
+
+    font-size:1.3em;
+
+}
+
+.sy_news .sy_lm_curr {
+    border-top: 2px solid #f0931c;
+    background: #fff;
+    color: #f0931c;
+}
+.sy_news .sy_lm {
+    padding-left: 8px;
+    float: left;
+    width: 80px;
+    height: 30px;
+    line-height: 30px;
+    cursor: pointer;
+}
+
+
+.sy_news a {
+    display: block;
+    line-height: 2.05em;
+    height: 2.05em;
+    color: #666;
+    font-size: 1em;
+    /* 超过隐藏 */
+    overflow: hidden;
+    /* ③显示省略符号来代表被修剪的文本 */
+    text-overflow: ellipsis;
+    /* ③ nowrap 文本不会换行，文本会在同一行上继续，直到遇到<br>标签（开始换行）为止 */
+    white-space: nowrap;
+
+    width:76%;
+}
+
+@media (max-width:435px){
+    .sy_news a {
+        width: 60%;
+    }
+}
+@media (max-width:413px){
+    .sy_news a {
+        width: 75%;
+    }
+}
+
+
+
+.sy_news a:hover {
+    color: #ff6600;
+    text-decoration: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.sy_news a span {
+    position: absolute;
+    right: 0;
+}
+
+
+.sy_news2 a {
+    display: block;
+    line-height: 2.05em;
+    height: 2.05em;
+    color: #666;
+    font-size: 1em;
+    /* 超过隐藏 */
+    overflow: hidden;
+    /* ③显示省略符号来代表被修剪的文本 */
+    text-overflow: ellipsis;
+    /* ③ nowrap 文本不会换行，文本会在同一行上继续，直到遇到<br>标签（开始换行）为止 */
+    white-space: nowrap;
+
+    width:76%;
+}
+
+@media (max-width:1200px){
+    .sy_news2 a {
+        width: 70%;
+    }
+}
+
+@media (max-width:992px){
+    .sy_news2 a {
+        width: 64%;
+    }
+}
+
+@media (max-width:720px){
+    .sy_news2 a {
+        width: 60%;
+    }
+}
+
+@media (max-width:652px){
+    .sy_news2 a {
+        width: 56%;
+    }
+}
+
+@media (max-width:575px){
+    .sy_news2 a {
+        width: 52%;
+    }
+}
+
+@media (max-width:566px){
+    .sy_news2 a {
+        width: 52%;
+    }
+}
+
+@media (max-width:530px){
+    .sy_news2 a {
+        width: 46%;
+    }
+}
+
+@media (max-width:472px){
+    .sy_news2 a {
+        width: 40%;
+    }
+}
+
+@media (max-width:436px){
+    .sy_news2 a {
+        width: 37%;
+    }
+}
+
+@media (max-width:413px){
+    .sy_news2 a {
+        width: 70%;
+    }
+}
+
+@media (max-width:400px){
+    .sy_news2 a {
+        width: 67%;
+    }
+}
+
+@media (max-width:361px){
+    .sy_news2 a {
+        width: 62%;
+    }
+}
+
+@media (max-width:322px){
+    .sy_news2 a {
+        width: 56%;
+    }
+}
+
+
+.sy_news2 a:hover {
+    color: #ff6600;
+    text-decoration: none;
+}
+
+.sy_news2 a span {
+    position: absolute;
+    right: 0;
+}
+
+
+/*以下是将col-6 copy*/
+/*.teCol {
+    width: 50%;
+    float: left;
+    position: relative;
+    min-height: 1px;
+    padding-right: 0;
+    padding-left: 0;
+}
+
+@media (min-width:992px){
+    .teCol {
+        width: 50%;
+        float: left;
+    }
+}
+
+@media (min-width:768px){
+    .teCol {
+        width: 50%;
+        float: left;
+    }
+}*/
+
+.outMyCanvas{
+    width: 108%;
+    margin-left: -1.13em;
+}
+
+.verify-img-panel{
+    width:100%;
+}
+canvas{
+    width:100%;
+}
+
+.verify-img-panel{
+    width:auto;
+    height:auto;
+}
+
+.tooltip-inner{
+    background-color:#ffbbbb;
+}
+.tooltip.top .tooltip-arrow{
+    border-top-color: #ffbbbb;
+}
+
+/*@media (min-width: 1200px){
+    .outMyCanvas{
+        width: 110.56%;
+        margin-left: -1.13em;
+    }
+}*/
+
+
+
+
+.login-agileinfo input[type="button"]:hover {
+    -webkit-box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.58);
+    -moz-box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.58);
+    box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.58);
+    letter-spacing: 3px;
+}
+.login-agileinfo input[type="button"] {
+    font-size: 1em;
+    color: #fff;
+    background: #08cae2;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    padding: 1em;
+    -webkit-appearance: none;
+    width: 100%;
+    margin: 2em 0;
+    -webkit-transition: .5s all;
+    -moz-transition: .5s all;
+    -o-transition: .5s all;
+    -ms-transition: .5s all;
+    transition: .5s all;
+}
+
+
+/* === Form hints === */
+.form_hint {
+    position:absolute;
+    background: transparent;
+    border-radius: 3px 3px 3px 3px;
+    border:1px solid #ffffff;
+    color: white;
+    z-index: 999; /* hints stay above all other elements */
+    display: none;
+    bottom:120%;
+    font-size:0.23rem;
+    width:60%;
+    text-align:center;
+    right:0%;
+}
+.form_hint::before {
+    content: "\25C0";
+    color:#ffffff;
+    bottom:-64%;
+    transform:rotate(30deg);
+    position:absolute;
+    left:40%;
+}
+
+/* 返回顶部 start */
+.toTopRocket{
+    position:fixed;
+    _position:absolute;
+    bottom: 10px;
+    right: 3px;
+    width: 37.5px;
+    height: 37.5px;
+    display:none;
+}
+
+.toTopRocket a,.toTopRocket a:link{
+    width: 37.5px;
+    height: 37.5px;
+    display:inline-block;
+    background:url(../../../images/rocket.png) no-repeat;
+    _background:url(../../../images/blog7year_gotop.gif) no-repeat;
+    background-size:37.5px 48.75px;
+    outline:none;
+}
+
+.toTopRocket a:hover{
+    background:url(../../../images/rocket.gif) no-repeat;
+    background-size:37.5px 48.75px;
+    outline:none;
+}
+/* 返回顶部 end */

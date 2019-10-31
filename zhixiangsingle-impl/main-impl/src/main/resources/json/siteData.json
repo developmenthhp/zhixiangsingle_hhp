@@ -1,0 +1,578 @@
+{
+  "21":{
+    "dateSourceName":"szyd",
+    "name": "苏州移动",
+    "photo": "http://127.0.0.1:100/hhp_zhixiang_img/2019/09/19/10/22/25/208f37b4-9426-4854-9209-9bc5b0d6fc2a.png",
+    "picturePrefix":"http://139.9.71.202:80",
+    "youTu" : {
+      "appId":"10143988",
+      "secretId":"AKID0oeHhtga5MPDl4vwV2KM9gy1oLdfqxDE",
+      "secretKey":"xhCSTEjz0lTzHK8gz3rQkqhIg2C9xb2D",
+      "endPointUrl":"https://api.youtu.qq.com/youtu/",
+      "chargePointUrl":"https://vip-api.youtu.qq.com/youtu/",
+      "tencentPointUrl":"https://youtu.api.qcloud.com/youtu/",
+      "handWritePointUrl":"https://api.youtu.qq.com/youtu/ocrapi/handwritingocr/",
+      "userId":"2287644391"
+    },
+    "haiKang" : {
+      "hkHost":"https://open.ys7.com",
+      "appKey":"9b893e70515f413c82fa209952ff08c1",
+      "appSecret":"5e3df328ee2a2cb8fbdef55ca6579a71"
+    },
+    "leCheng": {
+      "lcPort":"443",
+      "lcHost":"https://openapi.lechange.cn",
+      "appId":"lc15e2a9a5e0cc497c",
+      "secret":"4b3db280fc67483480666a65aa03e7",
+      "phone":"687f0efbc9fb4e27"
+    },
+    "mqtt": {
+      "mqHost":"tcp://121.43.35.181",
+      "mqPort":"1883",
+      "client":"zjtx_zhantingA",
+      "clientId":"zjtx_zhantingAABBCCezd5BY7X5brd",
+      "userName":"test",
+      "passWord":"test"
+    }
+  },
+  "22":{
+    "dateSourceName":"zx",
+    "name": "智飨科技展厅",
+    "photo": "http://127.0.0.1:100/hhp_zhixiang_img/2019/09/19/13/37/23/07b57a84-0a11-4680-b2eb-d8fc7de7526e.png",
+    "picturePrefix":"http://121.43.35.179:80",
+    "youTu" : {
+      "appId":"10143988",
+      "secretId":"AKID0oeHhtga5MPDl4vwV2KM9gy1oLdfqxDE",
+      "secretKey":"xhCSTEjz0lTzHK8gz3rQkqhIg2C9xb2D",
+      "endPointUrl":"https://api.youtu.qq.com/youtu/",
+      "chargePointUrl":"https://vip-api.youtu.qq.com/youtu/",
+      "tencentPointUrl":"https://youtu.api.qcloud.com/youtu/",
+      "handWritePointUrl":"https://api.youtu.qq.com/youtu/ocrapi/handwritingocr/",
+      "userId":"2287644391"
+    },
+    "haiKang" : {
+      "hkHost":"https://open.ys7.com",
+      "appKey":"9b893e70515f413c82fa209952ff08c1",
+      "appSecret":"5e3df328ee2a2cb8fbdef55ca6579a71"
+    },
+    "leCheng": {
+      "lcPort":"443",
+      "lcHost":"https://openapi.lechange.cn",
+      "appId":"lc15e2a9a5e0cc497c",
+      "secret":"4b3db280fc67483480666a65aa03e7",
+      "phone":"687f0efbc9fb4e27"
+    },
+    "mqtt": {
+      "mqHost":"tcp://121.43.35.181",
+      "mqPort":"1883",
+      "client":"zjtx_zhantingA",
+      "clientId":"zjtx_zhantingAABBCCezd5BY7X5brd",
+      "userName":"test",
+      "passWord":"test"
+    }
+  },
+  "24":{
+    "dateSourceName":"yllxx",
+    "name": "南宁市玉兰路小学",
+    "photo": "http://127.0.0.1:100/hhp_zhixiang_img/2019/09/19/10/31/56/5bb3d277-2e32-4945-860b-a1eec9b24c14.png",
+    "picturePrefix":"http://139.9.232.138:80",
+    "youTu" : {
+      "appId":"10143988",
+      "secretId":"AKID0oeHhtga5MPDl4vwV2KM9gy1oLdfqxDE",
+      "secretKey":"xhCSTEjz0lTzHK8gz3rQkqhIg2C9xb2D",
+      "endPointUrl":"https://api.youtu.qq.com/youtu/",
+      "chargePointUrl":"https://vip-api.youtu.qq.com/youtu/",
+      "tencentPointUrl":"https://youtu.api.qcloud.com/youtu/",
+      "handWritePointUrl":"https://api.youtu.qq.com/youtu/ocrapi/handwritingocr/",
+      "userId":"2287644391"
+    },
+    "haiKang" : {
+      "hkHost":"https://open.ys7.com",
+      "appKey":"9b893e70515f413c82fa209952ff08c1",
+      "appSecret":"5e3df328ee2a2cb8fbdef55ca6579a71"
+    },
+    "leCheng": {
+      "lcPort":"443",
+      "lcHost":"https://openapi.lechange.cn",
+      "appId":"lc15e2a9a5e0cc497c",
+      "secret":"4b3db280fc67483480666a65aa03e7",
+      "phone":"687f0efbc9fb4e27"
+    },
+    "mqtt": {
+      "mqHost":"tcp://121.43.35.181",
+      "mqPort":"1883",
+      "client":"zjtx_zhantingA",
+      "clientId":"zjtx_zhantingAABBCCezd5BY7X5brd",
+      "userName":"test",
+      "passWord":"test"
+    }
+  },
+  "25":{
+    "dateSourceName":"ygfz",
+    "name": "广西玉高附中",
+    "photo": "http://127.0.0.1:100/hhp_zhixiang_img/2019/09/19/10/36/48/e65abbb2-fcea-4925-ab03-2d1be4921497.png",
+    "picturePrefix":"http://139.9.232.138:80",
+    "youTu" : {
+      "appId":"10143988",
+      "secretId":"AKID0oeHhtga5MPDl4vwV2KM9gy1oLdfqxDE",
+      "secretKey":"xhCSTEjz0lTzHK8gz3rQkqhIg2C9xb2D",
+      "endPointUrl":"https://api.youtu.qq.com/youtu/",
+      "chargePointUrl":"https://vip-api.youtu.qq.com/youtu/",
+      "tencentPointUrl":"https://youtu.api.qcloud.com/youtu/",
+      "handWritePointUrl":"https://api.youtu.qq.com/youtu/ocrapi/handwritingocr/",
+      "userId":"2287644391"
+    },
+    "haiKang" : {
+      "hkHost":"https://open.ys7.com",
+      "appKey":"9b893e70515f413c82fa209952ff08c1",
+      "appSecret":"5e3df328ee2a2cb8fbdef55ca6579a71"
+    },
+    "leCheng": {
+      "lcPort":"443",
+      "lcHost":"https://openapi.lechange.cn",
+      "appId":"lc15e2a9a5e0cc497c",
+      "secret":"4b3db280fc67483480666a65aa03e7",
+      "phone":"687f0efbc9fb4e27"
+    },
+    "mqtt": {
+      "mqHost":"tcp://121.43.35.181",
+      "mqPort":"1883",
+      "client":"zjtx_zhantingA",
+      "clientId":"zjtx_zhantingAABBCCezd5BY7X5brd",
+      "userName":"test",
+      "passWord":"test"
+    }
+  },
+  "27":{
+    "dateSourceName":"hd",
+    "name": "鸿达餐饮有限公司",
+    "photo": "http://127.0.0.1:100/hhp_zhixiang_img/2019/09/19/10/39/06/87f09540-7678-4dca-8e1b-3127107f73b1.png",
+    "picturePrefix":"http://121.43.35.179:80",
+    "youTu" : {
+      "appId":"10143988",
+      "secretId":"AKID0oeHhtga5MPDl4vwV2KM9gy1oLdfqxDE",
+      "secretKey":"xhCSTEjz0lTzHK8gz3rQkqhIg2C9xb2D",
+      "endPointUrl":"https://api.youtu.qq.com/youtu/",
+      "chargePointUrl":"https://vip-api.youtu.qq.com/youtu/",
+      "tencentPointUrl":"https://youtu.api.qcloud.com/youtu/",
+      "handWritePointUrl":"https://api.youtu.qq.com/youtu/ocrapi/handwritingocr/",
+      "userId":"2287644391"
+    },
+    "haiKang" : {
+      "hkHost":"https://open.ys7.com",
+      "appKey":"9b893e70515f413c82fa209952ff08c1",
+      "appSecret":"5e3df328ee2a2cb8fbdef55ca6579a71"
+    },
+    "leCheng": {
+      "lcPort":"443",
+      "lcHost":"https://openapi.lechange.cn",
+      "appId":"lc15e2a9a5e0cc497c",
+      "secret":"4b3db280fc67483480666a65aa03e7",
+      "phone":"687f0efbc9fb4e27"
+    },
+    "mqtt": {
+      "mqHost":"tcp://121.43.35.181",
+      "mqPort":"1883",
+      "client":"zjtx_zhantingA",
+      "clientId":"zjtx_zhantingAABBCCezd5BY7X5brd",
+      "userName":"test",
+      "passWord":"test"
+    }
+  },
+  "28":{
+    "dateSourceName":"wy",
+    "name": "万亚餐饮有限公司",
+    "photo": "http://127.0.0.1:100/hhp_zhixiang_img/2019/09/19/10/40/04/826bf48e-84f8-4b1e-b83a-2a7bccdd8bb5.png",
+    "picturePrefix":"http://121.43.35.179:80",
+    "youTu" : {
+      "appId":"10143988",
+      "secretId":"AKID0oeHhtga5MPDl4vwV2KM9gy1oLdfqxDE",
+      "secretKey":"xhCSTEjz0lTzHK8gz3rQkqhIg2C9xb2D",
+      "endPointUrl":"https://api.youtu.qq.com/youtu/",
+      "chargePointUrl":"https://vip-api.youtu.qq.com/youtu/",
+      "tencentPointUrl":"https://youtu.api.qcloud.com/youtu/",
+      "handWritePointUrl":"https://api.youtu.qq.com/youtu/ocrapi/handwritingocr/",
+      "userId":"2287644391"
+    },
+    "haiKang" : {
+      "hkHost":"https://open.ys7.com",
+      "appKey":"9b893e70515f413c82fa209952ff08c1",
+      "appSecret":"5e3df328ee2a2cb8fbdef55ca6579a71"
+    },
+    "leCheng": {
+      "lcPort":"443",
+      "lcHost":"https://openapi.lechange.cn",
+      "appId":"lc15e2a9a5e0cc497c",
+      "secret":"4b3db280fc67483480666a65aa03e7",
+      "phone":"687f0efbc9fb4e27"
+    },
+    "mqtt": {
+      "mqHost":"tcp://121.43.35.181",
+      "mqPort":"1883",
+      "client":"zjtx_zhantingA",
+      "clientId":"zjtx_zhantingAABBCCezd5BY7X5brd",
+      "userName":"test",
+      "passWord":"test"
+    }
+  },
+  "31":{
+    "dateSourceName":"gxxzx",
+    "name": "广西新智飨",
+    "photo": "http://127.0.0.1:100/hhp_zhixiang_img/2019/09/19/10/43/33/ed4c011c-f1b0-466c-bdb5-7a71038b2ce7.png",
+    "picturePrefix":"http://139.9.232.138:80",
+    "youTu" : {
+      "appId":"10143988",
+      "secretId":"AKID0oeHhtga5MPDl4vwV2KM9gy1oLdfqxDE",
+      "secretKey":"xhCSTEjz0lTzHK8gz3rQkqhIg2C9xb2D",
+      "endPointUrl":"https://api.youtu.qq.com/youtu/",
+      "chargePointUrl":"https://vip-api.youtu.qq.com/youtu/",
+      "tencentPointUrl":"https://youtu.api.qcloud.com/youtu/",
+      "handWritePointUrl":"https://api.youtu.qq.com/youtu/ocrapi/handwritingocr/",
+      "userId":"2287644391"
+    },
+    "haiKang" : {
+      "hkHost":"https://open.ys7.com",
+      "appKey":"9b893e70515f413c82fa209952ff08c1",
+      "appSecret":"5e3df328ee2a2cb8fbdef55ca6579a71"
+    },
+    "leCheng": {
+      "lcPort":"443",
+      "lcHost":"https://openapi.lechange.cn",
+      "appId":"lc15e2a9a5e0cc497c",
+      "secret":"4b3db280fc67483480666a65aa03e7",
+      "phone":"687f0efbc9fb4e27"
+    },
+    "mqtt": {
+      "mqHost":"tcp://121.43.35.181",
+      "mqPort":"1883",
+      "client":"zjtx_zhantingA",
+      "clientId":"zjtx_zhantingAABBCCezd5BY7X5brd",
+      "userName":"test",
+      "passWord":"test"
+    }
+  },
+  "32":{
+    "dateSourceName":"hnlry",
+    "name": "海宁颐和家园",
+    "photo": "http://127.0.0.1:100/hhp_zhixiang_img/2019/09/19/10/45/26/35409887-ce68-472a-b9fe-6950196cebf0.png",
+    "picturePrefix":"http://119.3.22.77:100",
+    "youTu" : {
+      "appId":"10143988",
+      "secretId":"AKID0oeHhtga5MPDl4vwV2KM9gy1oLdfqxDE",
+      "secretKey":"xhCSTEjz0lTzHK8gz3rQkqhIg2C9xb2D",
+      "endPointUrl":"https://api.youtu.qq.com/youtu/",
+      "chargePointUrl":"https://vip-api.youtu.qq.com/youtu/",
+      "tencentPointUrl":"https://youtu.api.qcloud.com/youtu/",
+      "handWritePointUrl":"https://api.youtu.qq.com/youtu/ocrapi/handwritingocr/",
+      "userId":"2287644391"
+    },
+    "haiKang" : {
+      "hkHost":"https://open.ys7.com",
+      "appKey":"9b893e70515f413c82fa209952ff08c1",
+      "appSecret":"5e3df328ee2a2cb8fbdef55ca6579a71"
+    },
+    "leCheng": {
+      "lcPort":"443",
+      "lcHost":"https://openapi.lechange.cn",
+      "appId":"lc15e2a9a5e0cc497c",
+      "secret":"4b3db280fc67483480666a65aa03e7",
+      "phone":"687f0efbc9fb4e27"
+    },
+    "mqtt": {
+      "mqHost":"tcp://121.43.35.181",
+      "mqPort":"1883",
+      "client":"zjtx_zhantingA",
+      "clientId":"zjtx_zhantingAABBCCezd5BY7X5brd",
+      "userName":"test",
+      "passWord":"test"
+    }
+  },
+  "33":{
+    "dateSourceName":"hnwx",
+    "name": "海宁卫校",
+    "photo": "http://127.0.0.1:100/hhp_zhixiang_img/2019/09/19/10/46/12/2437b42c-21bd-4594-bf95-54d3db7575eb.png",
+    "picturePrefix":"http://119.3.22.77:100",
+    "youTu" : {
+      "appId":"10143988",
+      "secretId":"AKID0oeHhtga5MPDl4vwV2KM9gy1oLdfqxDE",
+      "secretKey":"xhCSTEjz0lTzHK8gz3rQkqhIg2C9xb2D",
+      "endPointUrl":"https://api.youtu.qq.com/youtu/",
+      "chargePointUrl":"https://vip-api.youtu.qq.com/youtu/",
+      "tencentPointUrl":"https://youtu.api.qcloud.com/youtu/",
+      "handWritePointUrl":"https://api.youtu.qq.com/youtu/ocrapi/handwritingocr/",
+      "userId":"2287644391"
+    },
+    "haiKang" : {
+      "hkHost":"https://open.ys7.com",
+      "appKey":"9b893e70515f413c82fa209952ff08c1",
+      "appSecret":"5e3df328ee2a2cb8fbdef55ca6579a71"
+    },
+    "leCheng": {
+      "lcPort":"443",
+      "lcHost":"https://openapi.lechange.cn",
+      "appId":"lc15e2a9a5e0cc497c",
+      "secret":"4b3db280fc67483480666a65aa03e7",
+      "phone":"687f0efbc9fb4e27"
+    },
+    "mqtt": {
+      "mqHost":"tcp://121.43.35.181",
+      "mqPort":"1883",
+      "client":"zjtx_zhantingA",
+      "clientId":"zjtx_zhantingAABBCCezd5BY7X5brd",
+      "userName":"test",
+      "passWord":"test"
+    }
+  },
+  "34":{
+    "dateSourceName":"sdwfmk",
+    "name": "山东万福煤矿",
+    "photo": "http://127.0.0.1:100/hhp_zhixiang_img/2019/09/19/10/47/28/17b153ba-5dcf-4488-8231-142bc03e8240.png",
+    "picturePrefix":"http://119.3.22.77:100",
+    "youTu" : {
+      "appId":"10143988",
+      "secretId":"AKID0oeHhtga5MPDl4vwV2KM9gy1oLdfqxDE",
+      "secretKey":"xhCSTEjz0lTzHK8gz3rQkqhIg2C9xb2D",
+      "endPointUrl":"https://api.youtu.qq.com/youtu/",
+      "chargePointUrl":"https://vip-api.youtu.qq.com/youtu/",
+      "tencentPointUrl":"https://youtu.api.qcloud.com/youtu/",
+      "handWritePointUrl":"https://api.youtu.qq.com/youtu/ocrapi/handwritingocr/",
+      "userId":"2287644391"
+    },
+    "haiKang" : {
+      "hkHost":"https://open.ys7.com",
+      "appKey":"9b893e70515f413c82fa209952ff08c1",
+      "appSecret":"5e3df328ee2a2cb8fbdef55ca6579a71"
+    },
+    "leCheng": {
+      "lcPort":"443",
+      "lcHost":"https://openapi.lechange.cn",
+      "appId":"lc15e2a9a5e0cc497c",
+      "secret":"4b3db280fc67483480666a65aa03e7",
+      "phone":"687f0efbc9fb4e27"
+    },
+    "mqtt": {
+      "mqHost":"tcp://121.43.35.181",
+      "mqPort":"1883",
+      "client":"zjtx_zhantingA",
+      "clientId":"zjtx_zhantingAABBCCezd5BY7X5brd",
+      "userName":"test",
+      "passWord":"test"
+    }
+  },
+  "35":{
+    "dateSourceName":"tzfy",
+    "name": "通州分院",
+    "photo": "http://127.0.0.1:100/hhp_zhixiang_img/2019/09/19/11/47/31/4cfcf98a-4d45-490f-9a79-239eadae8dbf.png",
+    "picturePrefix":"http://119.3.22.77:100",
+    "youTu" : {
+      "appId":"10143988",
+      "secretId":"AKID0oeHhtga5MPDl4vwV2KM9gy1oLdfqxDE",
+      "secretKey":"xhCSTEjz0lTzHK8gz3rQkqhIg2C9xb2D",
+      "endPointUrl":"https://api.youtu.qq.com/youtu/",
+      "chargePointUrl":"https://vip-api.youtu.qq.com/youtu/",
+      "tencentPointUrl":"https://youtu.api.qcloud.com/youtu/",
+      "handWritePointUrl":"https://api.youtu.qq.com/youtu/ocrapi/handwritingocr/",
+      "userId":"2287644391"
+    },
+    "haiKang" : {
+      "hkHost":"https://open.ys7.com",
+      "appKey":"9b893e70515f413c82fa209952ff08c1",
+      "appSecret":"5e3df328ee2a2cb8fbdef55ca6579a71"
+    },
+    "leCheng": {
+      "lcPort":"443",
+      "lcHost":"https://openapi.lechange.cn",
+      "appId":"lc15e2a9a5e0cc497c",
+      "secret":"4b3db280fc67483480666a65aa03e7",
+      "phone":"687f0efbc9fb4e27"
+    },
+    "mqtt": {
+      "mqHost":"tcp://121.43.35.181",
+      "mqPort":"1883",
+      "client":"zjtx_zhantingA",
+      "clientId":"zjtx_zhantingAABBCCezd5BY7X5brd",
+      "userName":"test",
+      "passWord":"test"
+    }
+  },
+  "36":{
+    "dateSourceName":"szzydx",
+    "name": "苏州职业大学",
+    "photo": "http://127.0.0.1:100/hhp_zhixiang_img/2019/09/19/11/48/36/1087926e-d893-4255-af01-c3e55736f894.png",
+    "picturePrefix":"http://119.3.22.77:100",
+    "youTu" : {
+      "appId":"10143988",
+      "secretId":"AKID0oeHhtga5MPDl4vwV2KM9gy1oLdfqxDE",
+      "secretKey":"xhCSTEjz0lTzHK8gz3rQkqhIg2C9xb2D",
+      "endPointUrl":"https://api.youtu.qq.com/youtu/",
+      "chargePointUrl":"https://vip-api.youtu.qq.com/youtu/",
+      "tencentPointUrl":"https://youtu.api.qcloud.com/youtu/",
+      "handWritePointUrl":"https://api.youtu.qq.com/youtu/ocrapi/handwritingocr/",
+      "userId":"2287644391"
+    },
+    "haiKang" : {
+      "hkHost":"https://open.ys7.com",
+      "appKey":"9b893e70515f413c82fa209952ff08c1",
+      "appSecret":"5e3df328ee2a2cb8fbdef55ca6579a71"
+    },
+    "leCheng": {
+      "lcPort":"443",
+      "lcHost":"https://openapi.lechange.cn",
+      "appId":"lc15e2a9a5e0cc497c",
+      "secret":"4b3db280fc67483480666a65aa03e7",
+      "phone":"687f0efbc9fb4e27"
+    },
+    "mqtt": {
+      "mqHost":"tcp://121.43.35.181",
+      "mqPort":"1883",
+      "client":"zjtx_zhantingA",
+      "clientId":"zjtx_zhantingAABBCCezd5BY7X5brd",
+      "userName":"test",
+      "passWord":"test"
+    }
+  },
+  "37":{
+    "dateSourceName":"jsjzxy",
+    "name": "江苏建筑学院",
+    "photo": "http://127.0.0.1:100/hhp_zhixiang_img/2019/09/19/11/49/15/71e8adb4-8112-4486-90fe-3ff941ee278b.png",
+    "picturePrefix":"http://119.3.22.77:100",
+    "youTu" : {
+      "appId":"10143988",
+      "secretId":"AKID0oeHhtga5MPDl4vwV2KM9gy1oLdfqxDE",
+      "secretKey":"xhCSTEjz0lTzHK8gz3rQkqhIg2C9xb2D",
+      "endPointUrl":"https://api.youtu.qq.com/youtu/",
+      "chargePointUrl":"https://vip-api.youtu.qq.com/youtu/",
+      "tencentPointUrl":"https://youtu.api.qcloud.com/youtu/",
+      "handWritePointUrl":"https://api.youtu.qq.com/youtu/ocrapi/handwritingocr/",
+      "userId":"2287644391"
+    },
+    "haiKang" : {
+      "hkHost":"https://open.ys7.com",
+      "appKey":"9b893e70515f413c82fa209952ff08c1",
+      "appSecret":"5e3df328ee2a2cb8fbdef55ca6579a71"
+    },
+    "leCheng": {
+      "lcPort":"443",
+      "lcHost":"https://openapi.lechange.cn",
+      "appId":"lc15e2a9a5e0cc497c",
+      "secret":"4b3db280fc67483480666a65aa03e7",
+      "phone":"687f0efbc9fb4e27"
+    },
+    "mqtt": {
+      "mqHost":"tcp://121.43.35.181",
+      "mqPort":"1883",
+      "client":"zjtx_zhantingA",
+      "clientId":"zjtx_zhantingAABBCCezd5BY7X5brd",
+      "userName":"test",
+      "passWord":"test"
+    }
+  },
+  "38":{
+    "dateSourceName":"zgykdx",
+    "name": "中国药科大学",
+    "photo": "http://127.0.0.1:100/hhp_zhixiang_img/2019/09/19/11/50/02/1ff14ddc-120b-4092-84e7-a15fe4eefc3c.png",
+    "picturePrefix":"http://119.3.22.77:100",
+    "youTu" : {
+      "appId":"10143988",
+      "secretId":"AKID0oeHhtga5MPDl4vwV2KM9gy1oLdfqxDE",
+      "secretKey":"xhCSTEjz0lTzHK8gz3rQkqhIg2C9xb2D",
+      "endPointUrl":"https://api.youtu.qq.com/youtu/",
+      "chargePointUrl":"https://vip-api.youtu.qq.com/youtu/",
+      "tencentPointUrl":"https://youtu.api.qcloud.com/youtu/",
+      "handWritePointUrl":"https://api.youtu.qq.com/youtu/ocrapi/handwritingocr/",
+      "userId":"2287644391"
+    },
+    "haiKang" : {
+      "hkHost":"https://open.ys7.com",
+      "appKey":"9b893e70515f413c82fa209952ff08c1",
+      "appSecret":"5e3df328ee2a2cb8fbdef55ca6579a71"
+    },
+    "leCheng": {
+      "lcPort":"443",
+      "lcHost":"https://openapi.lechange.cn",
+      "appId":"lc15e2a9a5e0cc497c",
+      "secret":"4b3db280fc67483480666a65aa03e7",
+      "phone":"687f0efbc9fb4e27"
+    },
+    "mqtt": {
+      "mqHost":"tcp://121.43.35.181",
+      "mqPort":"1883",
+      "client":"zjtx_zhantingA",
+      "clientId":"zjtx_zhantingAABBCCezd5BY7X5brd",
+      "userName":"test",
+      "passWord":"test"
+    }
+  },
+  "39":{
+    "dateSourceName":"szdx",
+    "name": "苏州大学",
+    "photo": "http://127.0.0.1:100/hhp_zhixiang_img/2019/09/19/11/51/08/e2498f7a-0b26-4d7a-b953-df13a36a332c.png",
+    "picturePrefix":"http://119.3.22.77:100",
+    "youTu" : {
+      "appId":"10143988",
+      "secretId":"AKID0oeHhtga5MPDl4vwV2KM9gy1oLdfqxDE",
+      "secretKey":"xhCSTEjz0lTzHK8gz3rQkqhIg2C9xb2D",
+      "endPointUrl":"https://api.youtu.qq.com/youtu/",
+      "chargePointUrl":"https://vip-api.youtu.qq.com/youtu/",
+      "tencentPointUrl":"https://youtu.api.qcloud.com/youtu/",
+      "handWritePointUrl":"https://api.youtu.qq.com/youtu/ocrapi/handwritingocr/",
+      "userId":"2287644391"
+    },
+    "haiKang" : {
+      "hkHost":"https://open.ys7.com",
+      "appKey":"9b893e70515f413c82fa209952ff08c1",
+      "appSecret":"5e3df328ee2a2cb8fbdef55ca6579a71"
+    },
+    "leCheng": {
+      "lcPort":"443",
+      "lcHost":"https://openapi.lechange.cn",
+      "appId":"lc15e2a9a5e0cc497c",
+      "secret":"4b3db280fc67483480666a65aa03e7",
+      "phone":"687f0efbc9fb4e27"
+    },
+    "mqtt": {
+      "mqHost":"tcp://121.43.35.181",
+      "mqPort":"1883",
+      "client":"zjtx_zhantingA",
+      "clientId":"zjtx_zhantingAABBCCezd5BY7X5brd",
+      "userName":"test",
+      "passWord":"test"
+    }
+  },
+  "40":{
+    "dateSourceName":"hzdzkjdx",
+    "name": "杭州电子科技大学",
+    "photo": "http://127.0.0.1:100/hhp_zhixiang_img/2019/09/19/11/51/46/d6e6806f-1769-4b0c-89b0-48acf2894da5.png",
+    "picturePrefix":"http://119.3.22.77:100",
+    "youTu" : {
+      "appId":"10143988",
+      "secretId":"AKID0oeHhtga5MPDl4vwV2KM9gy1oLdfqxDE",
+      "secretKey":"xhCSTEjz0lTzHK8gz3rQkqhIg2C9xb2D",
+      "endPointUrl":"https://api.youtu.qq.com/youtu/",
+      "chargePointUrl":"https://vip-api.youtu.qq.com/youtu/",
+      "tencentPointUrl":"https://youtu.api.qcloud.com/youtu/",
+      "handWritePointUrl":"https://api.youtu.qq.com/youtu/ocrapi/handwritingocr/",
+      "userId":"2287644391"
+    },
+    "haiKang" : {
+      "hkHost":"https://open.ys7.com",
+      "appKey":"9b893e70515f413c82fa209952ff08c1",
+      "appSecret":"5e3df328ee2a2cb8fbdef55ca6579a71"
+    },
+    "leCheng": {
+      "lcPort":"443",
+      "lcHost":"https://openapi.lechange.cn",
+      "appId":"lc15e2a9a5e0cc497c",
+      "secret":"4b3db280fc67483480666a65aa03e7",
+      "phone":"687f0efbc9fb4e27"
+    },
+    "mqtt": {
+      "mqHost":"tcp://121.43.35.181",
+      "mqPort":"1883",
+      "client":"zjtx_zhantingA",
+      "clientId":"zjtx_zhantingAABBCCezd5BY7X5brd",
+      "userName":"test",
+      "passWord":"test"
+    }
+  }
+}

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.zhixiangsingle.dao.roleSiteRole.RoleSiteRoleMapper" >
+  <resultMap id="BaseResultMap" type="cn.zhixiangsingle.entity.base.siteRolePermission.SiteRolePermissionKey" >
+    <id column="site_id" property="siteId" jdbcType="INTEGER" />
+    <id column="siteRole_id" property="siteRoleId" jdbcType="INTEGER" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="cn.zhixiangsingle.entity.base.siteRolePermission.SiteRolePermissionKey" >
+    delete from site_siteRole
+    where site_id = #{siteId,jdbcType=INTEGER}
+      and siteRole_id = #{siteRoleId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteBySiteRoleId" parameterType="java.lang.Integer">
+    delete from site_siteRole
+    WHERE siteRole_id=#{siteRoleId}
+  </delete>
+  <insert id="insert" parameterType="cn.zhixiangsingle.entity.base.siteRolePermission.SiteRolePermissionKey" >
+    insert into site_siteRole (site_id, siteRole_id)
+    values (#{siteId,jdbcType=INTEGER}, #{siteRoleId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.zhixiangsingle.entity.base.rolePermission.RolePermissionKey" >
+    insert into site_siteRole
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="permitId != null" >
+        permit_id,
+      </if>
+      <if test="roleId != null" >
+        role_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="permitId != null" >
+        #{permitId,jdbcType=INTEGER},
+      </if>
+      <if test="roleId != null" >
+        #{roleId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <!-- 批量添加 start -->
+  <insert id="insertBitch">
+    INSERT INTO site_siteRole
+    VALUES
+    <foreach collection="siteIds" item="siteId" index="index" separator=",">
+      (
+      #{siteId},
+      #{siteRoleId}
+      )
+    </foreach>
+  </insert>
+  <!-- 批量添加 end -->
+
+  <!--=Start findByRole 根据角色查询中间表数据-->
+  <select id="findByRole" resultType="cn.zhixiangsingle.entity.base.siteRolePermission.SiteRolePermissionKey">
+    SELECT site_id,siteRole_id
+    from site_siteRole
+    WHERE siteRole_id=#{siteRoleId}
+  </select>
+  <!--=End findByRole 根据角色查询中间表数据-->
+</mapper>

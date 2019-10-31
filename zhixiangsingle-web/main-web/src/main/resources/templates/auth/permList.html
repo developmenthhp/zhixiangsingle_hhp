@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>智飨科技食品餐饮安全网管理后台</title>
+    <!--告诉IE浏览器，IE8/9及以后的版本都会以最高版本IE来渲染页面。  -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="智飨科技-食品餐饮安全网 " />
+    <meta name="author" content="hhp" />
+    <meta name="keyword" content="智能化餐饮,智飨科技,物联网,食品安全,智能厨房,家宴,餐饮标准化管理" />
+    <link rel="icon" href="../images/logo1.png" type="image/x-icon"/>
+    <script src="../js/common/css/commonCss.js" type="text/javascript"></script>
+    <link href='../css/permList/permList.css' rel='stylesheet' type='text/css' />
+</head>
+<body class="skin-blue">
+<script src="../js/common/head.js" type="text/javascript"></script>
+<div class="wrapper row-offcanvas row-offcanvas-left">
+    <script src="../js/common/leftNav.js" type="text/javascript"></script>
+    <div class='copyrights'>
+        Collect from <a href='http://www.zhixiangyun.cn/'  title='智飨科技'>智飨科技</a>
+        <span id='teShiro' style='display:none'><shiro:principal property='userName'></shiro:principal></span>
+        <span id='teShiro2' style='display:none'><shiro:principal property='insertTime'></shiro:principal></span>
+        <div style='display:none;' id='currentUser'><shiro:principal property='id'></shiro:principal></div>
+        <div style='display:none;' id='currentUserSdId'><shiro:principal property='sdId'></shiro:principal></div>
+        <div style='display:none;' id='currentUserIsZX'><shiro:principal property='zx'></shiro:principal></div>
+        <div style='display:none;' id='currentUserProfession'><shiro:principal property='profession'></shiro:principal></div>
+    </div>
+    <aside class="right-side" id="main">
+        <script src="../js/common/message/message.js" type="text/javascript"></script>
+        <section class="col-lg-12 connectedSortable">
+            <!-- /jQuery 弹幕样式消息 -->
+            <div class="box box-primary">
+                <div class="box-header">
+                    <span class="box-title" style="font-size: 1.5em;" >权限管理</span>
+                    <div class="pull-right box-tools">
+                        <button class="btn btn-alt btn-sm refresh-btn" data-toggle="tooltip" title="重新加载" onclick="loadUserList()"><i class="fa fa-refresh"></i></button>
+                        <button class="btn btn-alt btn-sm" data-widget='collapse' data-toggle="tooltip" title="隐藏"><i class="fa fa-minus"></i></button>
+                        <button class="btn btn-alt btn-sm" data-widget='remove' data-toggle="tooltip" title="关闭"><i class="fa fa-times"></i></button>
+                    </div><!-- /. tools -->
+
+                </div><!-- /.box-header -->
+                <div class="box-body no-padding">
+
+                    <table id="sort" class="my-table">
+                        <thead>
+                        <tr>
+                            <th><i class='iconfont iconzhanghuquanxian'></i>&nbsp;权限名称</th>
+                            <th><i class='fa fa-bars'></i>/<i class='fa fa-gears'></i>&nbsp;权限分类</th>
+                            <th><i class='fa fa-link'></i>&nbsp;权限路径</th>
+                            <th><i class='iconfont icontubiaoku'></i>&nbsp;权限图标</th>
+                            <th><i class='fa fa-list-ol'></i>&nbsp;优先级</th>
+                            <th><i class='fa fa-link'></i>&nbsp;操作</th>
+                        </tr>
+                        <thead>
+                        <tbody id="userListUl">
+
+                        </tbody>
+
+                    </table>
+
+                </div><!-- /.box-body -->
+
+                <div class="box-footer clearfix no-border">
+                    <!-- 没必要分页，数据量少 -->
+                    <!--<div class="ht-page"></div>-->
+                    <button class="btn btn-alt pull-right" onclick="addSun(0,0)" data-toggle="tooltip" title="开通权限"><i class="iconfont icontianjia2" style="font-weight: bold;color: blue;"></i></button>
+                    <!--<button class="btn btn-default pull-right" onclick="addSun(0,0)"><i class="fa fa-plus"></i> 开通权限</button>-->
+                </div>
+
+            </div><!-- 站点角色列表 -->
+        </section>
+
+    </aside><!-- /.right-side -->
+
+</div><!-- ./wrapper -->
+
+<div class="modal fade" id="compose-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 id="chgPerTitle" class="modal-title"></h4>
+            </div>
+            <form id="permForm" action="#" method="post">
+                <input id="type" type="hidden" name="type"/>
+                <input id="id" type="hidden" name="id"/>
+                <input id="pid" type="hidden" name="pid"/>
+                <input id="istype" type="hidden" name="isType"/>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">权限名称:</span>
+                            <input name="name" type="text" class="form-control" placeholder="权限名称">
+                        </div>reverse
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">权限图标:</span>
+                            <select id="icon" name="icon">
+                                <option value='' data-subtitle='' data-left='' selected>--选择图标--</option>
+                                <option value='iconguanli' data-subtitle='管理' data-left='<i class="iconfont iconguanli"></i>'>管理</option>
+                                <option value='iconzhanghuquanxian' data-subtitle='账户权限' data-left='<i class="iconfont iconzhanghuquanxian"></i>'>账户权限</option>
+                                <option value='icondrxx08' data-subtitle='用户权限' data-left='<i class="iconfont icondrxx08"></i>'>用户权限</option>
+                                <option value='iconguanliyuan' data-subtitle='用户管理' data-left='<i class="iconfont iconguanliyuan"></i>'>用户管理</option>
+                                <option value='iconzhandian' data-subtitle='站点' data-left='<i class="iconfont iconzhandian"></i>'>站点</option>
+                                <option value='iconjiaoseguanli' data-subtitle='角色管理' data-left='<i class="iconfont iconjiaoseguanli"></i>'>角色管理</option>
+                                <option value='icontoujingwaike-houbuliangxingzhongliu' data-subtitle='不戴口罩' data-left='<i class="iconfont icontoujingwaike-houbuliangxingzhongliu"></i>'>不戴口罩</option>
+                                <option value='icon_rengongzhineng1' data-subtitle='AI识别' data-left='<i class="iconfont icon_rengongzhineng1"></i>'>AI识别</option>
+                                <option value='iconrenlianheshen' data-subtitle='人脸识别' data-left='<i class="iconfont iconrenlianheshen"></i>'>人脸识别</option>
+                                <option value='iconkujialeqiyezhan_gongsishili' data-subtitle='经营公司' data-left='<i class="iconfont iconkujialeqiyezhan_gongsishili"></i>'>经营公司</option>
+                                <option value='icontechreport-' data-subtitle='公司证照' data-left='<i class="iconfont icontechreport-"></i>'>公司证照</option>
+                                <option value='icontiezi' data-subtitle='公司资讯' data-left='<i class="iconfont icontiezi"></i>'>公司资讯</option>
+                                <option value='iconqiyerongyu' data-subtitle='公司荣誉' data-left='<i class="iconfont iconqiyerongyu"></i>'>公司荣誉</option>
+                                <option value='iconyouxuanxiangmushijingzhanshi' data-subtitle='实景展示' data-left='<i class="iconfont iconyouxuanxiangmushijingzhanshi"></i>'>实景展示</option>
+                                <option value='iconguizhangzhidu' data-subtitle='管理制度' data-left='<i class="iconfont iconguizhangzhidu"></i>'>管理制度</option>
+                                <option value='icondrxx12' data-subtitle='岗位职责' data-left='<i class="iconfont icondrxx12"></i>'>岗位职责</option>
+                                <option value='iconquyuguanli3' data-subtitle='区域一级分类管理' data-left='<i class="iconfont iconquyuguanli3"></i>'>区域一级分类管理</option>
+                                <option value='iconquyuguanli3' data-subtitle='区域二级分类管理' data-left='<i class="iconfont iconquyuguanli3"></i>'>区域二级分类管理</option>
+                                <option value='iconquyuguanli3' data-subtitle='区域三级分类管理' data-left='<i class="iconfont iconquyuguanli3"></i>'>区域三级分类管理</option>
+                                <option value='iconmanage' data-subtitle='菜品结算' data-left='<i class="iconfont iconmanage"></i>'>菜品结算</option>
+                                <option value='iconxiaoshoutongji' data-subtitle='销售数据统计' data-left='<i class="iconfont iconxiaoshoutongji"></i>'>销售数据统计</option>
+                                <option value='iconfabuguanli' data-subtitle='发布菜谱' data-left='<i class="iconfont iconfabuguanli"></i>'>发布菜谱</option>
+                                <option value='iconmingxi2' data-subtitle='菜谱明细' data-left='<i class="iconfont iconmingxi2"></i>'>菜谱明细</option>
+                                <option value='iconAnalysis' data-subtitle='已售卖菜品分析' data-left='<i class="iconfont iconAnalysis"></i>'>已售卖菜品分析</option>
+                                <option value='iconnavicon-cpjh' data-subtitle='制定菜品及bom' data-left='<i class="iconfont iconnavicon-cpjh"></i>'>制定菜品及bom</option>
+                                <option value='iconcaipinxiaoliang' data-subtitle='菜品订单' data-left='<i class="iconfont iconcaipinxiaoliang"></i>'>菜品订单</option>
+                                <option value='icon_shanshijiankang1' data-subtitle='营养膳食' data-left='<i class="iconfont icon_shanshijiankang1"></i>'>营养膳食</option>
+                                <option value='icon_shanshijiankang1' data-subtitle='采购仓储' data-left='<i class="iconfont icon_shanshijiankang1"></i>'>采购仓储</option>
+                                <option value='iconshicailiebiao2' data-subtitle='食材基础信息管理' data-left='<i class="iconfont iconshicailiebiao2"></i>'>食材基础信息管理</option>
+                                <option value='iconleibieguanli1' data-subtitle='食材二级分类管理' data-left='<i class="iconfont iconleibieguanli1"></i>'>食材二级分类管理</option>
+                                <option value='iconleibieguanli1' data-subtitle='食材一级分类管理' data-left='<i class="iconfont iconleibieguanli1"></i>'>食材一级分类管理</option>
+                                <option value='iconicon-p_kucunbaobiao' data-subtitle='食材库存信息管理' data-left='<i class="iconfont iconicon-p_kucunbaobiao"></i>'>食材库存信息管理</option>
+                                <option value='iconcaigoushicai' data-subtitle='食材采购管理' data-left='<i class="iconfont iconcaigoushicai"></i>'>食材采购管理</option>
+                                <option value='iconmingxi2' data-subtitle='食材核准记录' data-left='<i class="iconfont iconmingxi2"></i>'>食材核准记录</option>
+                                <option value='iconrukuguanli1' data-subtitle='食材入库管理' data-left='<i class="iconfont iconrukuguanli1"></i>'>食材出库管理</option>
+                                <option value='iconchukuguanli' data-subtitle='食材出库管理' data-left='<i class="iconfont iconchukuguanli"></i>'>食材出库管理</option>
+                                <option value='icongongyingshangziliao3' data-subtitle='供货商基础资料管理' data-left='<i class="iconfont icongongyingshangziliao3"></i>'>供货商基础资料管理</option>
+                                <option value='iconleibieguanli1' data-subtitle='仓库类别管理' data-left='<i class="iconfont iconleibieguanli1"></i>'>仓库类别管理</option>
+                                <option value='iconbaojingtuisong1' data-subtitle='供应异常推送 ' data-left='<i class="iconfont iconbaojingtuisong1"></i>'>供应异常推送</option>
+                                <option value='iconkuguan-kucunyichanggaojing' data-subtitle='存储异常推送记录' data-left='<i class="iconfont iconkuguan-kucunyichanggaojing"></i>'>存储异常推送记录</option>
+                                <option value='iconnavicon-rkdsp' data-subtitle='食材预采购管理' data-left='<i class="iconfont iconnavicon-rkdsp"></i>'>食材预采购管理</option>
+                                <option value='iconcaigoujilu3' data-subtitle='菜品预采购份数记录' data-left='<i class="iconfont iconcaigoujilu3"></i>'>菜品预采购份数记录</option>
+                                <option value='iconshipintianjiaji4' data-subtitle='添加剂基础信息维护' data-left='<i class="iconfont iconshipintianjiaji4"></i>'>添加剂基础信息维护</option>
+                                <option value='icon_fuzhi-1' data-subtitle='添加剂记录' data-left='<i class="iconfont icon_fuzhi-1"></i>'>添加剂记录</option>
+                                <option value='iconshicaiguanli' data-subtitle='食材快检' data-left='<i class="iconfont iconshicaiguanli"></i>'>食材快检</option>
+                                <option value='icondanwei' data-subtitle='计量单位管理' data-left='<i class="iconfont icondanwei"></i>'>计量单位管理</option>
+                                <option value='iconkuaijiankang' data-subtitle='每日快检登记' data-left='<i class="iconfont iconkuaijiankang"></i>'>每日快检登记</option>
+                                <option value='iconjiancejilu8' data-subtitle='食材检测记录' data-left='<i class="iconfont iconjiancejilu8"></i>'>食材检测记录</option>
+                                <option value='iconyichangbaojing-' data-subtitle='项目超标记录报警' data-left='<i class="iconfont iconyichangbaojing-"></i>'>项目超标记录报警</option>
+                                <option value='iconqingxi4' data-subtitle='清洗浸泡' data-left='<i class="iconfont iconqingxi4"></i>'>清洗浸泡</option>
+                                <option value='iconshujuqingxileixing' data-subtitle='清洗类别维护' data-left='<i class="iconfont iconshujuqingxileixing"></i>'>清洗类别维护</option>
+                                <option value='iconziyuan' data-subtitle='清洗记录' data-left='<i class="iconfont iconziyuan"></i>'>清洗记录</option>
+                                <option value='iconweiguijilu4' data-subtitle='清洗违规 ' data-left='<i class="iconfont iconweiguijilu4"></i>'>清洗违规</option>
+                                <option value='iconweiguitongji' data-subtitle='从业人员违规排名' data-left='<i class="iconfont iconweiguitongji"></i>'>从业人员违规排名</option>
+                                <option value='iconchengzhong2' data-subtitle='清洗称重 ' data-left='<i class="iconfont iconchengzhong2"></i>'>清洗称重</option>
+                                <option value='icontongfenggan1' data-subtitle='风干称重' data-left='<i class="iconfont icontongfenggan1"></i>'>风干称重</option>
+                                <option value='iconicon--' data-subtitle='切配烹饪' data-left='<i class="iconfont iconicon--"></i>'>切配烹饪</option>
+                                <option value='iconcaozuojilu' data-subtitle='切配操作记录' data-left='<i class="iconfont iconcaozuojilu"></i>'>切配操作记录</option>
+                                <option value='iconicon--' data-subtitle='烹饪记录 ' data-left='<i class="iconfont iconicon--"></i>'>烹饪记录</option>
+                                <option value='iconzhinengchengzhong' data-subtitle='烹饪称重' data-left='<i class="iconfont iconzhinengchengzhong"></i>'>烹饪称重</option>
+                                <option value='iconmk-lyjc' data-subtitle='留样管控' data-left='<i class="iconfont iconmk-lyjc"></i>'>留样管控</option>
+                                <option value='iconshipinliuyangjilu' data-subtitle='冰箱留样管控' data-left='<i class="iconfont iconshipinliuyangjilu"></i>'>冰箱留样管控</option>
+                                <option value='iconxiaodu4' data-subtitle='餐具消毒' data-left='<i class="iconfont iconxiaodu4"></i>'>餐具消毒</option>
+                                <option value='iconxiaodugui3' data-subtitle='消毒项目维护' data-left='<i class="iconfont iconxiaodugui3"></i>'>消毒项目维护</option>
+                                <option value='iconxiaodujilu' data-subtitle='消毒记录' data-left='<i class="iconfont iconxiaodujilu"></i>'>消毒记录</option>
+                                <option value='iconweiguijilu1' data-subtitle='消毒违规记录 ' data-left='<i class="iconfont iconweiguijilu1"></i>'>消毒违规记录</option>
+                                <option value='iconziwaideng' data-subtitle='紫外灯记录信息' data-left='<i class="iconfont iconziwaideng"></i>'>紫外灯记录信息</option>
+                                <option value='iconxiaodugui3' data-subtitle='智能消毒柜记录 ' data-left='<i class="iconfont iconxiaodugui3"></i>'>智能消毒柜记录</option>
+                                <option value='iconlajichuli' data-subtitle='废弃物管理' data-left='<i class="iconfont iconlajichuli"></i>'>废弃物管理</option>
+                                <option value='icon-ganshuichulizhan' data-subtitle='泔水回收记录' data-left='<i class="iconfont icon-ganshuichulizhan"></i>'>泔水回收记录</option>
+                                <option value='iconhuishoujilu' data-subtitle='废油回收记录' data-left='<i class="iconfont iconhuishoujilu"></i>'>废油回收记录</option>
+                                <option value='iconchuyulaji-shengcaishengfan' data-subtitle='剩饭剩菜记录 ' data-left='<i class="iconfont iconchuyulaji-shengcaishengfan"></i>'>剩饭剩菜记录</option>
+                                <option value='iconlajichuliqi' data-subtitle='有机处理记录' data-left='<i class="iconfont iconlajichuliqi"></i>'>有机处理记录</option>
+                                <option value='iconhuanjing1' data-subtitle='环境影响' data-left='<i class="iconfont iconhuanjing1"></i>'>环境影响</option>
+                                <option value='iconshiwenduguanli' data-subtitle='温湿度管理' data-left='<i class="iconfont iconshiwenduguanli"></i>'>温湿度管理</option>
+                                <option value='iconjishuijiancetubiao' data-subtitle='地面积水基础信息' data-left='<i class="iconfont iconjishuijiancetubiao"></i>'>地面积水基础信息</option>
+                                <option value='icon-_jishuichibaojing' data-subtitle='地面积水警告信息' data-left='<i class="iconfont icon-_jishuichibaojing"></i>'>地面积水警告信息</option>
+                                <option value='iconwasi1' data-subtitle='瓦斯泄漏基础数据信息' data-left='<i class="iconfont iconwasi1"></i>'>瓦斯泄漏基础数据信息</option>
+                                <option value='iconwasiyuceyubaojilu' data-subtitle='瓦斯警报信息' data-left='<i class="iconfont iconwasiyuceyubaojilu"></i>'>瓦斯警报信息</option>
+                                <option value='iconban2' data-subtitle='挡鼠板基础信息' data-left='<i class="iconfont iconban2"></i>'>挡鼠板基础信息</option>
+                                <option value='iconjingbao1' data-subtitle='挡鼠板警报信息' data-left='<i class="iconfont iconjingbao1"></i>'>挡鼠板警报信息</option>
+                                <option value='iconguankong1' data-subtitle='三离管控基础信息' data-left='<i class="iconfont iconguankong1"></i>'>三离管控基础信息</option>
+                                <option value='iconguankongyujing' data-subtitle='三离报警信息' data-left='<i class="iconfont iconguankongyujing"></i>'>三离报警信息</option>
+                                <option value='iconshebeiweixiujilu3' data-subtitle='设备维修记录' data-left='<i class="iconfont iconshebeiweixiujilu3"></i>'>设备维修记录</option>
+                                <option value='iconwasi1' data-subtitle='煤气开关基础信息维护 ' data-left='<i class="iconfont iconwasi1"></i>'>煤气开关基础信息维护</option>
+                                <option value='iconcaozuojilu6' data-subtitle='煤气开关报使用记录' data-left='<i class="iconfont iconcaozuojilu6"></i>'>煤气开关报使用记录</option>
+                                <option value='icontianranqibaojingqi-' data-subtitle='煤气开关报警信息' data-left='<i class="iconfont icontianranqibaojingqi-"></i>'>煤气开关报警信息</option>
+                                <option value='iconPM1' data-subtitle='PM2.5基础信息' data-left='<i class="iconfont iconPM1"></i>'>PM2.5基础信息</option>
+                                <option value='iconPMgaojing' data-subtitle='PM2.5警报信息' data-left='<i class="iconfont iconPMgaojing"></i>'>PM2.5警报信息</option>
+                                <option value='iconhongwai' data-subtitle='红外探测信息' data-left='<i class="iconfont iconhongwai"></i>'>红外探测信息</option>
+                                <option value='iconrenli4' data-subtitle='人力资本' data-left='<i class="iconfont iconrenli4"></i>'>人力资本</option>
+                                <option value='iconyuangongguanli8' data-subtitle='内部员工信息管理' data-left='<i class="iconfont iconyuangongguanli8"></i>'>内部员工信息管理</option>
+                                <option value='iconjiankangyichang' data-subtitle='人员健康异常记录' data-left='<i class="iconfont iconjiankangyichang"></i>'>人员健康异常记录</option>
+                                <option value='iconyuangongquanxian3' data-subtitle='内部员工权限维护 ' data-left='<i class="iconfont iconyuangongquanxian3"></i>'>内部员工权限维护</option>
+                                <option value='iconwenti-' data-subtitle='消息推送管理' data-left='<i class="iconfont iconwenti-"></i>'>消息推送管理</option>
+                                <option value='icontigan' data-subtitle='体感检测管理 ' data-left='<i class="iconfont icontigan"></i>'>体感检测管理</option>
+                                <option value='iconpeixunjilu6' data-subtitle='安全会议/培训记录' data-left='<i class="iconfont iconpeixunjilu6"></i>'>安全会议/培训记录</option>
+                                <option value='iconanquanjianchadengji' data-subtitle='安全检查记录' data-left='<i class="iconfont iconanquanjianchadengji"></i>'>安全检查记录</option>
+                                <option value='iconkanban10' data-subtitle='看板标题管理 ' data-left='<i class="iconfont iconkanban10"></i>'>看板标题管理</option>
+                                <option value='icontubiaozhizuomobanyihuifu-' data-subtitle='考勤体感检测管理' data-left='<i class="iconfont icontubiaozhizuomobanyihuifu-"></i>'>考勤体感检测管理</option>
+                                <option value='iconweiguijiankong' data-subtitle='行为违规' data-left='<i class="iconfont iconweiguijiankong"></i>'>行为违规</option>
+                                <option value='iconkouzhaofanghu-copy' data-subtitle='不带口罩抓拍记录' data-left='<i class="iconfont iconkouzhaofanghu-copy"></i>'>不带口罩抓拍记录</option>
+                                <option value='iconrenyuanjiandu-yichangguanli-' data-subtitle='不明人员抓拍记录' data-left='<i class="iconfont iconrenyuanjiandu-yichangguanli-"></i>'>不明人员抓拍记录</option>
+                                <option value='iconzhuapaijilu' data-subtitle='抓拍区域维护 ' data-left='<i class="iconfont iconzhuapaijilu"></i>'>抓拍区域维护</option>
+                                <option value='iconAIshibie1' data-subtitle='AI口罩抓拍记录' data-left='<i class="iconfont iconAIshibie1"></i>'>AI口罩抓拍记录</option>
+                                <option value='iconshebeiguanli1' data-subtitle='AI识别设施管理 ' data-left='<i class="iconfont iconshebeiguanli1"></i>'>AI识别设施管理</option>
+                                <option value='iconshexiangtouguanli2' data-subtitle='摄像头管理' data-left='<i class="iconfont iconshexiangtouguanli2"></i>'>摄像头管理</option>
+                                <option value='iconbaobiaozhongxin' data-subtitle='经营报表' data-left='<i class="iconfont iconbaobiaozhongxin"></i>'>经营报表</option>
+                                <option value='iconnavicon-cprkdsp' data-subtitle='货品入库单审签' data-left='<i class="iconfont iconnavicon-cprkdsp"></i>'>货品入库单审签</option>
+                                <option value='iconjilu3' data-subtitle='货品入库单审签记录' data-left='<i class="iconfont iconjilu3"></i>'>货品入库单审签记录</option>
+                                <option value='icondayin7' data-subtitle='货品入库单审签记录打印' data-left='<i class="iconfont icondayin7"></i>'>货品入库单审签记录打印</option>
+                                <option value='iconchukufuhe1' data-subtitle='货品出库单审签' data-left='<i class="iconfont iconchukufuhe1"></i>'>货品出库单审签</option>
+                                <option value='iconjilu2' data-subtitle='货品出库单审签记录' data-left='<i class="iconfont iconjilu2"></i>'>货品出库单审签记录</option>
+                                <option value='icondayin6' data-subtitle='货品出库单审签记录打印' data-left='<i class="iconfont icondayin6"></i>'>货品出库单审签记录打印</option>
+                                <option value='iconicon-p_kucunbaobiao' data-subtitle='货品库存报表' data-left='<i class="iconfont iconicon-p_kucunbaobiao"></i>'>货品库存报表</option>
+                                <option value='iconchukufuhe1' data-subtitle='货品库存存量报表审签' data-left='<i class="iconfont iconchukufuhe1"></i>'>货品库存存量报表审签</option>
+                                <option value='iconjilu2' data-subtitle='货品库存存量报表审签记录' data-left='<i class="iconfont iconjilu2"></i>'>货品库存存量报表审签记录</option>
+                                <option value='icondayin2' data-subtitle='货品库存存量报表打印' data-left='<i class="iconfont icondayin2"></i>'>货品库存存量报表打印</option>
+                                <option value='icondayin6' data-subtitle='货品库存盘点报表审签 ' data-left='<i class="iconfont icondayin6"></i>'>货品库存盘点报表审签</option>
+                                <option value='iconjilu2' data-subtitle='货品库存盘点报表审签记录' data-left='<i class="iconfont iconjilu2"></i>'>货品库存盘点报表审签记录</option>
+                                <option value='icondayin-' data-subtitle='货品库存盘点报表打印' data-left='<i class="iconfont icondayin-"></i>'>货品库存盘点报表打印</option>
+                                <option value='iconweibiaoti4' data-subtitle='食材损耗表' data-left='<i class="iconfont iconweibiaoti4"></i>'>食材损耗表</option>
+                                <option value='iconyingyangbaojian' data-subtitle='营养成分表' data-left='<i class="iconfont iconyingyangbaojian"></i>'>营养成分表</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group" id="perType">
+
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">权限路径:</span>
+                            <input name="page" type="text" class="form-control" placeholder="权限路径">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">权限CODE:</span>
+                            <input name="code" type="text" class="form-control" placeholder="权限CODE">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">权限优先级:</span>
+                            <input name="zindex" type="email" class="form-control" placeholder="权限优先级">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="descpt" id="descpt_message" class="form-control" placeholder="权限描述" style="height: 120px;"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer clearfix">
+
+                    <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="myResetForm()"><i class="fa fa-eraser"></i>&nbsp;重置</button>
+
+                    <button id="myFormButton" type="button" class="btn btn-primary pull-left"><i class="fa fa-mail-forward"></i>&nbsp;立即提交</button>
+                </div>
+            </form>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<script src="../js/common/js/commonJs.js" type="text/javascript"></script>
+<script src="../js/auth/permList.js" type="text/javascript"></script>
+</body>
+</html>

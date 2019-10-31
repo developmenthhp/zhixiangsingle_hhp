@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.zhixiangsingle.dao.companyInformation.CompanyInformationMapper">
+	<sql id="Base_Column_List">
+		id, companyname companyName, detailedaddress detailedAddress, principal, contactway contactWay,diningtype diningType,
+		businesshours businessHours,operatingstate operatingState, foodsafetyname foodsafetyName, foodsafeyimg foodsafeyImg, foodsafeyphone foodsafeyPhone, supervisorname supervisorName,
+		supervisorphone supervisorPhone,supervisorimg supervisorImg,commitmentfoodsafetyimg commitmentFoodSafetyImg,accountid accountId,sdid sdId
+	</sql>
+	<sql id="selectPrintAllKey">
+		<trim suffixOverrides=",">
+			<if test="id != null" >
+				c.id,
+			</if>
+			<if test="companyName != null and companyName != ''" >
+				IFNULL(c.companyname,'-') companyName,
+			</if>
+			<if test="detailedAddress != null and detailedAddress != ''" >
+				IFNULL(c.detailedaddress,'-') detailedAddress,
+			</if>
+			<if test="principal != null and principal != ''" >
+				IFNULL(c.principal,'-') principal,
+			</if>
+			<if test="contactWay != null and contactWay != ''" >
+				IFNULL(c.contactway,'-') contactWay,
+			</if>
+			<if test="diningType != null" >
+				c.diningtype diningType,
+			</if>
+			<if test="businessHours != null and businessHours != ''" >
+				IFNULL(c.businesshours,'-') businessHours,
+			</if>
+			<if test="operatingState != null" >
+				IFNULL(c.operatingstate,'-') operatingState,
+			</if>
+			<if test="foodsafetyName != null and foodsafetyName != ''" >
+				c.foodsafetyname foodsafetyName,
+			</if>
+			<if test="foodsafeyImg != null and foodsafeyImg != ''" >
+				c.foodsafeyimg foodsafeyImg,
+			</if>
+			<if test="foodsafeyPhone != null and foodsafeyPhone != ''" >
+				c.foodsafeyPhone,
+			</if>
+			<if test="supervisorName != null and supervisorName != ''" >
+				IFNULL(c.supervisorname,'-') supervisorName,
+			</if>
+			<if test="supervisorPhone != null and supervisorPhone != ''" >
+				IFNULL(c.supervisorphone,'-') supervisorPhone,
+			</if>
+			<if test="supervisorImg != null and supervisorImg != ''" >
+				c.supervisorimg supervisorImg,
+			</if>
+			<if test="commitmentFoodSafetyImg != null and commitmentFoodSafetyImg != ''" >
+				c.commitmentfoodsafetyimg commitmentFoodSafetyImg,
+			</if>
+			<if test="accountId != null">
+				c.accountid accountId,
+			</if>
+			<if test="sdId != null" >
+				c.sdid sdId,
+			</if>
+			<if test="siteName != null and siteName != ''" >
+				#{siteName} siteName,
+			</if>
+			<if test="sitePhoto != null and sitePhoto != ''" >
+				#{sitePhoto} sitePhoto,
+			</if>
+			<if test="picturePrefix != null and picturePrefix != ''" >
+				#{picturePrefix} picturePrefix,
+			</if>
+		</trim>
+	</sql>
+    <sql id="selectAllKey">
+        <trim suffixOverrides=",">
+			<if test="id != null" >
+				c.id,
+			</if>
+			<if test="companyName != null and companyName != ''" >
+				IFNULL(c.companyname,null) companyName,
+			</if>
+			<if test="detailedAddress != null and detailedAddress != ''" >
+				IFNULL(c.detailedaddress,null) detailedAddress,
+			</if>
+			<if test="principal != null and principal != ''" >
+				IFNULL(c.principal,null) principal,
+			</if>
+			<if test="contactWay != null and contactWay != ''" >
+				IFNULL(c.contactway,null) contactWay,
+			</if>
+			<if test="diningType != null" >
+				c.diningtype diningType,
+			</if>
+			<if test="businessHours != null and businessHours != ''" >
+				IFNULL(c.businesshours,null) businessHours,
+			</if>
+			<if test="operatingState != null" >
+				IFNULL(c.operatingstate,null) operatingState,
+			</if>
+			<if test="foodsafetyName != null and foodsafetyName != ''" >
+				c.foodsafetyname foodsafetyName,
+			</if>
+			<if test="foodsafeyImg != null and foodsafeyImg != ''" >
+				c.foodsafeyimg foodsafeyImg,
+			</if>
+			<if test="foodsafeyPhone != null and foodsafeyPhone != ''" >
+				c.foodsafeyphone foodsafeyPhone,
+			</if>
+			<if test="supervisorName != null and supervisorName != ''" >
+				IFNULL(c.supervisorname,null) supervisorName,
+			</if>
+			<if test="supervisorPhone != null and supervisorPhone != ''" >
+				IFNULL(c.supervisorphone,null) supervisorPhone,
+			</if>
+			<if test="supervisorImg != null and supervisorImg != ''" >
+				c.supervisorimg supervisorImg,
+			</if>
+			<if test="commitmentFoodSafetyImg != null and commitmentFoodSafetyImg != ''" >
+				c.commitmentfoodsafetyimg commitmentFoodSafetyImg,
+			</if>
+			<if test="accountId != null">
+				c.accountid accountId,
+			</if>
+			<if test="sdId != null" >
+				c.sdid sdId,
+			</if>
+			<if test="siteName != null and siteName != ''" >
+				#{siteName} siteName,
+			</if>
+			<if test="sitePhoto != null and sitePhoto != ''" >
+				#{sitePhoto} sitePhoto,
+			</if>
+			<if test="picturePrefix != null and picturePrefix != ''" >
+				#{picturePrefix} picturePrefix,
+			</if>
+        </trim>
+    </sql>
+	<sql id="insertAllKey">
+		<trim suffixOverrides=",">
+			<if test="companyName != null and companyName != ''" >
+			  	companyname,
+			</if>
+			<if test="detailedAddress != null and detailedAddress != ''" >
+				detailedaddress,
+			</if>
+			<if test="principal != null and principal != ''" >
+				principal,
+			</if>
+			<if test="contactWay != null and contactWay != ''" >
+				contactway,
+			</if>
+			<if test="diningType != null" >
+				diningtype,
+			</if>
+			<if test="businessHours != null and businessHours != ''" >
+				businesshours,
+			</if>
+			<if test="operatingState != null" >
+				operatingstate,
+			</if>
+			<if test="foodsafetyName != null and foodsafetyName != ''" >
+				foodsafetyname,
+			</if>
+			<if test="foodsafeyImg != null and foodsafeyImg != ''" >
+				foodsafeyimg,
+			</if>
+			<if test="foodsafeyPhone != null and foodsafeyPhone != ''" >
+				foodsafeyPhone,
+			</if>
+			<if test="supervisorName != null and supervisorName != ''" >
+				supervisorname,
+			</if>
+			<if test="supervisorPhone != null and supervisorPhone != ''" >
+				supervisorphone,
+			</if>
+			<if test="supervisorImg != null and supervisorImg != ''" >
+				supervisorimg,
+			</if>
+			<if test="commitmentFoodSafetyImg != null and commitmentFoodSafetyImg != ''" >
+				commitmentfoodsafetyimg,
+			</if>
+			<if test="accountId != null">
+				accountid,
+			</if>
+			<if test="sdId != null" >
+				sdid,
+			</if>
+		</trim>
+	</sql>
+	<sql id="insertAllValue">
+		<trim suffixOverrides=",">
+			<if test="companyName != null and companyName != ''" >
+				#{companyName},
+			</if>
+			<if test="detailedAddress != null and detailedAddress != ''" >
+				#{detailedAddress},
+			</if>
+			<if test="principal != null and principal != ''" >
+				#{principal},
+			</if>
+			<if test="contactWay != null and contactWay != ''" >
+				#{contactWay},
+			</if>
+			<if test="diningType != null" >
+				#{diningType},
+			</if>
+			<if test="businessHours != null and businessHours != ''" >
+				#{businessHours},
+			</if>
+			<if test="operatingState != null" >
+				#{operatingState},
+			</if>
+			<if test="foodsafetyName != null and foodsafetyName != ''" >
+				#{foodsafetyName},
+			</if>
+			<if test="foodsafeyImg != null and foodsafeyImg != ''" >
+				#{foodsafeyImg},
+			</if>
+			<if test="foodsafeyPhone != null and foodsafeyPhone != ''" >
+				#{foodsafeyPhone},
+			</if>
+			<if test="supervisorName != null and supervisorName != ''" >
+				#{supervisorName},
+			</if>
+			<if test="supervisorPhone != null and supervisorPhone != ''" >
+				#{supervisorPhone},
+			</if>
+			<if test="supervisorImg != null and supervisorImg != ''" >
+				#{supervisorImg},
+			</if>
+			<if test="commitmentFoodSafetyImg != null and commitmentFoodSafetyImg != ''" >
+				#{commitmentFoodSafetyImg},
+			</if>
+			<if test="accountId != null">
+				#{accountId},
+			</if>
+			<if test="sdId != null" >
+				#{sdId},
+			</if>
+		</trim>
+	</sql>
+	<sql id="updateAllValue">
+		<trim suffixOverrides=",">
+			foodsafetyname = #{foodsafetyName,jdbcType=VARCHAR},
+			foodsafeyPhone = #{foodsafeyPhone,jdbcType=VARCHAR},
+			supervisorname = #{supervisorName,jdbcType=VARCHAR},
+			supervisorphone = #{supervisorPhone,jdbcType=VARCHAR},
+			<if test="foodsafeyImg != null and foodsafeyImg != ''">
+				foodsafeyimg = #{foodsafeyImg,jdbcType=VARCHAR},
+			</if>
+			<if test="supervisorImg != null and supervisorImg != ''">
+				supervisorimg = #{supervisorImg,jdbcType=VARCHAR},
+			</if>
+			<if test="commitmentFoodSafetyImg != null and commitmentFoodSafetyImg != ''">
+				commitmentfoodsafetyimg = #{commitmentFoodSafetyImg,jdbcType=VARCHAR},
+			</if>
+			<if test="companyName != null and companyName != ''">
+				companyname = #{companyName,jdbcType=VARCHAR},
+			</if>
+			<if test="companyName != null and companyName != ''">
+				detailedaddress = #{detailedAddress,jdbcType=VARCHAR},
+			</if>
+			<if test="companyName != null and companyName != ''">
+				principal = #{principal,jdbcType=VARCHAR},
+			</if>
+			<if test="companyName != null and companyName != ''">
+				contactway = #{contactWay,jdbcType=VARCHAR},
+			</if>
+			<if test="diningType != null">
+				diningtype = #{diningType,jdbcType=INTEGER},
+			</if>
+			<if test="businessHours != null and businessHours != ''">
+				businesshours = #{businessHours,jdbcType=VARCHAR},
+			</if>
+			<if test="operatingState != null">
+				operatingstate = #{operatingState,jdbcType=INTEGER},
+			</if>
+			<if test="accountId != null">
+				accountid = #{accountId,jdbcType=INTEGER},
+			</if>
+			<if test="sdId != null" >
+				sdid = #{sdId,jdbcType=INTEGER},
+			</if>
+		</trim>
+	</sql>
+    <sql id="whereAllValue">
+        <where>
+            <if test="diningType != null and diningType != -1" >
+                AND c.diningtype = #{diningType,jdbcType=INTEGER}
+            </if>
+            <if test="operatingState != null and operatingState != -1" >
+				AND c.operatingstate = #{operatingState,jdbcType=INTEGER}
+            </if>
+            <if test='companyName != null and companyName != "" and companyName !="s"' >
+                AND c.companyname like CONCAT('%', #{companyName} , '%')
+            </if>
+			ORDER BY
+			ib.id DESC
+			<if test='end != null and end != -1'>
+				LIMIT #{start},#{end}
+			</if>
+        </where>
+    </sql>
+	<sql id="whereFullNameAllValue">
+		<where>
+			<if test='companyName != null and companyName != "" and companyName != "c" ' >
+				AND c.companyname like CONCAT('%', #{companyName} , '%')
+			</if>
+			<if test="diningType != null and diningType != -1" >
+				AND c.diningtype = #{diningType,jdbcType=INTEGER}
+			</if>
+			<if test="operatingState != null and operatingState != -1" >
+				AND c.operatingstate = #{operatingState,jdbcType=INTEGER}
+			</if>
+			<if test="id != null and id != -1" >
+				AND c.id = #{id}
+			</if>
+			<if test="sdId != null and sdId != -1" >
+				AND c.sdid = #{sdId}
+			</if>
+		</where>
+	</sql>
+	<!-- 查找所有食材记录条数 start -->
+	<select id="findIngredientBaseTotal" resultType="java.lang.Integer">
+		SELECT
+			COUNT(ib.id)
+		FROM
+		companyinformation c
+		<include refid="whereAllValue"/>
+	</select>
+	<!-- 查找所有食材记录条数 end -->
+	<!-- 查找所有食材记录 start -->
+	<select id="findIngredientBaseList" resultType="java.util.Map">
+		SELECT
+			<include refid="selectAllKey"/>
+		FROM
+		companyinformation c
+		<include refid="whereAllValue"/>
+	</select>
+	<!-- 查找所有食材记录 end -->
+
+	<!-- 查找所有记录(打印用) 返回值是实体类 -->
+	<select id="findAllIngredientBase" resultType="cn.zhixiangsingle.entity.purchase.scjcxx.vo.IngredientBaseVO">
+		SELECT
+		<include refid="selectPrintAllKey"/>
+		FROM
+		companyinformation c
+		<include refid="whereAllValue"/>
+	</select>
+	<!-- 查找所有记录(打印用) 返回值是实体类 end -->
+
+	<!-- 查找单个 start -->
+	<select id="findCompanyInformation" resultType="java.util.Map">
+		SELECT
+		<include refid="selectAllKey"/>
+		FROM
+		companyinformation c
+		<include refid="whereFullNameAllValue"/>
+	</select>
+	<!-- 查找单个 end -->
+
+	<select id="findIngredientBaseFullNameTotal" resultType="java.lang.Integer">
+		SELECT
+			COUNT(id)
+		FROM
+		companyinformation c
+		<include refid="whereFullNameAllValue"/>
+	</select>
+	<!-- 查找所有食材记录条数 end -->
+	<delete id="deleteByPrimaryKey">
+		DELETE FROM companyinformation
+        WHERE id = #{id,jdbcType=INTEGER} and sdid = #{sdId,jdbcType=INTEGER}
+	</delete>
+	<insert id="insertSelective" useGeneratedKeys="true" keyProperty="id" parameterType="cn.zhixiangsingle.entity.purchase.scjcxx.dto.IngredientBaseDTO">
+		INSERT INTO companyinformation(<include refid="insertAllKey"/>) VALUES(<include refid="insertAllValue"/>);
+	</insert>
+	<update id="updateByPrimaryKey" parameterType="cn.zhixiangsingle.entity.base.user.User">
+		UPDATE companyinformation
+		<set>
+			<include refid="updateAllValue"/>
+		</set>
+		WHERE id = #{id,jdbcType=INTEGER} and sdid = #{sdId,jdbcType=INTEGER}
+	</update>
+</mapper>

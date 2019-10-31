@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>智飨科技食品餐饮安全网管理后台</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="智飨科技-食品餐饮安全网 " />
+    <meta name="author" content="hhp" />
+    <meta name="keyword" content="智能化餐饮,智飨科技,物联网,食品安全,智能厨房,家宴,餐饮标准化管理" />
+    <link rel="icon" href="../images/logo1.png" type="image/x-icon"/>
+    <script src="../../../js/common/css/commonCss.js" type="text/javascript"></script>
+    <link href="../../../css/userList/userList.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="skin-blue">
+<script src="../js/common/head.js" type="text/javascript"></script>
+<div class="wrapper row-offcanvas row-offcanvas-left">
+    <script src="../js/common/leftNav.js" type="text/javascript"></script>
+    <div class="copyrights">
+        Collect from <a href='http://www.zhixiangyun.cn/'  title='智飨科技'>智飨科技</a>
+        <span id='teShiro' style='display:none'><shiro:principal property='userName'></shiro:principal></span>
+        <span id='teShiro2' style='display:none'><shiro:principal property='insertTime'></shiro:principal></span>
+        <div style='display:none;' id='currentUser'><shiro:principal property='id'></shiro:principal></div>
+        <div style='display:none;' id='currentUserSdId'><shiro:principal property='sdId'></shiro:principal></div>
+        <div style='display:none;' id='currentUserIsZX'><shiro:principal property='zx'></shiro:principal></div>
+        <div style='display:none;' id='currentUserProfession'><shiro:principal property='profession'></shiro:principal></div>
+    </div>
+    <aside class="right-side" id="main">
+        <script src="../js/common/message/message.js" type="text/javascript"></script>
+        <section class="col-lg-12 connectedSortable">
+            <!-- 隐藏式搜索 -->
+            <svg class="hidden">
+                <defs>
+                    <symbol id="icon-search">
+                        <title>search</title><!-- 这个是search-->
+                        <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                    </symbol>
+                    <symbol id="icon-cross">
+                        <title>cross</title><!-- 这个是x-->
+                        <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                    </symbol>
+                </defs>
+            </svg>
+            <main>
+
+                <div class="search" style="overflow-y: scroll;">
+                    <div class="search__inner" style="height: 100%;">
+                        <form class="search__form" id="scjcxxSearchForm">
+                            <input id="alertSdId" type="hidden" name="sdIds"/>
+                            <input id="ingSdId" type="hidden" name="ingSdId"/>
+
+                            <select id="userSites" name="clas" multiple>
+
+                            </select>
+                            <div class="input-group" style="top: 1.2em;width:100%;">
+                                <input name="startTime" type="text" class="form-control" data-field="datetime" data-format="yyyy-MM-dd HH:mm:ss" readonly placeholder="时间开始">
+                            </div>
+                            <div class="input-group" style="top: 2.4em;width:100%;">
+                                <input name="endTime" type="text" class="form-control" data-field="datetime" data-format="yyyy-MM-dd HH:mm:ss" readonly placeholder="时间结束">
+                            </div>
+                            <div class="input-group" style="top: 3.6em;width:100%;">
+                                <select id="mainCatogory" name="mainCategoryId" onchange="getCurSmallCatogory()">
+
+                                </select>
+                            </div>
+                            <div class="input-group" style="top: 4.8em;width:100%;">
+                                <select id="smallCatogory" name="smallCategoryId">
+
+                                </select>
+                            </div>
+
+                            <div class="box-tools input-group" style="top: 6em;width:100%;" >
+                                <button type="button" class="btn btn-alt btn-sm btn-flat" style="text-align: center;" onclick="reloadMyDateTable()">
+                                    <i class="iconfont iconmagnifiersearch" data-toggle="tooltip" title="搜索" style="color:blue;font-size: 1.3em;cursor: pointer;"></i>
+                                </button>
+                            </div>
+
+                        </form>
+                    </div><!-- /search__inner -->
+                </div><!-- /search -->
+            </main><!-- /main-wrap -->
+            <!-- 隐藏式搜索 -->
+
+            <!-- /jQuery 弹幕样式消息 -->
+            <div class="box box-primary">
+                <div class="box-header">
+                    <span class="box-title" style="font-size: 1.5em;" >添加采购记录</span>
+                    <div class="pull-right box-tools">
+                        <button id="btn-search" class="btn btn-alt btn-sm" data-toggle="tooltip" title="采购预览" onclick="showOpenColor()"><i class="iconfont iconzhinengsousuo" style="font-size: 1em;"></i></button>
+                        <button id="btn-search-close" class="btn btn-alt btn-sm btn--search-close btn--hidden" style="z-index: 9999999;" onclick="setOpenColor()"><i class="iconfont iconjibing" style="font-size: 1em;"></i></button>
+
+                        <button class="btn btn-alt btn-sm refresh-btn" data-toggle="tooltip" title="添加食材记录" onclick="showCreatModal(null)"><i class="iconfont iconexport1" style="font-size: 1em;"></i></button>
+                        <button class="btn btn-alt btn-sm refresh-btn" data-toggle="tooltip" title="转换入库单" onclick="changeLibraryPruchase()"><i class="iconfont iconnavicon-rkd" style="font-size: 1em;"></i></button>
+                        <button class="btn btn-alt btn-sm" data-widget='collapse' data-toggle="tooltip" title="隐藏"><i class="fa fa-minus"></i></button>
+                        <button class="btn btn-alt btn-sm" data-widget='remove' data-toggle="tooltip" title="关闭"><i class="fa fa-times"></i></button>
+                    </div><!-- /. tools -->
+                </div><!-- /.box-header -->
+                <div class="box-body no-padding main-wrap">
+                    <table id="sort" class="my-table">
+                        <thead>
+                        <tr>
+                            <th>编号</th>
+                            <th>食材</th>
+                            <th>建议采购数量</th>
+                            <th>库存量(已减安全量)</th>
+                            <th>需求采购量</th>
+                            <th>实际需求采购量</th>
+                            <th>预算最低价</th>
+                            <th>预算最高价</th>
+                            <th>操作</th>
+                        </tr>
+                        <thead>
+                        <tbody id="userListUl">
+                        </tbody>
+                    </table>
+                </div><!-- /.box-body -->
+                <div class="box-footer clearfix no-border">
+                    <div style="height: 2em;"></div>
+                    <button class="btn btn-alt pull-right" onclick="saveLibraryPurchase()" style="margin-top: -2.3em;" data-toggle="tooltip" title="保存采购记录"><i class="iconfont icontianjia2" style="font-weight: bold;color: blue;"></i></button>
+                </div>
+
+            </div><!-- 站点角色列表 -->
+        </section>
+        <!-- 响应式时间选择插件div -->
+        <div id="dtBox" style="display:none"></div>
+    </aside><!-- /.right-side -->
+</div><!-- ./wrapper -->
+
+<div class="modal fade" id="addEdit-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 id="lpTitle" class="modal-title"></h4>
+            </div>
+            <form id="temForm" action="#" method="post" onsubmit="return showRequest()">
+                <input id="curIndex" type="hidden">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon" style="letter-spacing: 2.225em;">食材:</span>
+                            <select id="ingredientId" name="ingredientId" onchange="resetData(this)" class="form-control validate[required]" data-errormessage-value-missing="必填">
+
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon" style="letter-spacing: 0.614em;">建议采购量:</span>
+                            <input id="advicePurchCount" name="advicePurchCount" type="text" readonly class="form-control validate[maxSize[15],custom[onlyMoney]]" data-errormessage-custom-error="只接受整数、2位小数" data-errormessage-range-overflow="最多15位" placeholder="建议采购量">
+                            <span class="input-group-addon myMN" id="meteringName"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">库存量(已减安全量):</span>
+                            <input id="whouseCount" name="whouseCount" type="text" readonly class="form-control validate[maxSize[15],custom[onlyMoney]]" data-errormessage-custom-error="只接受整数、2位小数" data-errormessage-range-overflow="最多15位" placeholder="库存量(已减安全量)">
+                            <span class="input-group-addon myMN"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon" style="letter-spacing: 0.614em;">需求采购量:</span>
+                            <input id="warehouseCount" name="warehouseCount" type="text" readonly class="form-control validate[maxSize[15],custom[onlyMoney]]" data-errormessage-custom-error="只接受整数、2位小数" data-errormessage-range-overflow="最多15位" placeholder="需求采购量">
+                            <span class="input-group-addon myMN"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon" style="letter-spacing: 0.21em;">实际需求采购量:</span>
+                            <input id="purchCount" name="purchCount" type="text" class="form-control validate[required,maxSize[15],custom[onlyMoney]]" data-errormessage-value-missing="必填" data-errormessage-custom-error="只接受整数、2位小数" data-errormessage-range-overflow="最多15位" placeholder="实际需求采购量(必填)">
+                            <span class="input-group-addon myMN"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon" style="letter-spacing: 0.614em;">预算最低价:</span>
+                            <input id="lowestUnitPrice" name="lowestUnitPrice" type="text" class="form-control validate[required,maxSize[15],custom[onlyMoney]]" data-errormessage-value-missing="必填" data-errormessage-custom-error="只接受整数、2位小数" data-errormessage-range-overflow="最多15位" placeholder="预算最低价(必填)">
+                            <span class="input-group-addon">元</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon" style="letter-spacing: 0.614em;">预算最高价:</span>
+                            <input id="highestUnitPrice" name="highestUnitPrice" type="text" class="form-control validate[required,maxSize[15],custom[onlyMoney]]" data-errormessage-value-missing="必填" data-errormessage-custom-error="只接受整数、2位小数" data-errormessage-range-overflow="最多15位" placeholder="预算最高价(必填)">
+                            <span class="input-group-addon">元</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer clearfix">
+
+                    <button type="button" class="btn btn-danger" onclick="myDetailsEditResetForm()"><i class="fa fa-eraser"></i>&nbsp;重置</button>
+
+                    <button type="submit" class="btn btn-primary pull-left"><i class="fa fa-mail-forward"></i>&nbsp;确认</button>
+                </div>
+            </form>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+
+<script src="../../../js/common/hideSearch_noInput.js" type="text/javascript"></script>
+<script src="../../../js/common/js/commonJs.js" type="text/javascript"></script>
+<script src="../../../js/cgcc/sccg/cjsccg.js" type="text/javascript"></script>
+</body>
+</html>

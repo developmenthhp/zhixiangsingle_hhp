@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>智飨科技食品餐饮安全网管理后台</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="智飨科技-食品餐饮安全网 " />
+    <meta name="author" content="hhp" />
+    <meta name="keyword" content="智能化餐饮,智飨科技,物联网,食品安全,智能厨房,家宴,餐饮标准化管理" />
+    <link rel="icon" href="../images/logo1.png" type="image/x-icon"/>
+    <script src="../js/common/css/commonCss.js" type="text/javascript"></script>
+</head>
+<body class="skin-blue">
+<script src="../js/common/head.js" type="text/javascript"></script>
+<div class="wrapper row-offcanvas row-offcanvas-left">
+    <script src="../js/common/leftNav.js" type="text/javascript"></script>
+    <div class="copyrights">
+        Collect from <a href="http://www.zhixiangyun.cn/"  title="智飨科技">智飨科技</a>
+        <span id='teShiro' style='display:none'><shiro:principal property='userName'></shiro:principal></span>
+        <span id='teShiro2' style='display:none'><shiro:principal property='insertTime'></shiro:principal></span>
+        <div style='display:none;' id='currentUser'><shiro:principal property='id'></shiro:principal></div>
+        <div style='display:none;' id='currentUserSdId'><shiro:principal property='sdId'></shiro:principal></div>
+        <div style='display:none;' id='currentUserIsZX'><shiro:principal property='zx'></shiro:principal></div>
+        <div style='display:none;' id='currentUserProfession'><shiro:principal property='profession'></shiro:principal></div>
+    </div>
+    <aside class="right-side" id="main">
+        <script src="../js/common/message/message.js" type="text/javascript"></script>
+        <section class="col-lg-12 connectedSortable">
+            <div class="box box-primary">
+                <div class="box-header">
+                    <span class="box-title" style="font-size: 1.5em;" >站点管理</span>
+                    <div class="pull-right box-tools">
+                        <button class="btn btn-alt btn-sm refresh-btn" data-toggle="tooltip" title="重新加载" onclick="loadUserList()"><i class="fa fa-refresh"></i></button>
+                        <button class="btn btn-alt btn-sm" data-widget='collapse' data-toggle="tooltip" title="隐藏"><i class="fa fa-minus"></i></button>
+                        <button class="btn btn-alt btn-sm" data-widget='remove' data-toggle="tooltip" title="关闭"><i class="fa fa-times"></i></button>
+                    </div><!-- /. tools -->
+                </div><!-- /.box-header -->
+                <div class="box-body no-padding">
+                    <table id="sort" class="my-table">
+                        <thead>
+                        <tr>
+                            <th><i class='fa fa-tag'></i>&nbsp;站点名称</th>
+                            <th><i class='fa fa-flag'></i>&nbsp;站点图标</th>
+                            <th><i class='fa fa-link'></i>&nbsp;站点地址描述</th>
+                            <th><i class='fa fa-link'></i>&nbsp;操作</th>
+                        </tr>
+                        <thead>
+                        <tbody id="userListUl">
+                        </tbody>
+                    </table>
+                </div><!-- /.box-body -->
+                <div class="box-footer clearfix no-border">
+                    <!--<div class="ht-page"></div>-->
+                    <button class="btn btn-alt pull-right" onclick="addSun(0,0)" data-toggle="tooltip" title="开通站点"><i class="iconfont icontianjia2" style="font-weight: bold;color: blue;"></i></button>
+                </div>
+            </div><!-- 站点角色列表 -->
+        </section>
+    </aside><!-- /.right-side -->
+</div><!-- ./wrapper -->
+
+<!-- COMPOSE MESSAGE MODAL -->
+<div class="modal fade" id="compose-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 id="chgSiteTitle" class="modal-title"></h4>
+            </div>
+            <form id="permForm" action="#" method="post" onsubmit="return showRequest()">
+                <input id="type" type="hidden" name="type"/>
+                <input id="id" type="hidden" name="id"/>
+                <input id="istype" type="hidden" name="istype"/>
+                <input id="iconImg" type="hidden" name="photo">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">站点名称:</span>
+                            <input name="name" type="text" class="form-control validate[required,maxSize[20]]" data-errormessage-value-missing="必填" data-errormessage-range-overflow="最多20位" placeholder="站点名称(必填)">
+                        </div>
+                    </div>
+
+                    <div class="up-img-cover" style="width:100%;text-align: center;">
+                        <img class="am-circle myImgFirst" src="../../images/2.jpg" onclick="showMyCropperImgModel(0)" style="display: none;width: 8em;height:70px;margin: 0 auto;border-radius: 0;transform: translateY(-4%);"/>
+                        <i id="up-img-touch" onclick="showMyCropperImgModel(0)" class="iconfont iconVRtupian myImgSecond" style="font-size: 6em;line-height: 110px;"></i>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">站点id:</span>
+                            <input name="sdId" type="text" class="form-control validate[required,custom[integer],maxSize[11]]" data-errormessage-value-missing="必填" data-errormessage-custom-error="只接受整数" data-errormessage-range-overflow="最多11位" placeholder="站点id(必填)">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="address" id="descpt_message" class="form-control validate[maxSize[255]]" data-errormessage-range-overflow="最多255位" placeholder="站点地址描述" style="height: 120px;"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer clearfix">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="myResetForm()"><i class="fa fa-eraser"></i>&nbsp;重置</button>
+                    <button type="submit" class="btn btn-primary pull-left"><i class="fa fa-mail-forward"></i>&nbsp;立即提交</button>
+                </div>
+            </form>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<div class="am-modal am-modal-no-btn up-modal-frame modal fade" tabindex="-1" role="dialog" aria-hidden="true" id="up-modal-frame">
+    <div class="am-modal-dialog up-frame-parent up-frame-radius modal-content">
+        <div class="modal-body am-modal-bd  up-frame-body">
+            <div class="am-modal-hd up-frame-header">
+                <label>上传图片</label>
+                <button type="button" class="close am-close am-close-spin" data-am-modal-close data-dismiss="modal" aria-hidden="true">&times;</button>
+                <!--<i class="am-close am-close-spin" data-am-modal-close>&times;</i>-->
+            </div>
+            <div class="am-g am-fl">
+                <div class="am-form-group am-form-file">
+                    <div class="am-fl">
+                        <button type="button" class="am-btn am-btn-default am-btn-sm btn-alt" style="color:#FFFFFF">
+                            <i class="am-icon-cloud-upload"></i> 选择要上传的文件</button>
+                    </div>
+                    <input type="file" class="up-img-file">
+                </div>
+            </div>
+            <div class="am-g am-fl">
+                <div class="up-pre-before up-frame-radius">
+                    <img alt="" src="" class="up-img-show" id="up-img-show">
+                </div>
+                <div class="up-pre-after up-frame-radius">
+                </div>
+            </div>
+            <div class="am-g am-fl">
+                <div class="up-control-btns">
+                    <span class="am-icon-rotate-left" id="up-btn-left"></span>
+                    <span class="am-icon-rotate-right" id="up-btn-right"></span>
+                    <span class="am-icon-check up-btn-ok" url="/uploadFileImg" parameter="{width:'200',height:'200'}"></span>
+                </div>
+            </div>
+        </div>
+    </div><!-- /.modal-content --><!-- /.modal-dialog -->
+</div>
+
+<script src="../js/common/js/commonJs.js" type="text/javascript"></script>
+
+<script src="../js/common/AdminLTE/dashboard-siteListChange.js" type="text/javascript"></script>
+<script src="../js/auth/siteList.js" type="text/javascript"></script>
+</body>
+</html>

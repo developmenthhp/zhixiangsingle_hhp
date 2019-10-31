@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.zhixiangsingle.dao.site.SiteMapper" >
+  <resultMap id="BaseResultMap" type="cn.zhixiangsingle.entity.base.site.Site" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="sdid" property="sdId" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="photo" property="photo" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, name, sdid,zindex, address, photo
+  </sql>
+  <!-- 定义sql片段，且唯一 动态查询 start -->
+  <sql id="selectAllKey">
+    <trim suffixOverrides=",">
+      <if test="id != null" >
+        s.id,
+      </if>
+      <if test="name != null and name != ''" >
+        s.name,
+      </if>
+      <if test="address != null and address != ''" >
+        s.address,
+      </if>
+      <if test="photo != null and photo != ''" >
+        s.photo,
+      </if>
+      <if test="sdId != null" >
+        s.sdid sdId,
+      </if>
+    </trim>
+  </sql>
+  <!-- 定义sql片段，且唯一 动态查询 end -->
+
+  <!-- 定义sql片段，且唯一 动态insert start -->
+  <sql id="insertAllKey">
+    <trim suffixOverrides=",">
+      <if test="name != null and name != ''" >
+        name,
+      </if>
+      <if test="address != null and address != ''" >
+        address,
+      </if>
+      <if test="photo != null and photo != ''" >
+        photo,
+      </if>
+      <if test="sdId != null" >
+        sdid,
+      </if>
+    </trim>
+  </sql>
+  <!-- 定义sql片段，且唯一 动态insert end -->
+
+  <!-- 定义sql片段，且唯一 value值 start -->
+  <sql id="insertAllValue">
+    <trim suffixOverrides=",">
+      <if test="name != null and name != ''" >
+        #{name},
+      </if>
+      <if test="address != null and address != ''" >
+        #{address},
+      </if>
+      <if test="photo != null and photo != ''" >
+        #{photo},
+      </if>
+      <if test="sdId != null" >
+        #{sdId},
+      </if>
+    </trim>
+  </sql>
+  <!-- 定义sql片段，且唯一 value值 end -->
+
+  <!-- 定义更新sql片段，且唯一 value值 start -->
+  <sql id="updateAllValue">
+    <trim suffixOverrides=",">
+      <if test="name != null and name != ''" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null and address != ''" >
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="photo != null and photo != ''" >
+        photo = #{photo,jdbcType=VARCHAR},
+      </if>
+      <if test="sdId != null" >
+        sdid = #{sdId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </sql>
+  <!-- 定义更新sql片段，且唯一 value值 end -->
+
+  <!-- 定义条件查询sql片段，且唯一 value值 start -->
+  <sql id="whereAllValue">
+    <where>
+      <if test="name != null and name != ''" >
+        AND name = #{name,jdbcType=VARCHAR}
+      </if>
+      <if test="sdId != null" >
+        AND sdid = #{sdId}
+      </if>
+    </where>
+  </sql>
+  <!-- 定义条件查询sql片段，且唯一 value值 end -->
+
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from site
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from site
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.zhixiangsingle.entity.base.site.Site" >
+    insert into site(<include refid="insertAllKey"/>) VALUES(<include refid="insertAllValue"/>);
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.zhixiangsingle.entity.base.site.Site" >
+    update site
+    <set >
+      <include refid="updateAllValue"/>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+  <!--=Start findAll 查找所有权限-->
+  <select id="findAll" resultMap="BaseResultMap">
+    select
+    <include refid="selectAllKey"/>
+    from site s
+    ORDER BY id
+  </select>
+  <!--=End findAll 查找所有权限-->
+
+  <!--=Start findChildPerm 查找所有子节点权限-->
+  <select id="findChildSite" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from site
+    where pid=#{pid}
+  </select>
+  <!--=End findChildPerm 查找所有子节点权限-->
+
+  <!--=Start findPerms 查找权限树列表-->
+  <resultMap id="findPermission" type="cn.zhixiangsingle.entity.base.permission.vo.PermissionVO">
+    <id property="id" column="id"/>
+    <result property="name" column="name"/>
+    <result property="pid" column="pid"/>
+    <result property="istype" column="istype"/>
+    <result property="code" column="code"/>
+    <result property="page" column="page"/>
+
+    <collection property="children" column="pid" ofType="cn.zhixiangsingle.entity.base.permission.Permission">
+      <id property="id" column="id"/>
+      <result property="name" column="name"/>
+      <result property="pid" column="pid"/>
+      <result property="istype" column="istype"/>
+      <result property="code" column="code"/>
+      <result property="page" column="page"/>
+    </collection>
+  </resultMap>
+
+  <sql id="PermColumn" >
+    id, name,pid pId, zindex
+  </sql>
+  <!--=Start findSites 查找站点权限树列表-->
+  <select id="findSites" resultType="cn.zhixiangsingle.entity.base.site.vo.SiteVO" parameterType="java.lang.Integer">
+    select
+    <include refid="PermColumn" />
+    from site
+    <where>
+      <if test="flag==1">
+        AND id != 4
+      </if>
+    </where>
+  </select>
+  <!--=End findSites 查找站点权限树列表-->
+
+  <!--=Start findPermsByRole 根据角色ID查找权限树列表-->
+  <select id="findPermsByRole" resultType="cn.zhixiangsingle.entity.base.permission.Permission">
+    select
+    <include refid="PermColumn" />
+    from site p
+    LEFT JOIN role_permission rp ON rp.permit_id=p.id
+    WHERE rp.role_id=#{roleId}
+  </select>
+  <!--=End findPermsByRole 根据角色ID查找权限树列表-->
+  <!--=Start findUserSites 根据用户ID查找权限树列表-->
+  <select id="findUserSites" resultType="cn.zhixiangsingle.entity.base.site.vo.SiteVO">
+    select
+    p.id, p.name,p.pid pId, p.zindex, p.address, p.photo, p.lng, p.lat,p.sdid
+    from site p
+    LEFT JOIN site_siteRole rp ON rp.site_id=p.id
+    LEFT JOIN siteRole r ON r.id=rp.siteRole_id
+    LEFT JOIN user_siteRole ur ON ur.siteRole_id=r.id
+    WHERE ur.user_id=#{userId}
+    GROUP BY p.id
+    order by p.zindex
+  </select>
+  <!--=End findUserSites 根据用户ID查找权限树列表-->
+
+  <!--=Start findSites 查找站点权限树列表-->
+  <select id="findSiteBySdId" resultType="cn.zhixiangsingle.entity.base.site.vo.SiteVO" parameterType="java.lang.Integer">
+    select
+    <include refid="PermColumn" />
+    from site
+    <where>
+      AND sdid = #{sdId}
+    </where>
+  </select>
+  <!--=End findSites 查找站点权限树列表-->
+
+  <!--=Start findSites 查找站点权限树列表-->
+  <select id="findSitesByPId" resultType="cn.zhixiangsingle.entity.base.site.vo.SiteVO" parameterType="java.lang.Integer">
+    select
+    <include refid="PermColumn" />
+    from site
+    <where>
+      AND pid = #{id}
+    </where>
+  </select>
+  <!--=End findSites 查找站点权限树列表 findSitesByPId-->
+
+  <!--=Start findUserSites 根据用户ID查找所有sdId  start-->
+  <select id="findSdIdByUserSites" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+    select
+    p.sdid
+    from site p
+    LEFT JOIN site_siteRole rp ON rp.site_id=p.id
+    LEFT JOIN siteRole r ON r.id=rp.siteRole_id
+    LEFT JOIN user_siteRole ur ON ur.siteRole_id=r.id
+    WHERE ur.user_id=#{userId}
+    GROUP BY p.id
+  </select>
+  <!--=End findUserSites 根据用户ID查找所有sdId end-->
+
+  <!--=Start findPhotoBySdId 查找站点图标-->
+  <select id="findPhotoBySdId" resultType="java.lang.String" parameterType="java.lang.String">
+    SELECT
+    photo
+    FROM site
+    WHERE sdid = #{sdId}
+  </select>
+  <!--=End findSites 查找站点权限树列表 findSitesByPId-->
+
+  <!-- 根据试点array得到站点信息 start -->
+  <select id="findSitesBySdIdArray" resultType="cn.zhixiangsingle.entity.base.site.vo.SiteVO">
+    SELECT
+    p.id, p.name,p.photo,p.sdid
+    from site p
+    <where>
+      <if test="sdIds!=null">
+        and p.sdid in
+        <foreach collection="sdIds" item="sdid" separator="," open="(" close=")">
+          #{sdid}
+        </foreach>
+      </if>
+    </where>
+    ORDER BY zindex DESC
+  </select>
+  <!-- 根据试点array得到站点信息 end -->
+
+</mapper>

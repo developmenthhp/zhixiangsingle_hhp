@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.zhixiangsingle.dao.gasSwitchAlert.GasSwitchAlertMapper">
+	<sql id="Base_Column_List">
+		id, area, sensor, starttime startTime, endtime endTime,
+		 status, openurlimg openUrlImg, offurlimg offUrlImg, description, sdid sdId
+	</sql>
+	<sql id="selectPrintAllKey">
+		<trim suffixOverrides=",">
+			<if test="id != null" >
+				g.id,
+			</if>
+			<if test="area != null and area != ''" >
+				IFNULL(g.area,"-") area,
+			</if>
+			<if test="sensor != null and sensor != ''" >
+				IFNULL(g.sensor,'-') sensor,
+			</if>
+			<if test="startTime != null and startTime != ''" >
+				IFNULL(g.starttime,'-') startTime,
+			</if>
+			<if test="endTime != null and endTime != ''" >
+				IFNULL(g.endtime,'-') endTime,
+			</if>
+			<if test="status != null" >
+				IFNULL(g.status,'-') status,
+			</if>
+			<if test="openUrlImg != null and openUrlImg != ''" >
+				IFNULL(g.openurlimg,'-') openUrlImg,
+			</if>
+			<if test="offUrlImg != null and offUrlImg != ''" >
+				IFNULL(g.offurlimg,'-') offUrlImg,
+			</if>
+			<if test="description != null and description != ''" >
+				IFNULL(g.description,'-') description,
+			</if>
+			<if test="sdId != null" >
+				g.sdid sdId,
+			</if>
+			<if test="siteName != null and siteName != ''" >
+				#{siteName} siteName,
+			</if>
+			<if test="sitePhoto != null and sitePhoto != ''" >
+				#{sitePhoto} sitePhoto,
+			</if>
+			<if test="picturePrefix != null and picturePrefix != ''" >
+				#{picturePrefix} picturePrefix,
+			</if>
+		</trim>
+	</sql>
+    <sql id="selectAllKey">
+        <trim suffixOverrides=",">
+			<if test="id != null" >
+				g.id,
+			</if>
+			<if test="area != null and area != ''" >
+				IFNULL(g.area,null) area,
+			</if>
+			<if test="sensor != null and sensor != ''" >
+				IFNULL(g.sensor,null) sensor,
+			</if>
+			<if test="startTime != null and startTime != ''" >
+				IFNULL(g.starttime,null) startTime,
+			</if>
+			<if test="endTime != null and endTime != ''" >
+				IFNULL(g.endtime,null) endTime,
+			</if>
+			<if test="status != null" >
+				IFNULL(g.status,null) status,
+			</if>
+			<if test="openUrlImg != null and openUrlImg != ''" >
+				IFNULL(g.openurlimg,null) openUrlImg,
+			</if>
+			<if test="offUrlImg != null and offUrlImg != ''" >
+				IFNULL(g.offurlimg,null) offUrlImg,
+			</if>
+			<if test="description != null and description != ''" >
+				IFNULL(g.description,null) description,
+			</if>
+			<if test="sdId != null" >
+				g.sdid sdId,
+			</if>
+			<if test="siteName != null and siteName != ''" >
+				#{siteName} siteName,
+			</if>
+			<if test="sitePhoto != null and sitePhoto != ''" >
+				#{sitePhoto} sitePhoto,
+			</if>
+			<if test="picturePrefix != null and picturePrefix != ''" >
+				#{picturePrefix} picturePrefix,
+			</if>
+        </trim>
+    </sql>
+	<sql id="insertAllKey">
+		<trim suffixOverrides=",">
+			<if test="area != null and area != ''" >
+				area,
+			</if>
+			<if test="sensor != null and sensor != ''" >
+				sensor,
+			</if>
+			<if test="startTime != null and startTime != ''" >
+				starttime,
+			</if>
+			<if test="endTime != null and endTime != ''" >
+				endtime,
+			</if>
+			<if test="status != null" >
+				status,
+			</if>
+			<if test="openUrlImg != null and openUrlImg != ''" >
+				openurlimg,
+			</if>
+			<if test="offUrlImg != null and offUrlImg != ''" >
+				offurlimg,
+			</if>
+			<if test="description != null and description != ''" >
+				description,
+			</if>
+			<if test="sdId != null" >
+				sdid,
+			</if>
+		</trim>
+	</sql>
+	<sql id="insertAllValue">
+		<trim suffixOverrides=",">
+			<if test="area != null and area != ''" >
+				#{area},
+			</if>
+			<if test="sensor != null and sensor != ''" >
+				#{sensor},
+			</if>
+			<if test="startTime != null and startTime != ''" >
+				#{startTime},
+			</if>
+			<if test="endTime != null and endTime != ''" >
+				#{endTime},
+			</if>
+			<if test="status != null" >
+				#{status},
+			</if>
+			<if test="openUrlImg != null and openUrlImg != ''" >
+				#{openUrlImg},
+			</if>
+			<if test="offUrlImg != null and offUrlImg != ''" >
+				#{offUrlImg},
+			</if>
+			<if test="description != null and description != ''" >
+				#{description},
+			</if>
+			<if test="sdId != null" >
+				#{sdId},
+			</if>
+		</trim>
+	</sql>
+	<sql id="updateAllValue">
+		<trim suffixOverrides=",">
+			<if test="area != null and area != ''" >
+				area = #{area,jdbcType=VARCHAR},
+			</if>
+			<if test="sensor != null and sensor != ''" >
+				sensor = #{sensor,jdbcType=VARCHAR},
+			</if>
+			<if test="startTime != null and startTime != ''" >
+				starttime = #{startTime,jdbcType=VARCHAR},
+			</if>
+			<if test="endTime != null and endTime != ''" >
+				endtime = #{endTime,jdbcType=VARCHAR},
+			</if>
+			<if test="status != null" >
+				status = #{status,jdbcType=INTEGER},
+			</if>
+			<if test="openUrlImg != null and openUrlImg != ''" >
+				openurlimg = #{openUrlImg,jdbcType=VARCHAR},
+			</if>
+			<if test="offUrlImg != null and offUrlImg != ''" >
+				offurlimg = #{offUrlImg,jdbcType=VARCHAR},
+			</if>
+			<if test="description != null and description != ''" >
+				description = #{description,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</sql>
+    <sql id="whereAllValue">
+        <where>
+            <if test='area != null and area != "" and area != "a" ' >
+                AND g.area = #{area}
+            </if>
+			<if test='sensor != null and sensor != "" and sensor != "s" ' >
+				AND g.sensor = #{sensor}
+			</if>
+			<if test="status != null and status != -1" >
+				AND g.status = #{status}
+			</if>
+			<if test="startTime != null and startTime != ''">
+				AND g.endtime &gt;= #{startTime}
+			</if>
+			<if test="endTime != null and endTime != ''">
+				AND g.endtime &lt;= #{endTime}
+			</if>
+			<if test="id != null and id != -1" >
+				AND g.id = #{id}
+			</if>
+			<if test="sdId != null and sdId != -1" >
+				AND g.sdid = #{sdId}
+			</if>
+			ORDER BY
+			g.id DESC
+			<if test='end != null and end != -1'>
+				LIMIT #{start},#{end}
+			</if>
+        </where>
+    </sql>
+	<sql id="whereFullNameAllValue">
+		<where>
+			<if test='area != null and area != "" and area != "a" ' >
+				AND g.area = #{area}
+			</if>
+			<if test='sensor != null and sensor != "" and sensor != "s" ' >
+				AND g.sensor = #{sensor}
+			</if>
+			<if test="status != null and status != -1" >
+				AND g.status = #{status}
+			</if>
+			<if test="startTime != null and startTime != ''">
+				AND g.endtime &gt;= #{startTime}
+			</if>
+			<if test="endTime != null and endTime != ''">
+				AND g.endtime &lt;= #{endTime}
+			</if>
+			<if test="id != null and id != -1" >
+				AND g.id = #{id}
+			</if>
+			<if test="sdId != null and sdId != -1" >
+				AND g.sdid = #{sdId}
+			</if>
+		</where>
+	</sql>
+	<!-- 查找所有食材记录条数 start -->
+	<select id="findGasSwitchAlertTotal" resultType="java.lang.Integer">
+		SELECT
+			COUNT(g.id)
+		FROM
+		gasswitchalert g
+		<include refid="whereAllValue"/>
+	</select>
+	<!-- 查找所有食材记录条数 end -->
+	<!-- 查找所有食材记录 start -->
+	<select id="findGasSwitchAlertList" resultType="java.util.Map">
+		SELECT
+			<include refid="selectAllKey"/>
+		FROM
+		gasswitchalert g
+		<include refid="whereAllValue"/>
+	</select>
+	<!-- 查找所有食材记录 end -->
+
+	<!-- 查找所有记录(打印用) 返回值是实体类 -->
+	<!--<select id="findManagementSystem" resultType="java.util.Map">
+		SELECT
+		<include refid="selectPrintAllKey"/>
+		FROM
+		managementsystem m
+		<include refid="whereAllValue"/>
+	</select>-->
+	<!-- 查找所有记录(打印用) 返回值是实体类 end -->
+
+	<!-- 查找单个 start -->
+	<select id="findGasSwitchAlert" resultType="java.util.Map">
+		SELECT
+		<include refid="selectAllKey"/>
+		FROM
+		gasswitchalert g
+		<include refid="whereFullNameAllValue"/>
+	</select>
+	<!-- 查找单个 end -->
+
+	<select id="findGasSwitchAlertFullNameTotal" resultType="java.lang.Integer">
+		SELECT
+			COUNT(g.id)
+		FROM
+		gasswitchalert g
+		<include refid="whereFullNameAllValue"/>
+	</select>
+	<!-- 查找所有食材记录条数 end -->
+
+	<select id="findMaxId" resultType="java.lang.Integer">
+		SELECT
+			MAX(g.id)
+		FROM
+		gasswitchalert g
+		<include refid="whereFullNameAllValue"/>
+	</select>
+
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		DELETE FROM gasswitchalert
+        WHERE id = #{id,jdbcType=INTEGER} and sdid = #{sdId,jdbcType=INTEGER}
+	</delete>
+	<insert id="insertSelective" useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO gasswitchalert(<include refid="insertAllKey"/>) VALUES(<include refid="insertAllValue"/>);
+	</insert>
+	<update id="updateByPrimaryKey">
+		UPDATE gasswitchalert
+		<set>
+			<include refid="updateAllValue"/>
+		</set>
+		WHERE id = #{id,jdbcType=INTEGER} and sdid = #{sdId,jdbcType=INTEGER}
+	</update>
+</mapper>

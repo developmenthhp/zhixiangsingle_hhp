@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.zhixiangsingle.dao.temperature.TemperatureMapper">
+	<sql id="Base_Column_List">
+		id, temperature_area temperatureArea, temperature_val temperatureVal, humidity_val humidityVal,
+		 temperature_sensor temperatureSensor, time, stat, sdid sdId
+	</sql>
+	<sql id="selectPrintAllKey">
+		<trim suffixOverrides=",">
+			<if test="id != null" >
+				t.id,
+			</if>
+			<if test="temperatureArea != null and temperatureArea != ''" >
+				IFNULL(t.temperature_area,"-") temperatureArea,
+			</if>
+			<if test="temperatureVal != null and temperatureVal != ''" >
+				IFNULL(t.temperature_val,'-') temperatureVal,
+			</if>
+			<if test="humidityVal != null and humidityVal != ''" >
+				IFNULL(t.humidity_val,'-') humidityVal,
+			</if>
+			<if test="temperatureSensor != null and temperatureSensor != ''" >
+				IFNULL(t.temperature_sensor,'-') temperatureSensor,
+			</if>
+			<if test="time != null and time != ''" >
+				t.time,
+			</if>
+			<if test="stat != null" >
+				t.stat,
+			</if>
+			<if test="sdId != null" >
+				t.sdid sdId,
+			</if>
+			<if test="siteName != null and siteName != ''" >
+				#{siteName} siteName,
+			</if>
+			<if test="sitePhoto != null and sitePhoto != ''" >
+				#{sitePhoto} sitePhoto,
+			</if>
+			<if test="picturePrefix != null and picturePrefix != ''" >
+				#{picturePrefix} picturePrefix,
+			</if>
+		</trim>
+	</sql>
+    <sql id="selectAllKey">
+        <trim suffixOverrides=",">
+			<if test="id != null" >
+				t.id,
+			</if>
+			<if test="temperatureArea != null and temperatureArea != ''" >
+				IFNULL(t.temperature_area,"-") temperatureArea,
+			</if>
+			<if test="temperatureVal != null and temperatureVal != ''" >
+				IFNULL(t.temperature_val,'-') temperatureVal,
+			</if>
+			<if test="humidityVal != null and humidityVal != ''" >
+				IFNULL(t.humidity_val,'-') humidityVal,
+			</if>
+			<if test="temperatureSensor != null and temperatureSensor != ''" >
+				IFNULL(t.temperature_sensor,'-') temperatureSensor,
+			</if>
+			<if test="time != null and time != ''" >
+				t.time,
+			</if>
+			<if test="stat != null" >
+				t.stat,
+			</if>
+			<if test="sdId != null" >
+				t.sdid sdId,
+			</if>
+			<if test="siteName != null and siteName != ''" >
+				#{siteName} siteName,
+			</if>
+			<if test="sitePhoto != null and sitePhoto != ''" >
+				#{sitePhoto} sitePhoto,
+			</if>
+			<if test="picturePrefix != null and picturePrefix != ''" >
+				#{picturePrefix} picturePrefix,
+			</if>
+        </trim>
+    </sql>
+	<sql id="insertAllKey">
+		<trim suffixOverrides=",">
+			<if test="temperatureArea != null and temperatureArea != ''" >
+				temperature_area,
+			</if>
+			<if test="temperatureVal != null and temperatureVal != ''" >
+				temperature_val,
+			</if>
+			<if test="humidityVal != null and humidityVal != ''" >
+				humidity_val,
+			</if>
+			<if test="temperatureSensor != null and temperatureSensor != ''" >
+				temperature_sensor,
+			</if>
+			<if test="time != null and time != ''" >
+				time,
+			</if>
+			<if test="stat != null" >
+				stat,
+			</if>
+			<if test="sdId != null" >
+				sdid,
+			</if>
+		</trim>
+	</sql>
+	<sql id="insertAllValue">
+		<trim suffixOverrides=",">
+			<if test="temperatureArea != null and temperatureArea != ''" >
+				#{temperatureArea},
+			</if>
+			<if test="temperatureVal != null and temperatureVal != ''" >
+				#{temperatureVal},
+			</if>
+			<if test="humidityVal != null and humidityVal != ''" >
+				#{humidityVal},
+			</if>
+			<if test="temperatureSensor != null and temperatureSensor != ''" >
+				#{temperatureSensor},
+			</if>
+			<if test="time != null and time != ''" >
+				#{time},
+			</if>
+			<if test="stat != null" >
+				#{stat},
+			</if>
+			<if test="sdId != null" >
+				#{sdId},
+			</if>
+		</trim>
+	</sql>
+	<sql id="updateAllValue">
+		<trim suffixOverrides=",">
+			<if test="temperatureArea != null and temperatureArea != ''" >
+				temperature_area = #{temperatureArea,jdbcType=VARCHAR},
+			</if>
+			<if test="temperatureVal != null and temperatureVal != ''" >
+				temperature_val = #{temperatureVal,jdbcType=VARCHAR},
+			</if>
+			<if test="humidityVal != null and humidityVal != ''" >
+				humidity_val = #{humidityVal,jdbcType=VARCHAR},
+			</if>
+			<if test="temperatureSensor != null and temperatureSensor != ''" >
+				temperature_sensor = #{temperatureSensor,jdbcType=VARCHAR},
+			</if>
+			<if test="time != null and time != ''" >
+				time = #{time,jdbcType=VARCHAR},
+			</if>
+			<if test="stat != null" >
+				stat = #{stat,jdbcType=INTEGER},
+			</if>
+		</trim>
+	</sql>
+    <sql id="whereAllValue">
+        <where>
+            <if test='temperatureArea != null and temperatureArea != "" and temperatureArea != "t" ' >
+                AND t.temperature_area = #{temperatureArea}
+            </if>
+			<if test='temperatureSensor != null and temperatureSensor != "" and temperatureSensor != "t" ' >
+				AND t.temperature_sensor = #{temperatureSensor}
+			</if>
+			<if test="stat != null and stat != -1" >
+				AND t.stat = #{stat}
+			</if>
+			<if test="startTime != null and startTime != ''">
+				AND t.time &gt;= #{startTime}
+			</if>
+			<if test="endTime != null and endTime != ''">
+				AND t.time &lt;= #{endTime}
+			</if>
+			<if test="id != null and id != -1" >
+				AND t.id = #{id}
+			</if>
+			<if test="sdId != null and sdId != -1" >
+				AND t.sdid = #{sdId}
+			</if>
+			ORDER BY
+			t.id DESC
+			<if test='end != null and end != -1'>
+				LIMIT #{start},#{end}
+			</if>
+        </where>
+    </sql>
+	<sql id="whereFullNameAllValue">
+		<where>
+			<if test='temperatureArea != null and temperatureArea != "" and temperatureArea != "t" ' >
+				AND t.temperature_area = #{temperatureArea}
+			</if>
+			<if test='temperatureSensor != null and temperatureSensor != "" and temperatureSensor != "t" ' >
+				AND t.temperature_sensor = #{temperatureSensor}
+			</if>
+			<if test="stat != null and stat != -1" >
+				AND t.stat = #{stat}
+			</if>
+			<if test="startTime != null and startTime != ''">
+				AND t.time &gt;= #{startTime}
+			</if>
+			<if test="endTime != null and endTime != ''">
+				AND t.time &lt;= #{endTime}
+			</if>
+			<if test="id != null and id != -1" >
+				AND t.id = #{id}
+			</if>
+			<if test="sdId != null and sdId != -1" >
+				AND t.sdid = #{sdId}
+			</if>
+		</where>
+	</sql>
+	<!-- 查找所有食材记录条数 start -->
+	<select id="findTemperatureTotal" resultType="java.lang.Integer">
+		SELECT
+			COUNT(t.id)
+		FROM
+		temperature_data t
+		<include refid="whereAllValue"/>
+	</select>
+	<!-- 查找所有食材记录条数 end -->
+	<!-- 查找所有食材记录 start -->
+	<select id="findTemperatureList" resultType="java.util.Map">
+		SELECT
+			<include refid="selectAllKey"/>
+		FROM
+		temperature_data t
+		<include refid="whereAllValue"/>
+	</select>
+	<!-- 查找所有食材记录 end -->
+
+	<!-- 查找所有记录(打印用) 返回值是实体类 -->
+	<!--<select id="findManagementSystem" resultType="java.util.Map">
+		SELECT
+		<include refid="selectPrintAllKey"/>
+		FROM
+		managementsystem m
+		<include refid="whereAllValue"/>
+	</select>-->
+	<!-- 查找所有记录(打印用) 返回值是实体类 end -->
+
+	<!-- 查找单个 start -->
+	<select id="findTemperature" resultType="java.util.Map">
+		SELECT
+		<include refid="selectAllKey"/>
+		FROM
+		temperature_data t
+		<include refid="whereFullNameAllValue"/>
+	</select>
+	<!-- 查找单个 end -->
+
+	<select id="findTemperatureFullNameTotal" resultType="java.lang.Integer">
+		SELECT
+			COUNT(t.id)
+		FROM
+		temperature_data t
+		<include refid="whereFullNameAllValue"/>
+	</select>
+	<!-- 查找所有食材记录条数 end -->
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		DELETE FROM temperature_data
+        WHERE id = #{id,jdbcType=INTEGER} and sdid = #{sdId,jdbcType=INTEGER}
+	</delete>
+	<insert id="insertSelective" useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO temperature_data(<include refid="insertAllKey"/>) VALUES(<include refid="insertAllValue"/>);
+	</insert>
+	<update id="updateByPrimaryKey">
+		UPDATE temperature_data
+		<set>
+			<include refid="updateAllValue"/>
+		</set>
+		WHERE id = #{id,jdbcType=INTEGER} and sdid = #{sdId,jdbcType=INTEGER}
+	</update>
+</mapper>

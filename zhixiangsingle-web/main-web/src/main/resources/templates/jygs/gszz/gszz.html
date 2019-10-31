@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>智飨科技食品餐饮安全网管理后台</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="智飨科技-食品餐饮安全网 " />
+    <meta name="author" content="hhp" />
+    <meta name="keyword" content="智能化餐饮,智飨科技,物联网,食品安全,智能厨房,家宴,餐饮标准化管理" />
+    <link rel="icon" href="../images/logo1.png" type="image/x-icon"/>
+    <script src="../../../js/common/css/commonCss.js" type="text/javascript"></script>
+    <link href="../../../css/userList/userList.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="skin-blue">
+<script src="../js/common/head.js" type="text/javascript"></script>
+<div class="wrapper row-offcanvas row-offcanvas-left">
+    <script src="../js/common/leftNav.js" type="text/javascript"></script>
+    <div class="copyrights">
+        Collect from <a href='http://www.zhixiangyun.cn/'  title='智飨科技'>智飨科技</a>
+        <span id='teShiro' style='display:none'><shiro:principal property='userName'></shiro:principal></span>
+        <span id='teShiro2' style='display:none'><shiro:principal property='insertTime'></shiro:principal></span>
+        <div style='display:none;' id='currentUser'><shiro:principal property='id'></shiro:principal></div>
+        <div style='display:none;' id='currentUserSdId'><shiro:principal property='sdId'></shiro:principal></div>
+        <div style='display:none;' id='currentUserIsZX'><shiro:principal property='zx'></shiro:principal></div>
+        <div style='display:none;' id='currentUserProfession'><shiro:principal property='profession'></shiro:principal></div>
+    </div>
+    <aside class="right-side" id="main">
+        <script src="../js/common/message/message.js" type="text/javascript"></script>
+        <section class="col-lg-12 connectedSortable">
+            <!-- 隐藏式搜索 -->
+            <svg class="hidden">
+                <defs>
+                    <symbol id="icon-search">
+                        <title>search</title><!-- 这个是search-->
+                        <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                    </symbol>
+                    <symbol id="icon-cross">
+                        <title>cross</title><!-- 这个是x-->
+                        <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                    </symbol>
+                </defs>
+            </svg>
+            <main>
+
+                <div class="search" style="overflow-y: scroll;">
+                    <div class="search__inner" style="height: 100%;">
+                        <form class="search__form" id="scjcxxSearchForm">
+                            <input id="alertSdId" type="hidden" name="sdIds"/>
+                            <input id="ingSdId" type="hidden" name="ingSdId"/>
+                            <!--<div class="input-group">
+
+                            </div>-->
+                            <select id="userSites" name="clas" multiple>
+
+                            </select>
+
+                            <div class="box-tools input-group" style="top: 2em;width:100%;" >
+                                <button type="button" class="btn btn-alt btn-sm btn-flat" style="text-align: center;" onclick="reloadMyDateTable()">
+                                    <i class="iconfont iconmagnifiersearch" data-toggle="tooltip" title="搜索" style="color:blue;font-size: 1.3em;cursor: pointer;"></i>
+                                </button>
+                            </div>
+
+                        </form>
+                    </div><!-- /search__inner -->
+                </div><!-- /search -->
+            </main><!-- /main-wrap -->
+            <!-- 隐藏式搜索 -->
+
+            <!-- /jQuery 弹幕样式消息 -->
+            <div class="box box-primary">
+                <div class="box-header">
+                    <span class="box-title" style="font-size: 1.5em;" >公司证照管理</span>
+                    <div class="pull-right box-tools">
+                        <button id="btn-search" class="btn btn-alt btn-sm" data-toggle="tooltip" title="搜索" onclick="showOpenColor()"><i class="iconfont iconzhinengsousuo" style="font-size: 1em;"></i></button>
+                        <button id="btn-search-close" class="btn btn-alt btn-sm btn--search-close btn--hidden" style="z-index: 9999999;" onclick="setOpenColor()"><i class="iconfont iconjibing" style="font-size: 1em;"></i></button>
+
+                        <!--<button class="btn btn-alt btn-sm refresh-btn" data-toggle="tooltip" title="导出食材信息" onclick="exportSingle(null)"><i class="iconfont iconexport1" style="font-size: 1em;"></i></button>-->
+                        <button class="btn btn-alt btn-sm refresh-btn" data-toggle="tooltip" title="重新加载" onclick="loadUserList()"><i class="fa fa-refresh"></i></button>
+                        <button class="btn btn-alt btn-sm" data-widget='collapse' data-toggle="tooltip" title="隐藏"><i class="fa fa-minus"></i></button>
+                        <button class="btn btn-alt btn-sm" data-widget='remove' data-toggle="tooltip" title="关闭"><i class="fa fa-times"></i></button>
+                    </div><!-- /. tools -->
+                </div><!-- /.box-header -->
+                <div class="box-body no-padding main-wrap">
+                    <table id="sort" class="my-table">
+                        <tbody id="userListUl">
+                        </tbody>
+                    </table>
+                </div><!-- /.box-body -->
+                <div class="box-footer clearfix no-border">
+                    <div style="height: 2em;"></div>
+                    <button class="btn btn-alt pull-right" onclick="befShowBusAddMod()" style="margin-top: -2.3em;" data-toggle="tooltip" title="提交营业执照"><i class="iconfont icontianjia2" style="font-weight: bold;color: blue;"></i></button>
+                    <button class="btn btn-alt pull-right" onclick="befShowLicAddMod()" style="margin-top: -2.3em;" data-toggle="tooltip" title="提交餐饮许可证"><i class="iconfont icontianjia2" style="font-weight: bold;color: blue;"></i></button>
+                    <button class="btn btn-alt pull-right" onclick="befShowCirAddMod()" style="margin-top: -2.3em;" data-toggle="tooltip" title="提交食品流通证"><i class="iconfont icontianjia2" style="font-weight: bold;color: blue;"></i></button>
+                </div>
+
+            </div><!-- 站点角色列表 -->
+        </section>
+    </aside><!-- /.right-side -->
+</div><!-- ./wrapper -->
+
+<!-- COMPOSE MESSAGE MODAL -->
+<div class="modal fade" id="bus-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 id="chgBusTitle" class="modal-title"></h4>
+            </div>
+            <form id="busForm" action="#" method="post" onsubmit="return showRequest()">
+                <input id="busId" type="hidden" name="id"/>
+                <input id="busIconImg" type="hidden" name="path">
+                <input id="busSdId" type="hidden" name="sdId">
+                <input id="busSdIds" type="hidden" name="sdIds">
+                <div class="modal-body">
+                    <div class="up-img-cover" style="width:100%;text-align: center;">
+                        <img class="am-circle myImgFirst" src="../../images/2.jpg" onclick="showMyCropperImgModel(0)" style="display: none;width: 8em;height:70px;margin: 0 auto;border-radius: 0;transform: translateY(-4%);"/>
+                        <i id="up-img-touch" onclick="showMyCropperImgModel(0)" class="iconfont iconVRtupian myImgSecond" style="font-size: 6em;line-height: 110px;"></i>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon" style="letter-spacing: 0.487em;">注册号:</span>
+                            <input id="registration" name="registration" type="text" class="form-control validate[required,maxSize[25],custom[onlyLetterNumber]]" data-errormessage-value-missing="必填" data-errormessage-custom-error="只接受数字、英文字母" data-errormessage-range-overflow="最多25位" placeholder="注册号(必填)">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">法定代表人:</span>
+                            <input id="legalRepresentative" name="legalRepresentative" type="text" class="form-control validate[required,custom[chineseEng],maxSize[40]]" data-errormessage-value-missing="必填" data-errormessage-custom-error="只接受中文或字母" data-errormessage-range-overflow="最多40位" placeholder="法定代表人(必填)">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon" style="letter-spacing: 0.2em;">注册资本:</span>
+                            <input id="registeredCapital" name="registeredCapital" type="text" class="form-control validate[required,maxSize[11],custom[chineseEngNumFloat]" data-errormessage-value-missing="必填" data-errormessage-custom-error="只接受中文、字母、2位小数" data-errormessage-range-overflow="最多11位" placeholder="注册资本(必填)">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon" style="letter-spacing: 0.2em;">公司名称:</span>
+                            <input id="companyName" name="companyName" type="text" class="form-control validate[required,maxSize[200]]" data-errormessage-value-missing="必填" data-errormessage-range-overflow="最多200位" placeholder="公司名称(必填)">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon" style="letter-spacing: 1em;">地址:</span>
+                            <input id="address" name="address" type="text" class="form-control validate[required,maxSize[255]]" data-errormessage-value-missing="必填" data-errormessage-range-overflow="最多255位" placeholder="地址(必填)">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon" style="letter-spacing: 0.2em;">营业期限:</span>
+                            <input id="deadline" name="deadline" type="text" class="form-control validate[required]" data-errormessage-value-missing="必填" placeholder="营业期限(必填)">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon" style="letter-spacing: 0.2em;">预警期限:</span>
+                            <input id="earlyWarningTime" name="earlyWarningTime" type="text" class="form-control validate[required,custom[date]]" data-errormessage-value-missing="必填" data-errormessage-custom-error="无效的日期，格式必需为 YYYY-MM-DD" placeholder="预警期限(必填)">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon" style="letter-spacing: 0.2em;">经营范围:</span>
+                            <textarea name="businessScope" id="businessScope" class="form-control validate[required,maxSize[255]]" data-errormessage-value-missing="必填" data-errormessage-range-overflow="最多255位" placeholder="经营范围(必填)" style="height: 120px;"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon" style="letter-spacing: 0.2em;">主体类型:</span>
+                            <input id="mainTypes" name="mainTypes" type="text" class="form-control validate[required,maxSize[120]]" data-errormessage-value-missing="必填" data-errormessage-range-overflow="最多120位" placeholder="主体类型(必填)">
+                        </div>
+                    </div>
+                    <div id="form-group-sdId" class="form-group" style="display: none;">
+                        <div class="input-group">
+                            <span class="input-group-addon" style="letter-spacing: 1em;">试点:</span>
+                            <select id="selectSites" name="clase" multiple class="validate[required]" data-errormessage-value-missing="必填">
+
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer clearfix">
+
+                    <button type="button" class="btn btn-danger" onclick="myBusResetForm()"><i class="fa fa-eraser"></i>&nbsp;重置</button>
+
+                    <button type="submit" class="btn btn-primary pull-left"><i class="fa fa-mail-forward"></i>&nbsp;立即提交</button>
+                </div>
+            </form>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div class="modal fade" id="lic-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 id="chgLicTitle" class="modal-title"></h4>
+            </div>
+            <form id="licForm" action="#" method="post" onsubmit="return showRequest()">
+                <input id="licId" type="hidden" name="id"/>
+                <input id="licIconImg" type="hidden" name="licenceImg">
+                <input id="licSdId" type="hidden" name="sdId">
+                <input id="licSdIds" type="hidden" name="sdIds">
+                <div class="modal-body">
+                    <div class="up-img-cover" style="width:100%;text-align: center;">
+                        <img class="am-circle myImgFirst" src="../../images/2.jpg" onclick="showMyCropperImgModel(1)" style="display: none;width: 8em;height:70px;margin: 0 auto;border-radius: 0;transform: translateY(-4%);"/>
+                        <i id="up-img-touch2" onclick="showMyCropperImgModel(1)" class="iconfont iconVRtupian myImgSecond" style="font-size: 6em;line-height: 110px;"></i>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon" style="letter-spacing: 0.2em;">单位名称:</span>
+                            <input id="name" name="name" type="text" class="form-control validate[required,maxSize[16],custom[chineseEngNum]]" data-errormessage-value-missing="必填" data-errormessage-custom-error="只接受中文、英文字母、数字" data-errormessage-range-overflow="最多16位" placeholder="单位名称(必填)">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">法定代表人:</span>
+                            <input id="representative" name="representative" type="text" class="form-control validate[required,custom[chineseEngNum],maxSize[7]]" data-errormessage-value-missing="必填" data-errormessage-custom-error="只接受中文、英文字母、数字" data-errormessage-range-overflow="最多7位" placeholder="法定代表人(必填)">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon" style="letter-spacing: 0.2em;">有效期限:</span>
+                            <input id="validTime" name="validTime" type="text" class="form-control validate[required]" data-errormessage-value-missing="必填" placeholder="有效期限(必填)">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon" style="letter-spacing: 0.2em;">预警期限:</span>
+                            <input id="warningDate" name="warningDate" type="text" class="form-control validate[required,maxSize[11],custom[date]]" data-errormessage-value-missing="必填" data-errormessage-range-overflow="最多11位" data-errormessage-custom-error="无效的日期，格式必需为 YYYY-MM-DD" placeholder="预警期限">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon" style="letter-spacing: 1em;">编号:</span>
+                            <input id="serialNumber" name="serialNumber" type="text" class="form-control validate[required,maxSize[20],custom[onlyLetterNumber]]" data-errormessage-value-missing="必填" data-errormessage-custom-error="只接受数字、英文字母" data-errormessage-range-overflow="最多20位" placeholder="编号(必填)">
+                        </div>
+                    </div>
+                    <div id="form-group-sdId2" class="form-group" style="display: none;">
+                        <div class="input-group">
+                            <span class="input-group-addon" style="letter-spacing: 1em;">试点:</span>
+                            <select id="selectSites2" name="clase2" multiple class="validate[required]" data-errormessage-value-missing="必填">
+
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer clearfix">
+
+                    <button type="button" class="btn btn-danger" onclick="myLicResetForm()"><i class="fa fa-eraser"></i>&nbsp;重置</button>
+
+                    <button type="submit" class="btn btn-primary pull-left"><i class="fa fa-mail-forward"></i>&nbsp;立即提交</button>
+                </div>
+            </form>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div class="modal fade" id="cir-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 id="chgCirTitle" class="modal-title"></h4>
+            </div>
+            <form id="cirForm" action="#" method="post" onsubmit="return showRequest()">
+                <input id="cirId" type="hidden" name="id"/>
+                <input id="cirIconImg" type="hidden" name="circulationCardImg">
+                <input id="cirSdId" type="hidden" name="sdId">
+                <input id="cirSdIds" type="hidden" name="sdIds">
+                <div class="modal-body">
+                    <div class="up-img-cover" style="width:100%;text-align: center;">
+                        <img class="am-circle myImgFirst" src="../../images/2.jpg" onclick="showMyCropperImgModel(2)" style="display: none;width: 8em;height:70px;margin: 0 auto;border-radius: 0;transform: translateY(-4%);"/>
+                        <i id="up-img-touch3" onclick="showMyCropperImgModel(2)" class="iconfont iconVRtupian myImgSecond" style="font-size: 6em;line-height: 110px;"></i>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon" style="letter-spacing: 0.2em;">单位名称:</span>
+                            <input id="nameCir" name="name" type="text" class="form-control validate[required,maxSize[16],custom[chineseEngNum]]" data-errormessage-value-missing="必填" data-errormessage-custom-error="只接受中文、英文字母、数字" data-errormessage-range-overflow="最多16位" placeholder="单位名称(必填)">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">法定代表人:</span>
+                            <input id="representativeCir" name="representative" type="text" class="form-control validate[required,custom[chineseEngNum],maxSize[7]]" data-errormessage-value-missing="必填" data-errormessage-custom-error="只接受中文、英文字母、数字" data-errormessage-range-overflow="最多7位" placeholder="法定代表人(必填)">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon" style="letter-spacing: 0.2em;">有效期限:</span>
+                            <input id="validTimeCir" name="validTime" type="text" class="form-control validate[required]" data-errormessage-value-missing="必填" placeholder="有效期限(必填)">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon" style="letter-spacing: 0.2em;">预警期限:</span>
+                            <input id="warningDateCir" name="warningDate" type="text" class="form-control validate[required,maxSize[11],custom[date]]" data-errormessage-value-missing="必填" data-errormessage-range-overflow="最多11位" data-errormessage-custom-error="无效的日期，格式必需为 YYYY-MM-DD" placeholder="预警期限(必填)">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon" style="letter-spacing: 1em;">编号:</span>
+                            <input id="serialNumberCir" name="serialNumber" type="text" class="form-control validate[required,maxSize[20],custom[onlyLetterNumber]]" data-errormessage-value-missing="必填" data-errormessage-custom-error="只接受数字、英文字母" data-errormessage-range-overflow="最多20位" placeholder="编号(必填)">
+                        </div>
+                    </div>
+                    <div id="form-group-sdId3" class="form-group" style="display: none;">
+                        <div class="input-group">
+                            <span class="input-group-addon" style="letter-spacing: 1em;">试点:</span>
+                            <select id="selectSites3" name="clase3" multiple class="validate[required]" data-errormessage-value-missing="必填">
+
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer clearfix">
+
+                    <button type="button" class="btn btn-danger" onclick="myCirResetForm()"><i class="fa fa-eraser"></i>&nbsp;重置</button>
+
+                    <button type="submit" class="btn btn-primary pull-left"><i class="fa fa-mail-forward"></i>&nbsp;立即提交</button>
+                </div>
+            </form>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div class="am-modal am-modal-no-btn up-modal-frame modal fade" tabindex="-1" role="dialog" aria-hidden="true" id="up-modal-frame">
+    <div class="am-modal-dialog up-frame-parent up-frame-radius modal-content">
+        <div class="modal-body am-modal-bd  up-frame-body">
+            <div class="am-modal-hd up-frame-header">
+                <label>上传图片</label>
+                <button type="button" class="close am-close am-close-spin" data-am-modal-close data-dismiss="modal" aria-hidden="true">&times;</button>
+                <!--<i class="am-close am-close-spin" data-am-modal-close>&times;</i>-->
+            </div>
+            <div class="am-g am-fl">
+                <div class="am-form-group am-form-file">
+                    <div class="am-fl">
+                        <button type="button" class="am-btn am-btn-default am-btn-sm btn-alt" style="color:#FFFFFF">
+                            <i class="am-icon-cloud-upload"></i> 选择要上传的文件</button>
+                    </div>
+                    <input type="file" class="up-img-file">
+                </div>
+            </div>
+            <div class="am-g am-fl">
+                <div class="up-pre-before up-frame-radius">
+                    <img alt="" src="" class="up-img-show" id="up-img-show">
+                </div>
+                <div class="up-pre-after up-frame-radius">
+                </div>
+            </div>
+            <div class="am-g am-fl">
+                <div class="up-control-btns">
+                    <span class="am-icon-rotate-left" id="up-btn-left"></span>
+                    <span class="am-icon-rotate-right" id="up-btn-right"></span>
+                    <span class="am-icon-check up-btn-ok" url="/uploadOCRImg" parameter="{width:'200',height:'200'}"></span>
+                </div>
+            </div>
+        </div>
+    </div><!-- /.modal-content --><!-- /.modal-dialog -->
+</div>
+
+<script src="../../../js/common/hideSearch_noInput.js" type="text/javascript"></script>
+<script src="../../../js/common/js/commonJs.js" type="text/javascript"></script>
+<script src="../../../js/jygs/gszz/gszz.js" type="text/javascript"></script>
+</body>
+</html>

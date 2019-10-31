@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.zhixiangsingle.dao.profession.ProfessionMapper" >
+  <resultMap id="BaseResultMap" type="cn.zhixiangsingle.entity.base.job.Profession" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="sdid" property="sdId" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, name, sdid
+  </sql>
+  <!-- 定义sql片段，且唯一 动态查询 start -->
+  <sql id="selectAllKey">
+    <trim suffixOverrides=",">
+      <if test="id != null" >
+        p.id,
+      </if>
+      <if test="name != null and name != ''" >
+        p.name,
+      </if>
+      <if test="sdId != null" >
+        p.sdid sdId,
+      </if>
+    </trim>
+  </sql>
+  <!-- 定义sql片段，且唯一 动态查询 end -->
+
+  <!-- 定义sql片段，且唯一 动态insert start -->
+  <sql id="insertAllKey">
+    <trim suffixOverrides=",">
+      <if test="name != null and name != ''" >
+        name,
+      </if>
+      <if test="sdId != null" >
+        sdid,
+      </if>
+    </trim>
+  </sql>
+  <!-- 定义sql片段，且唯一 动态insert end -->
+
+  <!-- 定义sql片段，且唯一 value值 start -->
+  <sql id="insertAllValue">
+    <trim suffixOverrides=",">
+      <if test="name != null and name != ''" >
+        #{name},
+      </if>
+      <if test="sdId != null" >
+        #{sdId},
+      </if>
+    </trim>
+  </sql>
+  <!-- 定义sql片段，且唯一 value值 end -->
+
+  <!-- 定义更新sql片段，且唯一 value值 start -->
+  <sql id="updateAllValue">
+    <trim suffixOverrides=",">
+      <if test="name != null and name != ''" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="sdId != null" >
+        sdid = #{sdId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </sql>
+  <!-- 定义更新sql片段，且唯一 value值 end -->
+
+  <!-- 定义条件查询sql片段，且唯一 value值 start -->
+  <sql id="whereAllValue">
+    <where>
+      <if test="id != null and id != -1" >
+        AND id = #{id}
+      </if>
+      <if test="sdId != null and sdId != -1" >
+        AND sdid = #{sdId,jdbcType=INTEGER}
+      </if>
+    </where>
+  </sql>
+  <!-- 定义条件查询sql片段，且唯一 value值 end -->
+
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap">
+    SELECT
+    <include refid="selectAllKey" />
+    FROM profession p
+    <include refid="whereAllValue"/>
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    DELETE FROM profession
+    WHERE id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insertSelective" useGeneratedKeys="true" keyProperty="id">
+    INSERT INTO profession(<include refid="insertAllKey"/>) VALUES(<include refid="insertAllValue"/>);
+  </insert>
+  <update id="updateByPrimaryKeySelective" >
+    UPDATE profession
+    <set >
+      <include refid="updateAllValue"/>
+    </set>
+    WHERE id = #{id,jdbcType=INTEGER}
+  </update>
+
+</mapper>

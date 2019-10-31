@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.zhixiangsingle.dao.supplier.IngredientSupplierMapper">
+	<sql id="Base_Column_List">
+		id, suppliername supplierName,principalname principalName,prompttime promptTime,principaltel principalTel,
+		 suppadress suppAdress,deletestatus deleteStatus,foundtime foundTime,supdocumentphoto supDocumentPhoto,
+		 sdid sdId,violationcount violationCount,expiretime expireTime,registrationnumber registrationNumber
+	</sql>
+    <sql id="selectAllKey">
+        <trim suffixOverrides=",">
+			<if test="id != null" >
+				isu.id,
+			</if>
+            <if test="supplierName != null and supplierName != ''" >
+				isu.suppliername supplierName,
+            </if>
+			<if test="principalName != null and principalName != ''" >
+				isu.principalname principalName,
+			</if>
+			<if test="promptTime != null and promptTime != ''" >
+				isu.prompttime promptTime,
+			</if>
+			<if test="principalTel != null and principalTel != ''" >
+				isu.principaltel supplierName,
+			</if>
+			<if test="suppAdress != null and suppAdress != ''" >
+				isu.suppadress suppAdress,
+			</if>
+			<if test="deleteStatus != null and deleteStatus != ''" >
+				isu.deletestatus deleteStatus,
+			</if>
+			<if test="foundTime != null and foundTime != ''" >
+				isu.foundtime foundTime,
+			</if>
+			<if test="supDocumentPhoto != null and supDocumentPhoto != ''" >
+				isu.supdocumentphoto supDocumentPhoto,
+			</if>
+            <if test="sdId != null" >
+				isu.sdid sdId,
+            </if>
+			<if test="violationCount != null and violationCount != ''" >
+				isu.violationcount violationCount,
+			</if>
+			<if test="expireTime != null and expireTime != ''" >
+				isu.expiretime expireTime,
+			</if>
+			<if test="registrationNumber != null and registrationNumber != ''" >
+				isu.registrationnumber registrationNumber,
+			</if>
+			<if test="siteName != null and siteName != ''" >
+				#{siteName} siteName,
+			</if>
+			<if test="sitePhoto != null and sitePhoto != ''" >
+				#{sitePhoto} sitePhoto,
+			</if>
+			<if test="picturePrefix != null and picturePrefix != ''" >
+				#{picturePrefix} picturePrefix,
+			</if>
+        </trim>
+    </sql>
+	<sql id="insertAllKey">
+		<trim suffixOverrides=",">
+			<if test="supplierName != null and supplierName != ''" >
+				suppliername,
+			</if>
+			<if test="principalName != null and principalName != ''" >
+				principalname,
+			</if>
+			<if test="promptTime != null and promptTime != ''" >
+				prompttime,
+			</if>
+			<if test="principalTel != null and principalTel != ''" >
+				principaltel,
+			</if>
+			<if test="suppAdress != null and suppAdress != ''" >
+				suppadress,
+			</if>
+			<if test="deleteStatus != null and deleteStatus != ''" >
+				deletestatus,
+			</if>
+			<if test="foundTime != null and foundTime != ''" >
+				foundtime,
+			</if>
+			<if test="supDocumentPhoto != null and supDocumentPhoto != ''" >
+				supdocumentphoto,
+			</if>
+			<if test="sdId != null" >
+				sdid,
+			</if>
+			<if test="violationCount != null and violationCount != ''" >
+				violationcount,
+			</if>
+			<if test="expireTime != null and expireTime != ''" >
+			  	expiretime,
+			</if>
+			<if test="registrationNumber != null and registrationNumber != ''" >
+				registrationnumber,
+			</if>
+		</trim>
+	</sql>
+	<sql id="insertAllValue">
+		<trim suffixOverrides=",">
+			<if test="supplierName != null and supplierName != ''" >
+				#{supplierName},
+			</if>
+			<if test="principalName != null and principalName != ''" >
+				#{principalName},
+			</if>
+			<if test="promptTime != null and promptTime != ''" >
+				#{promptTime},
+			</if>
+			<if test="principalTel != null and principalTel != ''" >
+				#{principalTel},
+			</if>
+			<if test="suppAdress != null and suppAdress != ''" >
+				#{suppAdress},
+			</if>
+			<if test="deleteStatus != null and deleteStatus != ''" >
+				#{deleteStatus},
+			</if>
+			<if test="foundTime != null and foundTime != ''" >
+				#{foundTime},
+			</if>
+			<if test="supDocumentPhoto != null and supDocumentPhoto != ''" >
+				#{supDocumentPhoto},
+			</if>
+			<if test="sdId != null" >
+				#{sdId},
+			</if>
+			<if test="violationCount != null and violationCount != ''" >
+				#{violationCount},
+			</if>
+			<if test="expireTime != null and expireTime != ''" >
+				#{expireTime},
+			</if>
+			<if test="registrationNumber != null and registrationNumber != ''" >
+				#{registrationNumber},
+			</if>
+		</trim>
+	</sql>
+	<sql id="updateAllValue">
+		<trim suffixOverrides=",">
+			<if test="supplierName != null and supplierName != ''" >
+				suppliername = #{supplierName,jdbcType=VARCHAR},
+			</if>
+			<if test="principalName != null and principalName != ''" >
+				principalname = #{principalName,jdbcType=VARCHAR},
+			</if>
+			<if test="promptTime != null and promptTime != ''" >
+				prompttime = #{promptTime,jdbcType=VARCHAR},
+			</if>
+			<if test="principalTel != null and principalTel != ''" >
+				principaltel = #{principalTel,jdbcType=VARCHAR},
+			</if>
+			<if test="suppAdress != null and suppAdress != ''" >
+				suppadress = #{suppAdress,jdbcType=VARCHAR},
+			</if>
+			<if test="deleteStatus != null and deleteStatus != ''" >
+				deletestatus = #{deleteStatus,jdbcType=VARCHAR},
+			</if>
+			<if test="foundTime != null and foundTime != ''" >
+				foundtime = #{foundTime,jdbcType=VARCHAR},
+			</if>
+			<if test="supDocumentPhoto != null and supDocumentPhoto != ''" >
+				supdocumentphoto = #{supDocumentPhoto,jdbcType=VARCHAR},
+			</if>
+			<if test="sdId != null" >
+				sdid = #{sdId,jdbcType=INTEGER},
+			</if>
+			<if test="violationCount != null and violationCount != ''" >
+				violationcount = #{violationCount,jdbcType=VARCHAR},
+			</if>
+			<if test="expireTime != null and expireTime != ''" >
+				expiretime = #{expireTime,jdbcType=VARCHAR},
+			</if>
+			<if test="registrationNumber != null and registrationNumber != ''" >
+				registrationnumber = #{registrationNumber,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</sql>
+    <sql id="whereAllValue">
+        <where>
+            <if test='supplierName != null and supplierName != "" and supplierName != "s" ' >
+                AND isu.suppliername like CONCAT('%', #{supplierName} , '%')
+            </if>
+			<if test="id != null and id != -1" >
+				AND isu.id = #{id}
+			</if>
+			<if test="sdId != null and sdId != -1" >
+				AND isu.sdid = #{sdId}
+			</if>
+            <if test='deleteStatus != null and deleteStatus != "" and deleteStatus !="d"' >
+                AND isu.deletestatus = #{deleteStatus}
+            </if>
+        </where>
+		ORDER BY
+		isu.id DESC
+		<if test='start != null and start != -1' >
+			LIMIT #{start},#{end}
+		</if>
+    </sql>
+	<!-- 查找所有分类记录条数 start -->
+	<select id="findCategoryBaseTotal" resultType="java.lang.Integer">
+		SELECT
+			COUNT(isu.id)
+		FROM
+			ingredientsupp isu
+		<include refid="whereAllValue"/>
+	</select>
+	<!-- 查找所有分类记录条数 end -->
+	<!-- 查找所有食材记录 start -->
+	<select id="findIngredientSupplierList" resultType="java.util.Map">
+		SELECT
+			<include refid="selectAllKey"/>
+		FROM
+			ingredientsupp isu
+		<include refid="whereAllValue"/>
+	</select>
+	<!-- 查找所有食材记录 end -->
+
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		DELETE FROM ingredientsupp
+        WHERE id = #{id,jdbcType=INTEGER}
+	</delete>
+	<insert id="insertSelective" useGeneratedKeys="true" keyProperty="id" parameterType="cn.zhixiangsingle.entity.base.user.User">
+		INSERT INTO ingredientsupp(<include refid="insertAllKey"/>) VALUES(<include refid="insertAllValue"/>);
+	</insert>
+	<update id="updateByPrimaryKey" parameterType="cn.zhixiangsingle.entity.base.user.User">
+		UPDATE ingredientsupp
+		<set >
+			<include refid="updateAllValue"/>
+		</set>
+		WHERE id = #{id,jdbcType=INTEGER}
+	</update>
+</mapper>

@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.zhixiangsingle.dao.slipperyBase.SlipperyBaseMapper">
+	<sql id="Base_Column_List">
+		id, slippery_area slipperyArea, slippery_sensor slipperySensor, slippery_water slipperyWater,
+		 status, sdid sdId
+	</sql>
+	<sql id="selectPrintAllKey">
+		<trim suffixOverrides=",">
+			<if test="id != null" >
+				s.id,
+			</if>
+			<if test="slipperyArea != null and slipperyArea != ''" >
+				IFNULL(s.slippery_area,"-") slipperyArea,
+			</if>
+			<if test="slipperySensor != null and slipperySensor != ''" >
+				IFNULL(s.slippery_sensor,'-') slipperySensor,
+			</if>
+			<if test="slipperyWater != null and slipperyWater != ''" >
+				IFNULL(s.slippery_water,'-') slipperyWater,
+			</if>
+			<if test="status != null and status != ''" >
+				IFNULL(s.status,'-') status,
+			</if>
+			<if test="sdId != null" >
+				s.sdid sdId,
+			</if>
+			<if test="siteName != null and siteName != ''" >
+				#{siteName} siteName,
+			</if>
+			<if test="sitePhoto != null and sitePhoto != ''" >
+				#{sitePhoto} sitePhoto,
+			</if>
+			<if test="picturePrefix != null and picturePrefix != ''" >
+				#{picturePrefix} picturePrefix,
+			</if>
+		</trim>
+	</sql>
+    <sql id="selectAllKey">
+        <trim suffixOverrides=",">
+			<if test="id != null" >
+				s.id,
+			</if>
+			<if test="slipperyArea != null and slipperyArea != ''" >
+				IFNULL(s.slippery_area,null) slipperyArea,
+			</if>
+			<if test="slipperySensor != null and slipperySensor != ''" >
+				IFNULL(s.slippery_sensor,null) slipperySensor,
+			</if>
+			<if test="slipperyWater != null and slipperyWater != ''" >
+				IFNULL(s.slippery_water,null) slipperyWater,
+			</if>
+			<if test="status != null and status != ''" >
+				IFNULL(s.status,null) status,
+			</if>
+			<if test="sdId != null" >
+				s.sdid sdId,
+			</if>
+			<if test="siteName != null and siteName != ''" >
+				#{siteName} siteName,
+			</if>
+			<if test="sitePhoto != null and sitePhoto != ''" >
+				#{sitePhoto} sitePhoto,
+			</if>
+			<if test="picturePrefix != null and picturePrefix != ''" >
+				#{picturePrefix} picturePrefix,
+			</if>
+        </trim>
+    </sql>
+	<sql id="insertAllKey">
+		<trim suffixOverrides=",">
+			<if test="slipperyArea != null and slipperyArea != ''" >
+				slippery_area,
+			</if>
+			<if test="slipperySensor != null and slipperySensor != ''" >
+				slippery_sensor,
+			</if>
+			<if test="slipperyWater != null and slipperyWater != ''" >
+				slippery_water,
+			</if>
+			<if test="status != null and status != ''" >
+				status,
+			</if>
+			<if test="sdId != null" >
+				sdid,
+			</if>
+		</trim>
+	</sql>
+	<sql id="insertAllValue">
+		<trim suffixOverrides=",">
+			<if test="slipperyArea != null and slipperyArea != ''" >
+				#{slipperyArea},
+			</if>
+			<if test="slipperySensor != null and slipperySensor != ''" >
+				#{slipperySensor},
+			</if>
+			<if test="slipperyWater != null and slipperyWater != ''" >
+				#{slipperyWater},
+			</if>
+			<if test="status != null and status != ''" >
+				#{status},
+			</if>
+			<if test="sdId != null" >
+				#{sdId},
+			</if>
+		</trim>
+	</sql>
+	<sql id="updateAllValue">
+		<trim suffixOverrides=",">
+			<if test="slipperyArea != null and slipperyArea != ''" >
+				slippery_area = #{slipperyArea,jdbcType=VARCHAR},
+			</if>
+			<if test="slipperySensor != null and slipperySensor != ''" >
+				slippery_sensor = #{slipperySensor,jdbcType=VARCHAR},
+			</if>
+			<if test="slipperyWater != null and slipperyWater != ''" >
+				slippery_water = #{slipperyWater,jdbcType=VARCHAR},
+			</if>
+			<if test="status != null and status != ''" >
+				status = #{status,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</sql>
+    <sql id="whereAllValue">
+        <where>
+            <if test='slipperyArea != null and slipperyArea != "" and slipperyArea != "s" ' >
+                AND s.slippery_area = #{slipperyArea}
+            </if>
+			<if test='slipperySensor != null and slipperySensor != "" and slipperySensor != "s" ' >
+				AND s.slippery_sensor = #{slipperySensor}
+			</if>
+			<if test="status != null and status != -1" >
+				AND s.status = #{status}
+			</if>
+			<if test="id != null and id != -1" >
+				AND s.id = #{id}
+			</if>
+			<if test="sdId != null and sdId != -1" >
+				AND s.sdid = #{sdId}
+			</if>
+			ORDER BY
+			s.id DESC
+			<if test='end != null and end != -1'>
+				LIMIT #{start},#{end}
+			</if>
+        </where>
+    </sql>
+	<sql id="whereFullNameAllValue">
+		<where>
+			<if test='slipperyArea != null and slipperyArea != "" and slipperyArea != "s" ' >
+				AND s.slippery_area = #{slipperyArea}
+			</if>
+			<if test='slipperySensor != null and slipperySensor != "" and slipperySensor != "s" ' >
+				AND s.slippery_sensor = #{slipperySensor}
+			</if>
+			<if test="status != null and status != -1" >
+				AND s.status = #{status}
+			</if>
+			<if test="id != null and id != -1" >
+				AND s.id = #{id}
+			</if>
+			<if test="sdId != null and sdId != -1" >
+				AND s.sdid = #{sdId}
+			</if>
+		</where>
+	</sql>
+	<!-- 查找所有食材记录条数 start -->
+	<select id="findSlipperyBaseTotal" resultType="java.lang.Integer">
+		SELECT
+			COUNT(s.id)
+		FROM
+		slippery_base s
+		<include refid="whereAllValue"/>
+	</select>
+	<!-- 查找所有食材记录条数 end -->
+	<!-- 查找所有食材记录 start -->
+	<select id="findSlipperyBaseList" resultType="java.util.Map">
+		SELECT
+			<include refid="selectAllKey"/>
+		FROM
+		slippery_base s
+		<include refid="whereAllValue"/>
+	</select>
+	<!-- 查找所有食材记录 end -->
+
+	<!-- 查找所有记录(打印用) 返回值是实体类 -->
+	<!--<select id="findManagementSystem" resultType="java.util.Map">
+		SELECT
+		<include refid="selectPrintAllKey"/>
+		FROM
+		managementsystem m
+		<include refid="whereAllValue"/>
+	</select>-->
+	<!-- 查找所有记录(打印用) 返回值是实体类 end -->
+
+	<!-- 查找单个 start -->
+	<select id="findSlipperyBase" resultType="java.util.Map">
+		SELECT
+		<include refid="selectAllKey"/>
+		FROM
+		slippery_base s
+		<include refid="whereFullNameAllValue"/>
+	</select>
+	<!-- 查找单个 end -->
+
+	<select id="findSlipperyBaseFullNameTotal" resultType="java.lang.Integer">
+		SELECT
+			COUNT(s.id)
+		FROM
+		slippery_base s
+		<include refid="whereFullNameAllValue"/>
+	</select>
+	<!-- 查找所有食材记录条数 end -->
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		DELETE FROM slippery_base
+        WHERE id = #{id,jdbcType=INTEGER} and sdid = #{sdId,jdbcType=INTEGER}
+	</delete>
+	<insert id="insertSelective" useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO slippery_base(<include refid="insertAllKey"/>) VALUES(<include refid="insertAllValue"/>);
+	</insert>
+	<update id="updateByPrimaryKey">
+		UPDATE slippery_base
+		<set>
+			<include refid="updateAllValue"/>
+		</set>
+		WHERE id = #{id,jdbcType=INTEGER} and sdid = #{sdId,jdbcType=INTEGER}
+	</update>
+</mapper>

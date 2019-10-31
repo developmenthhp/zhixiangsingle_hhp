@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN" monitorInterval="30">
+    <Properties>
+        <Property name="instance">zhixiangsingle</Property>
+        <Property name="log.dir">\log\Weblogs</Property>
+    </Properties>
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <ThresholdFilter level="debug" onMatch="ACCEPT" onMismatch="NEUTRAL"/>
+            <PatternLayout
+                    pattern="[%date{yyyy-MM-dd HH:mm:ss.SSS}][%thread][%level][%class][%line]:%message%n"/>
+        </Console>
+        <RollingRandomAccessFile name="infoLog"
+                                 fileName="${log.dir}/${instance}-info.log"
+                                 filePattern="${log.dir}/%d{yyyy-MM}/${instance}-info-%d{yyyy-MM-dd}-%i.log.gz"
+                                 append="true">
+            <PatternLayout
+                    pattern="[%date{yyyy-MM-dd HH:mm:ss.SSS}][%thread][%level][%class][%line]:%message%n"/>
+            <Filters>
+                <ThresholdFilter level="info" onMatch="ACCEPT"
+                                 onMismatch="DENY"/>
+            </Filters>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1"
+                                           modulate="true"/>
+                <SizeBasedTriggeringPolicy size="200MB"/>
+            </Policies>
+            <DefaultRolloverStrategy>
+                <Delete basePath="${log.dir}" maxDepth="2">
+                    <IfFileName glob="*/wyait-*.log.gz"/>
+                    <IfLastModified age="90D"/>
+                </Delete>
+            </DefaultRolloverStrategy>
+        </RollingRandomAccessFile>
+
+        <RollingRandomAccessFile name="warnLog"
+                                 fileName="${log.dir}/${instance}-warn.log"
+                                 filePattern="${log.dir}/%d{yyyy-MM}/${instance}-warn-%d{yyyy-MM-dd}-%i.log.gz"
+                                 append="true">
+            <Filters>
+                <ThresholdFilter level="error" onMatch="DENY"
+                                 onMismatch="NEUTRAL"/>
+                <ThresholdFilter level="warn" onMatch="ACCEPT"
+                                 onMismatch="DENY"/>
+            </Filters>
+            <PatternLayout
+                    pattern="[%date{yyyy-MM-dd HH:mm:ss.SSS}][%thread][%level][%class][%line]:%message%n"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1"
+                                           modulate="true"/>
+                <SizeBasedTriggeringPolicy size="200MB"/>
+            </Policies>
+        </RollingRandomAccessFile>
+
+        <!-- error级别的日志信息 -->
+        <RollingRandomAccessFile name="errorLog"
+                                 fileName="${log.dir}/${instance}-error.log"
+                                 filePattern="${log.dir}/%d{yyyy-MM}/${instance}-error-%d{yyyy-MM-dd}-%i.log.gz"
+                                 append="true">
+            <Filters>
+                <ThresholdFilter level="ERROR" onMatch="ACCEPT"
+                                 onMismatch="DENY"/>
+            </Filters>
+            <PatternLayout
+                    pattern="[%date{yyyy-MM-dd HH:mm:ss.SSS}][%thread][%level][%class][%line]:%message%n"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1"
+                                           modulate="true"/>
+                <SizeBasedTriggeringPolicy size="200MB"/>
+            </Policies>
+        </RollingRandomAccessFile>
+    </Appenders>
+    <Loggers>
+        <logger name="org.springframework" level="info" additivity="true">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="infoLog"/>
+            <AppenderRef ref="warnLog"/>
+            <AppenderRef ref="errorLog"/>
+        </logger>
+        <logger name="java.sql.PreparedStatement" level="debug"
+                additivity="true">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="infoLog"/>
+        </logger>
+        <Root level="debug" includeLocation="true">
+            <AppenderRef ref="infoLog"/>
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="errorLog"/>
+        </Root>
+    </Loggers>
+</Configuration>
+

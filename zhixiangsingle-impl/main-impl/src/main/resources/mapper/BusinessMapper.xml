@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.zhixiangsingle.dao.business.BusinessMapper">
+	<sql id="Base_Column_List">
+		id, registration, legalrepresentative legalRepresentative, registeredcapital registeredCapital, companyname companyName,
+		address,deadline,businessscope businessScope,maintypes mainTypes,path,accountid accountId,earlywarningtime earlyWarningTime,
+		licenceimg licenceImg,sdid sdId,circulationcardimg circulationCardImg
+	</sql>
+	<sql id="selectPrintAllKey">
+		<trim suffixOverrides=",">
+			<if test="id != null" >
+				b.id,
+			</if>
+			<if test="registration != null and registration != ''" >
+				IFNULL(b.registration,'-') registration,
+			</if>
+			<if test="legalRepresentative != null and legalRepresentative != ''" >
+				IFNULL(b.legalrepresentative,'-') legalRepresentative,
+			</if>
+			<if test="registeredCapital != null and registeredCapital !=''" >
+				IFNULL(b.registeredcapital,'-') registeredCapital,
+			</if>
+			<if test="companyName != null and companyName != ''" >
+				IFNULL(b.companyname,'-') companyName,
+			</if>
+			<if test="address != null and address != ''" >
+				b.address,
+			</if>
+			<if test="deadline != null and deadline != ''" >
+				IFNULL(b.deadline,'-') deadline,
+			</if>
+			<if test="businessScope != null and businessScope != ''" >
+				IFNULL(b.businessscope,'-') businessScope,
+			</if>
+			<if test="mainTypes != null and mainTypes != ''" >
+				b.maintypes mainTypes,
+			</if>
+			<if test="path != null and path != ''" >
+				b.path,
+			</if>
+			<if test="accountId != null and accountId != ''" >
+				b.accountid accountId,
+			</if>
+			<if test="earlyWarningTime != null and earlyWarningTime != ''" >
+				IFNULL(b.earlywarningtime,'-') earlyWarningTime,
+			</if>
+			<if test="licenceImg != null and licenceImg != ''" >
+				IFNULL(b.licenceimg,'-') licenceImg,
+			</if>
+			<if test="sdId != null" >
+				b.sdid sdId,
+			</if>
+			<if test="circulationCardImg != null and circulationCardImg != ''" >
+				b.circulationcardimg circulationCardImg,
+			</if>
+			<if test="siteName != null and siteName != ''" >
+				#{siteName} siteName,
+			</if>
+			<if test="sitePhoto != null and sitePhoto != ''" >
+				#{sitePhoto} sitePhoto,
+			</if>
+			<if test="picturePrefix != null and picturePrefix != ''" >
+				#{picturePrefix} picturePrefix,
+			</if>
+		</trim>
+	</sql>
+    <sql id="selectAllKey">
+        <trim suffixOverrides=",">
+			<if test="id != null" >
+				b.id,
+			</if>
+			<if test="registration != null and registration != ''" >
+				IFNULL(b.registration,null) registration,
+			</if>
+			<if test="legalRepresentative != null and legalRepresentative != ''" >
+				IFNULL(b.legalrepresentative,null) legalRepresentative,
+			</if>
+			<if test="registeredCapital != null and registeredCapital !=''" >
+				IFNULL(b.registeredcapital,null) registeredCapital,
+			</if>
+			<if test="companyName != null and companyName != ''" >
+				IFNULL(b.companyname,null) companyName,
+			</if>
+			<if test="address != null and address != ''" >
+				b.address,
+			</if>
+			<if test="deadline != null and deadline != ''" >
+				IFNULL(b.deadline,null) deadline,
+			</if>
+			<if test="businessScope != null and businessScope != ''" >
+				IFNULL(b.businessscope,null) businessScope,
+			</if>
+			<if test="mainTypes != null and mainTypes != ''" >
+				b.maintypes mainTypes,
+			</if>
+			<if test="path != null and path != ''" >
+				b.path,
+			</if>
+			<if test="accountId != null" >
+				b.accountid accountId,
+			</if>
+			<if test="earlyWarningTime != null and earlyWarningTime != ''" >
+				IFNULL(b.earlywarningtime,null) earlyWarningTime,
+			</if>
+			<if test="licenceImg != null and licenceImg != ''" >
+				IFNULL(b.licenceimg,null) licenceImg,
+			</if>
+			<if test="sdId != null" >
+				b.sdid sdId,
+			</if>
+			<if test="circulationCardImg != null and circulationCardImg != ''" >
+				b.circulationcardimg circulationCardImg,
+			</if>
+			<if test="siteName != null and siteName != ''" >
+				#{siteName} siteName,
+			</if>
+			<if test="sitePhoto != null and sitePhoto != ''" >
+				#{sitePhoto} sitePhoto,
+			</if>
+			<if test="picturePrefix != null and picturePrefix != ''" >
+				#{picturePrefix} picturePrefix,
+			</if>
+        </trim>
+    </sql>
+	<sql id="insertAllKey">
+		<trim suffixOverrides=",">
+			<if test="registration != null and registration != ''" >
+				registration,
+			</if>
+			<if test="legalRepresentative != null and legalRepresentative != ''" >
+			  	legalrepresentative,
+			</if>
+			<if test="registeredCapital != null and registeredCapital !=''" >
+				registeredcapital,
+			</if>
+			<if test="companyName != null and companyName != ''" >
+				companyname,
+			</if>
+			<if test="address != null and address != ''" >
+				address,
+			</if>
+			<if test="deadline != null and deadline != ''" >
+				deadline,
+			</if>
+			<if test="businessScope != null and businessScope != ''" >
+				businessscope,
+			</if>
+			<if test="mainTypes != null and mainTypes != ''" >
+				maintypes,
+			</if>
+			<if test="path != null and path != ''" >
+				path,
+			</if>
+			<if test="accountId != null" >
+				accountid,
+			</if>
+			<if test="earlyWarningTime != null and earlyWarningTime != ''" >
+				earlywarningtime,
+			</if>
+			<if test="licenceImg != null and licenceImg != ''" >
+				licenceimg,
+			</if>
+			<if test="sdId != null" >
+				sdid,
+			</if>
+			<if test="circulationCardImg != null and circulationCardImg != ''" >
+				circulationcardimg,
+			</if>
+		</trim>
+	</sql>
+	<sql id="insertAllValue">
+		<trim suffixOverrides=",">
+			<if test="registration != null and registration != ''" >
+				#{registration},
+			</if>
+			<if test="legalRepresentative != null and legalRepresentative != ''" >
+				#{legalRepresentative},
+			</if>
+			<if test="registeredCapital != null and registeredCapital !=''" >
+				#{registeredCapital},
+			</if>
+			<if test="companyName != null and companyName != ''" >
+				#{companyName},
+			</if>
+			<if test="address != null and address != ''" >
+				#{address},
+			</if>
+			<if test="deadline != null and deadline != ''" >
+				#{deadline},
+			</if>
+			<if test="businessScope != null and businessScope != ''" >
+				#{businessScope},
+			</if>
+			<if test="mainTypes != null and mainTypes != ''" >
+				#{mainTypes},
+			</if>
+			<if test="path != null and path != ''" >
+				#{path},
+			</if>
+			<if test="accountId != null" >
+				#{accountId},
+			</if>
+			<if test="earlyWarningTime != null and earlyWarningTime != ''" >
+				#{earlyWarningTime},
+			</if>
+			<if test="licenceImg != null and licenceImg != ''" >
+				#{licenceImg},
+			</if>
+			<if test="sdId != null" >
+				#{sdId},
+			</if>
+			<if test="circulationCardImg != null and circulationCardImg != ''" >
+				#{circulationCardImg},
+			</if>
+		</trim>
+	</sql>
+	<sql id="updateAllValue">
+		<trim suffixOverrides=",">
+			registration = #{registration,jdbcType=VARCHAR},
+			legalrepresentative = #{legalRepresentative,jdbcType=VARCHAR},
+			registeredcapital = #{registeredCapital,jdbcType=VARCHAR},
+			companyname = #{companyName,jdbcType=VARCHAR},
+			address = #{address,jdbcType=VARCHAR},
+			deadline = #{deadline,jdbcType=VARCHAR},
+			businessscope = #{businessScope,jdbcType=VARCHAR},
+			maintypes = #{mainTypes,jdbcType=VARCHAR},
+			earlywarningtime = #{earlyWarningTime,jdbcType=VARCHAR},
+			path = #{path,jdbcType=VARCHAR},
+			<if test="accountId != null" >
+				accountid = #{legalRepresentative,jdbcType=INTEGER},
+			</if>
+			<if test="licenceImg != null and licenceImg != ''" >
+				licenceimg = #{licenceImg,jdbcType=VARCHAR},
+			</if>
+			<if test="sdId != null" >
+				sdid = #{sdId,jdbcType=INTEGER},
+			</if>
+			<if test="circulationCardImg != null and circulationCardImg != ''" >
+				circulationcardimg = #{circulationCardImg,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</sql>
+    <sql id="whereAllValue">
+        <where>
+			<if test="accountId != null and accountId != -1" >
+				AND b.accountid = #{accountId}
+			</if>
+			<if test="id != null and id != -1" >
+				AND b.id = #{id}
+			</if>
+			<if test="sdId != null and sdId != -1" >
+				AND b.sdid = #{sdId}
+			</if>
+			<if test='end != null and end != -1'>
+				LIMIT #{start},#{end}
+			</if>
+        </where>
+    </sql>
+	<!-- 查找所有食材记录条数 start -->
+	<select id="findIngredientBaseTotal" resultType="java.lang.Integer">
+		SELECT
+			COUNT(b.id)
+		FROM
+			business b
+		<include refid="whereAllValue"/>
+	</select>
+	<!-- 查找所有食材记录条数 end -->
+	<!-- 查找所有食材记录 start -->
+	<select id="findIngredientBaseList" resultType="java.util.Map">
+		SELECT
+			<include refid="selectAllKey"/>
+		FROM
+			business b
+		<include refid="whereAllValue"/>
+	</select>
+	<!-- 查找所有食材记录 end -->
+
+	<!-- 查找所有记录(打印用) 返回值是实体类 -->
+	<select id="findAllIngredientBase" resultType="cn.zhixiangsingle.entity.business.dto.BusinessDTO">
+		SELECT
+		<include refid="selectPrintAllKey"/>
+		FROM
+			business b
+		<include refid="whereAllValue"/>
+	</select>
+	<!-- 查找所有记录(打印用) 返回值是实体类 end -->
+
+	<!-- 查找单个 start -->
+	<select id="findBusiness" resultType="java.util.Map">
+		SELECT
+		<include refid="selectAllKey"/>
+		FROM
+			business b
+		<include refid="whereAllValue"/>
+	</select>
+	<!-- 查找单个 end -->
+
+	<!-- 查找所有食材记录条数 end -->
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		DELETE FROM business
+        WHERE id = #{id,jdbcType=INTEGER} and sdid = #{sdId,jdbcType=INTEGER}
+	</delete>
+	<insert id="insertSelective" useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO business(<include refid="insertAllKey"/>) VALUES(<include refid="insertAllValue"/>);
+	</insert>
+	<update id="updateByPrimaryKey">
+		UPDATE business
+		<set>
+			<include refid="updateAllValue"/>
+		</set>
+		WHERE id = #{id,jdbcType=INTEGER} and sdid = #{sdId,jdbcType=INTEGER}
+	</update>
+</mapper>

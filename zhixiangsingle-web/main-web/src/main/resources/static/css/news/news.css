@@ -1,0 +1,48 @@
+
+.menu-w3lsgrids a {
+
+    padding-top: 0.8em;
+    padding-bottom: 0.8em;
+    text-align: left;
+    padding-left: 0.5em;
+
+
+
+}
+.aFirstSpan {
+
+    display: block;
+    width: 82%;
+
+    /* 超过隐藏 Quantitative level*/
+    overflow: hidden;
+    /* ③显示省略符号来代表被修剪的文本 */
+    text-overflow: ellipsis;
+    /* ③ nowrap 文本不会换行，文本会在同一行上继续，直到遇到<br>标签（开始换行）为止 */
+    white-space: nowrap;
+}
+
+@media (max-width:1200px){
+    .aFirstSpan {
+        width: 78%;
+    }
+}
+
+@media (max-width:992px){
+    .aFirstSpan {
+        width: 70%;
+    }
+}
+
+.aSecondSpan {
+
+    position: absolute;
+    right: 0.5em;
+
+    top: 0.8em;
+
+
+}
+
+
+

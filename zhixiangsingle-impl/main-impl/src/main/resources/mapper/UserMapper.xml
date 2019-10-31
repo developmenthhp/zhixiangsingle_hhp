@@ -1,0 +1,415 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.zhixiangsingle.dao.user.UserMapper">
+	<resultMap id="BaseResultMap" type="cn.zhixiangsingle.entity.base.user.User">
+		<id column="id" jdbcType="INTEGER" property="id" />
+		<result column="username" jdbcType="VARCHAR" property="userName" />
+		<result column="email" jdbcType="VARCHAR" property="email" />
+		<result column="password" jdbcType="VARCHAR" property="password" />
+		<result column="insert_uid" jdbcType="INTEGER" property="insertUid" />
+		<result column="insert_time" jdbcType="TIMESTAMP" property="insertTime" />
+		<result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+		<result column="job" jdbcType="BIT" property="job" />
+		<result column="profession" jdbcType="INTEGER" property="profession" />
+		<result column="zx" jdbcType="BIT" property="zx" />
+		<result column="sdid" jdbcType="INTEGER" property="sdId" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		id, username, email, password, insert_uid,
+		insert_time,
+		update_time, zx,
+		job, profession, sdid
+	</sql>
+    <!-- 定义sql片段，且唯一 动态查询 start -->
+    <sql id="selectAllKey">
+        <trim suffixOverrides=",">
+			<if test="id != null" >
+				u.id,
+			</if>
+            <if test="userName != null and userName != ''" >
+				u.username userName,
+            </if>
+            <if test="email != null and email != ''" >
+				u.email,
+            </if>
+            <if test="password != null and password != ''" >
+				u.password,
+            </if>
+            <if test="insertUid != null" >
+				u.insert_uid insertUid,
+            </if>
+            <if test="insertTime != null" >
+				u.insert_time insertTime,
+            </if>
+            <if test="updateTime != null" >
+				u.update_time updateTime,
+            </if>
+            <if test="job != null" >
+				u.job job,
+            </if>
+            <if test="profession != null" >
+				u.profession,
+            </if>
+			<if test="qsType != null" >
+				u.qstype,
+			</if>
+            <if test="zx != null" >
+				u.zx,
+            </if>
+            <if test="sdId != null" >
+				u.sdid sdId,
+            </if>
+			<if test="classes != null" >
+				u.classes,
+			</if>
+			<if test="accessCode != null and accessCode !=''">
+				u.accesscode accessCode
+			</if>
+        </trim>
+    </sql>
+    <!-- 定义sql片段，且唯一 动态查询 end -->
+
+	<!-- 定义sql片段，且唯一 动态insert start -->
+	<sql id="insertAllKey">
+		<trim suffixOverrides=",">
+			<if test="userName != null and userName != ''" >
+				username,
+			</if>
+			<if test="email != null and email != ''" >
+				email,
+			</if>
+			<if test="password != null and password != ''" >
+				password,
+			</if>
+			<if test="insertUid != null" >
+				insert_uid,
+			</if>
+			<if test="insertTime != null" >
+				insert_time,
+			</if>
+			<if test="updateTime != null" >
+				update_time,
+			</if>
+			<if test="job != null" >
+				job,
+			</if>
+			<if test="profession != null" >
+				profession,
+			</if>
+			<if test="qsType != null" >
+			    qstype,
+			</if>
+			<if test="zx != null" >
+				zx,
+			</if>
+			<if test="sdId != null" >
+				sdid,
+			</if>
+			<if test="classes != null" >
+				classes,
+			</if>
+			<if test="accessCode != null and accessCode !=''">
+				accesscode
+			</if>
+		</trim>
+	</sql>
+	<!-- 定义sql片段，且唯一 动态insert end -->
+
+	<!-- 定义sql片段，且唯一 value值 start -->
+	<sql id="insertAllValue">
+		<trim suffixOverrides=",">
+			<if test="userName != null and userName != ''" >
+				#{userName},
+			</if>
+			<if test="email != null and email != ''" >
+				#{email},
+			</if>
+			<if test="password != null and password != ''" >
+				#{password},
+			</if>
+			<if test="insertUid != null" >
+				#{insertUid},
+			</if>
+			<if test="insertTime != null" >
+				#{insertTime},
+			</if>
+			<if test="updateTime != null" >
+				#{updateTime},
+			</if>
+			<if test="job != null" >
+				#{job},
+			</if>
+			<if test="profession != null" >
+				#{profession},
+			</if>
+			<if test="qsType != null" >
+				#{qsType},
+			</if>
+			<if test="zx != null" >
+				#{zx},
+			</if>
+			<if test="sdId != null" >
+				#{sdId},
+			</if>
+			<if test="classes != null" >
+				#{classes},
+			</if>
+			<if test="accessCode != null and accessCode !=''">
+				#{accessCode},
+			</if>
+		</trim>
+	</sql>
+	<!-- 定义sql片段，且唯一 value值 end -->
+
+	<!-- 定义更新sql片段，且唯一 value值 start -->
+	<sql id="updateAllValue">
+		<trim suffixOverrides=",">
+			<if test="userName != null and userName != ''" >
+				username = #{userName,jdbcType=VARCHAR},
+			</if>
+			<if test="email != null and email != ''" >
+				email = #{email,jdbcType=VARCHAR},
+			</if>
+			<if test="password != null and password != ''" >
+				password = #{password,jdbcType=VARCHAR},
+			</if>
+			<if test="insertUid != null" >
+				insert_uid = #{insertUid,jdbcType=INTEGER},
+			</if>
+			<if test="insertTime != null" >
+				insert_time = #{insertTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="updateTime != null" >
+				update_time = #{updateTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="job != null" >
+				job = #{job,jdbcType=BIT},
+			</if>
+			<if test="profession != null" >
+				profession = #{profession,jdbcType=INTEGER},
+			</if>
+			<if test="qsType != null" >
+				qstype = #{qsType,jdbcType=INTEGER},
+			</if>
+			<if test="zx != null" >
+				zx = #{zx,jdbcType=BIT},
+			</if>
+			<if test="sdId != null" >
+				sdid = #{sdId,jdbcType=INTEGER},
+			</if>
+			<if test="classes != null" >
+				classes = #{classes,jdbcType=INTEGER},
+			</if>
+			<if test="accessCode != null and accessCode !=''">
+				accesscode = #{accessCode,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</sql>
+	<!-- 定义更新sql片段，且唯一 value值 end -->
+
+    <!-- 定义条件查询sql片段，且唯一 value值 start -->
+    <sql id="whereAllValue">
+        <where>
+            <if test="userName != null and userName != ''" >
+                AND username = #{userName,jdbcType=VARCHAR}
+            </if>
+            <if test="email != null and email != ''" >
+                AND email = #{email,jdbcType=VARCHAR}
+            </if>
+            <if test="password != null and password != ''" >
+                AND password = #{password,jdbcType=VARCHAR}
+            </if>
+            <if test="insertUid != null" >
+                AND insert_uid = #{insertUid}
+            </if>
+            <if test="insertTime != null" >
+                AND insert_time = #{insertTime}
+            </if>
+            <if test="updateTime != null" >
+                AND update_time #{updateTime}
+            </if>
+            <if test="job != null" >
+                AND job = #{job}
+            </if>
+            <if test="profession != null" >
+                AND profession = #{profession}
+            </if>
+			<if test="qsType != null" >
+				AND qstype = #{qsType},
+			</if>
+            <if test="zx != null" >
+                AND zx = #{zx}
+            </if>
+            <if test="sdId != null" >
+                AND sdid = #{sdId}
+            </if>
+			<if test="classes != null" >
+				classes = #{classes},
+			</if>
+			<if test="accessCode != null">
+				accesscode = #{accessCode},
+			</if>
+        </where>
+    </sql>
+    <!-- 定义条件查询sql片段，且唯一 value值 end -->
+
+    <select id = "selectCommon" resultMap="BaseResultMap">
+        SELECT
+        <include refid="selectAllKey"/>
+        FROM
+        user u
+        <include refid="whereAllValue"/>
+    </select>
+
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap">
+		SELECT
+        <include refid="selectAllKey"/>
+		FROM user u
+        WHERE id = #{id,jdbcType=INTEGER}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		DELETE FROM user
+        WHERE id = #{id,jdbcType=INTEGER}
+	</delete>
+	<insert id="insertSelective" useGeneratedKeys="true" keyProperty="id" parameterType="cn.zhixiangsingle.entity.base.user.User">
+		INSERT INTO user(<include refid="insertAllKey"/>) VALUES(<include refid="insertAllValue"/>);
+	</insert>
+	<update id="updateByPrimaryKey" parameterType="cn.zhixiangsingle.entity.base.user.User">
+		UPDATE user
+		<set >
+			<include refid="updateAllValue"/>
+		</set>
+		WHERE id = #{id,jdbcType=INTEGER}
+	</update>
+
+	<!--=Start getUsers 分页查询用户列表userSearch -->
+	<select id="getUsers" resultType="cn.zhixiangsingle.entity.base.userRole.dto.UserRoleDTO">
+		SELECT
+		id, username,email, insert_uid, insert_time,
+		update_time,profession,job
+		FROM user
+		<where>
+			<if test="userSearch.sdId!=null and userSearch.sdId!=''">
+				AND sdid = #{userSearch.sdId}
+			</if>
+			<if test="userSearch.uname!=null and userSearch.uname!=''">
+				AND username like CONCAT(CONCAT('%',#{userSearch.uname}),
+				'%')
+			</if>
+			<if
+				test="userSearch.insertTimeStart!=null and userSearch.insertTimeStart!=''">
+				AND insert_time &gt;= #{userSearch.insertTimeStart}
+			</if>
+			<if test="userSearch.insertTimeEnd!=null and userSearch.insertTimeEnd!=''">
+				AND insert_time &lt;= #{userSearch.insertTimeEnd}
+			</if>
+		</where>
+		ORDER BY insert_time DESC
+	</select>
+	<!--=End getUsers 分页查询用户列表 -->
+
+	<!--=Start setJobUser 设置用户是否离职 -->
+	<update id="setJobUser">
+		update user
+		set
+		job = #{job,jdbcType=INTEGER},
+		insert_uid = #{insertUid,jdbcType=INTEGER},
+		update_time=NOW()
+		where id =
+		#{id,jdbcType=INTEGER}
+	</update>
+	<!--=Start setJobUser 设置用户是否离职 -->
+
+	<!--=Start setDelUser 删除用户 -->
+	<update id="setDelUser">
+		update user
+		set
+		is_del = #{isDel,jdbcType=INTEGER},
+		insert_uid = #{insertUid,jdbcType=INTEGER},
+		update_time=NOW(),
+		version=version + 1
+		where id =
+		#{id,jdbcType=INTEGER}
+	</update>
+	<!--=Start setDelUser 删除用户 -->
+
+	<!--=Start getUserAndRoles 查询用户及他对应的角色ids -->
+	<resultMap id="getUserRoles" type="cn.zhixiangsingle.entity.base.userRole.vo.UserRolesVO">
+		<id column="id" jdbcType="INTEGER" property="id" />
+		<result column="username" jdbcType="VARCHAR" property="username" />
+		<result column="email" jdbcType="VARCHAR" property="email" />
+		<result column="insert_uid" jdbcType="INTEGER" property="insertUid" />
+		<result column="insert_time" jdbcType="TIMESTAMP" property="insertTime" />
+		<result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+		<result column="job" jdbcType="BIT" property="job" />
+		<result column="profession" jdbcType="INTEGER" property="profession" />
+		<result column="zx" jdbcType="BIT" property="zx" />
+		<result column="sdid" jdbcType="INTEGER" property="sdid" />
+		<result column="classes" jdbcType="INTEGER" property="classes" />
+		<result column="qstype" jdbcType="INTEGER" property="qsType" />
+
+		<collection property="userRoles" ofType="cn.zhixiangsingle.entity.base.userRole.UserRoleKey">
+			<result column="user_id" property="userId" />
+			<result column="role_id" property="roleId" />
+		</collection>
+
+		<collection property="userSiteRoleKeys" ofType="cn.zhixiangsingle.entity.base.userSiteRole.UserSiteRoleKey">
+			<result column="user_id" property="userId" />
+			<result column="siteRole_id" property="siteRoleId" />
+		</collection>
+
+	</resultMap>
+	<select id="getUserAndRoles" resultMap="getUserRoles">
+		select
+		u.id, u.username,u.email, u.insert_uid insertUid,u.insert_time insertTime,
+		u.update_time updateTime, u.job,u.zx,u.sdid,
+		u.classes,u.qstype qsType,u.profession,
+		ur.user_id,ur.role_id,
+		us.user_id,us.siteRole_id
+		from user u
+		LEFT JOIN user_role ur ON
+		u.id=ur.user_id
+		LEFT JOIN user_siteRole us ON
+		u.id=us.user_id
+		WHERE u.id=#{id} AND u.job=0
+	</select>
+	<!--=End getUserAndRoles 查询用户及他对应的角色ids -->
+
+	<!--=Start findUser 根据用户名和密码查找用户 -->
+	<select id="findUser" resultType="cn.zhixiangsingle.entity.base.user.User">
+		select
+		id, username, mobile,
+		email, insert_uid insertUid, insert_time
+		insertTime, update_time
+		updateTime, is_del isDel,job,mcode,send_time sendTime,version
+		from user
+		WHERE username=#{username} AND password =#{password} and
+		job=0
+	</select>
+	<!--=End findUser 根据用户名和密码查找用户 -->
+	<!--=Start findUserByMobile 根据手机号获取用户数据 -->
+	<select id="findUserByName" resultType="cn.zhixiangsingle.entity.base.user.User">
+		SELECT
+        <include refid="selectAllKey"/>
+		FROM
+          user u
+		WHERE
+        username=#{userName}
+	</select>
+
+	<!--=End findUserByName 根据用户名查找用户 -->
+	<!--=Start updatePwd 修改用户密码 -->
+	<update id="updatePwd">
+		update user
+		set
+		password = #{password},
+		update_time=NOW()
+		where id = #{id,jdbcType=INTEGER} and is_del=0 AND
+		job=0
+	</update>
+	<!--=Start updatePwd 修改用户密码 -->
+	<!--=Start setUserLockNum 锁定用户 -->
+	<!-- <update id="setUserLockNum"> update user set is_lock = #{isLock}, lock_time=NOW()
+		where id = #{id,jdbcType=INTEGER} and is_del=0 AND is_job=0 </update> -->
+	<!--=Start setUserLockNum 锁定用户 -->
+</mapper>

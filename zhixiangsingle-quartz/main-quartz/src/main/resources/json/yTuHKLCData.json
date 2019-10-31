@@ -1,0 +1,642 @@
+{
+  "22":{
+    "youTu" : {
+      "appId":"10143988",
+      "secretId":"AKID0oeHhtga5MPDl4vwV2KM9gy1oLdfqxDE",
+      "secretKey":"xhCSTEjz0lTzHK8gz3rQkqhIg2C9xb2D",
+      "endPointUrl":"https://api.youtu.qq.com/youtu/",
+      "chargePointUrl":"https://vip-api.youtu.qq.com/youtu/",
+      "tencentPointUrl":"https://youtu.api.qcloud.com/youtu/",
+      "handWritePointUrl":"https://api.youtu.qq.com/youtu/ocrapi/handwritingocr/",
+      "userId":"2287644391"
+    },
+    "haiKang" : {
+      "hkHost":"https://open.ys7.com",
+      "appKey":"9b893e70515f413c82fa209952ff08c1",
+      "appSecret":"5e3df328ee2a2cb8fbdef55ca6579a71"
+    },
+    "leCheng": {
+      "lcPort":"443",
+      "lcHost":"https://openapi.lechange.cn",
+      "appId":"lc15e2a9a5e0cc497c",
+      "secret":"4b3db280fc67483480666a65aa03e7",
+      "phone":"687f0efbc9fb4e27"
+    },
+    "mqtt": {
+      "mqHost":"tcp://121.43.35.181",
+      "mqPort":"1883",
+      "client":"zjtx_zhantingA",
+      "clientId":"zjtx_zhantingAABBCCezd5BY7X5brd",
+      "userName":"test",
+      "passWord":"test"
+    }
+  },
+  "21":{
+    "youTu" : {
+      "appId":"10143988",
+      "secretId":"AKID0oeHhtga5MPDl4vwV2KM9gy1oLdfqxDE",
+      "secretKey":"xhCSTEjz0lTzHK8gz3rQkqhIg2C9xb2D",
+      "endPointUrl":"https://api.youtu.qq.com/youtu/",
+      "chargePointUrl":"https://vip-api.youtu.qq.com/youtu/",
+      "tencentPointUrl":"https://youtu.api.qcloud.com/youtu/",
+      "handWritePointUrl":"https://api.youtu.qq.com/youtu/ocrapi/handwritingocr/",
+      "userId":"2287644391"
+    },
+    "haiKang" : {
+      "hkHost":"https://open.ys7.com",
+      "appKey":"9b893e70515f413c82fa209952ff08c1",
+      "appSecret":"5e3df328ee2a2cb8fbdef55ca6579a71"
+    },
+    "leCheng": {
+      "lcPort":"443",
+      "lcHost":"https://openapi.lechange.cn",
+      "appId":"lc15e2a9a5e0cc497c",
+      "secret":"4b3db280fc67483480666a65aa03e7",
+      "phone":"687f0efbc9fb4e27"
+    },
+    "mqtt": {
+      "mqHost":"tcp://121.43.35.181",
+      "mqPort":"1883",
+      "client":"zjtx_zhantingA",
+      "clientId":"zjtx_zhantingAABBCCezd5BY7X5brd",
+      "userName":"test",
+      "passWord":"test"
+    }
+  },
+  "23":{
+    "youTu" : {
+      "appId":"10143988",
+      "secretId":"AKID0oeHhtga5MPDl4vwV2KM9gy1oLdfqxDE",
+      "secretKey":"xhCSTEjz0lTzHK8gz3rQkqhIg2C9xb2D",
+      "endPointUrl":"https://api.youtu.qq.com/youtu/",
+      "chargePointUrl":"https://vip-api.youtu.qq.com/youtu/",
+      "tencentPointUrl":"https://youtu.api.qcloud.com/youtu/",
+      "handWritePointUrl":"https://api.youtu.qq.com/youtu/ocrapi/handwritingocr/",
+      "userId":"2287644391"
+    },
+    "haiKang" : {
+      "hkHost":"https://open.ys7.com",
+      "appKey":"9b893e70515f413c82fa209952ff08c1",
+      "appSecret":"5e3df328ee2a2cb8fbdef55ca6579a71"
+    },
+    "leCheng": {
+      "lcPort":"443",
+      "lcHost":"https://openapi.lechange.cn",
+      "appId":"lc15e2a9a5e0cc497c",
+      "secret":"4b3db280fc67483480666a65aa03e7",
+      "phone":"687f0efbc9fb4e27"
+    },
+    "mqtt": {
+      "mqHost":"tcp://121.43.35.181",
+      "mqPort":"1883",
+      "client":"zjtx_zhantingA",
+      "clientId":"zjtx_zhantingAABBCCezd5BY7X5brd",
+      "userName":"test",
+      "passWord":"test"
+    }
+  },
+  "24":{
+    "youTu" : {
+      "appId":"10143988",
+      "secretId":"AKID0oeHhtga5MPDl4vwV2KM9gy1oLdfqxDE",
+      "secretKey":"xhCSTEjz0lTzHK8gz3rQkqhIg2C9xb2D",
+      "endPointUrl":"https://api.youtu.qq.com/youtu/",
+      "chargePointUrl":"https://vip-api.youtu.qq.com/youtu/",
+      "tencentPointUrl":"https://youtu.api.qcloud.com/youtu/",
+      "handWritePointUrl":"https://api.youtu.qq.com/youtu/ocrapi/handwritingocr/",
+      "userId":"2287644391"
+    },
+    "haiKang" : {
+      "hkHost":"https://open.ys7.com",
+      "appKey":"9b893e70515f413c82fa209952ff08c1",
+      "appSecret":"5e3df328ee2a2cb8fbdef55ca6579a71"
+    },
+    "leCheng": {
+      "lcPort":"443",
+      "lcHost":"https://openapi.lechange.cn",
+      "appId":"lc15e2a9a5e0cc497c",
+      "secret":"4b3db280fc67483480666a65aa03e7",
+      "phone":"687f0efbc9fb4e27"
+    },
+    "mqtt": {
+      "mqHost":"tcp://121.43.35.181",
+      "mqPort":"1883",
+      "client":"zjtx_zhantingA",
+      "clientId":"zjtx_zhantingAABBCCezd5BY7X5brd",
+      "userName":"test",
+      "passWord":"test"
+    }
+  },
+  "25":{
+    "youTu" : {
+      "appId":"10143988",
+      "secretId":"AKID0oeHhtga5MPDl4vwV2KM9gy1oLdfqxDE",
+      "secretKey":"xhCSTEjz0lTzHK8gz3rQkqhIg2C9xb2D",
+      "endPointUrl":"https://api.youtu.qq.com/youtu/",
+      "chargePointUrl":"https://vip-api.youtu.qq.com/youtu/",
+      "tencentPointUrl":"https://youtu.api.qcloud.com/youtu/",
+      "handWritePointUrl":"https://api.youtu.qq.com/youtu/ocrapi/handwritingocr/",
+      "userId":"2287644391"
+    },
+    "haiKang" : {
+      "hkHost":"https://open.ys7.com",
+      "appKey":"9b893e70515f413c82fa209952ff08c1",
+      "appSecret":"5e3df328ee2a2cb8fbdef55ca6579a71"
+    },
+    "leCheng": {
+      "lcPort":"443",
+      "lcHost":"https://openapi.lechange.cn",
+      "appId":"lc15e2a9a5e0cc497c",
+      "secret":"4b3db280fc67483480666a65aa03e7",
+      "phone":"687f0efbc9fb4e27"
+    },
+    "mqtt": {
+      "mqHost":"tcp://121.43.35.181",
+      "mqPort":"1883",
+      "client":"zjtx_zhantingA",
+      "clientId":"zjtx_zhantingAABBCCezd5BY7X5brd",
+      "userName":"test",
+      "passWord":"test"
+    }
+  },
+  "26":{
+    "youTu" : {
+      "appId":"10143988",
+      "secretId":"AKID0oeHhtga5MPDl4vwV2KM9gy1oLdfqxDE",
+      "secretKey":"xhCSTEjz0lTzHK8gz3rQkqhIg2C9xb2D",
+      "endPointUrl":"https://api.youtu.qq.com/youtu/",
+      "chargePointUrl":"https://vip-api.youtu.qq.com/youtu/",
+      "tencentPointUrl":"https://youtu.api.qcloud.com/youtu/",
+      "handWritePointUrl":"https://api.youtu.qq.com/youtu/ocrapi/handwritingocr/",
+      "userId":"2287644391"
+    },
+    "haiKang" : {
+      "hkHost":"https://open.ys7.com",
+      "appKey":"9b893e70515f413c82fa209952ff08c1",
+      "appSecret":"5e3df328ee2a2cb8fbdef55ca6579a71"
+    },
+    "leCheng": {
+      "lcPort":"443",
+      "lcHost":"https://openapi.lechange.cn",
+      "appId":"lc15e2a9a5e0cc497c",
+      "secret":"4b3db280fc67483480666a65aa03e7",
+      "phone":"687f0efbc9fb4e27"
+    },
+    "mqtt": {
+      "mqHost":"tcp://121.43.35.181",
+      "mqPort":"1883",
+      "client":"zjtx_zhantingA",
+      "clientId":"zjtx_zhantingAABBCCezd5BY7X5brd",
+      "userName":"test",
+      "passWord":"test"
+    }
+  },
+  "27":{
+    "youTu" : {
+      "appId":"10143988",
+      "secretId":"AKID0oeHhtga5MPDl4vwV2KM9gy1oLdfqxDE",
+      "secretKey":"xhCSTEjz0lTzHK8gz3rQkqhIg2C9xb2D",
+      "endPointUrl":"https://api.youtu.qq.com/youtu/",
+      "chargePointUrl":"https://vip-api.youtu.qq.com/youtu/",
+      "tencentPointUrl":"https://youtu.api.qcloud.com/youtu/",
+      "handWritePointUrl":"https://api.youtu.qq.com/youtu/ocrapi/handwritingocr/",
+      "userId":"2287644391"
+    },
+    "haiKang" : {
+      "hkHost":"https://open.ys7.com",
+      "appKey":"9b893e70515f413c82fa209952ff08c1",
+      "appSecret":"5e3df328ee2a2cb8fbdef55ca6579a71"
+    },
+    "leCheng": {
+      "lcPort":"443",
+      "lcHost":"https://openapi.lechange.cn",
+      "appId":"lc15e2a9a5e0cc497c",
+      "secret":"4b3db280fc67483480666a65aa03e7",
+      "phone":"687f0efbc9fb4e27"
+    },
+    "mqtt": {
+      "mqHost":"tcp://121.43.35.181",
+      "mqPort":"1883",
+      "client":"zjtx_zhantingA",
+      "clientId":"zjtx_zhantingAABBCCezd5BY7X5brd",
+      "userName":"test",
+      "passWord":"test"
+    }
+  },
+  "28":{
+    "youTu" : {
+      "appId":"10143988",
+      "secretId":"AKID0oeHhtga5MPDl4vwV2KM9gy1oLdfqxDE",
+      "secretKey":"xhCSTEjz0lTzHK8gz3rQkqhIg2C9xb2D",
+      "endPointUrl":"https://api.youtu.qq.com/youtu/",
+      "chargePointUrl":"https://vip-api.youtu.qq.com/youtu/",
+      "tencentPointUrl":"https://youtu.api.qcloud.com/youtu/",
+      "handWritePointUrl":"https://api.youtu.qq.com/youtu/ocrapi/handwritingocr/",
+      "userId":"2287644391"
+    },
+    "haiKang" : {
+      "hkHost":"https://open.ys7.com",
+      "appKey":"9b893e70515f413c82fa209952ff08c1",
+      "appSecret":"5e3df328ee2a2cb8fbdef55ca6579a71"
+    },
+    "leCheng": {
+      "lcPort":"443",
+      "lcHost":"https://openapi.lechange.cn",
+      "appId":"lc15e2a9a5e0cc497c",
+      "secret":"4b3db280fc67483480666a65aa03e7",
+      "phone":"687f0efbc9fb4e27"
+    },
+    "mqtt": {
+      "mqHost":"tcp://121.43.35.181",
+      "mqPort":"1883",
+      "client":"zjtx_zhantingA",
+      "clientId":"zjtx_zhantingAABBCCezd5BY7X5brd",
+      "userName":"test",
+      "passWord":"test"
+    }
+  },
+  "29":{
+    "youTu" : {
+      "appId":"10143988",
+      "secretId":"AKID0oeHhtga5MPDl4vwV2KM9gy1oLdfqxDE",
+      "secretKey":"xhCSTEjz0lTzHK8gz3rQkqhIg2C9xb2D",
+      "endPointUrl":"https://api.youtu.qq.com/youtu/",
+      "chargePointUrl":"https://vip-api.youtu.qq.com/youtu/",
+      "tencentPointUrl":"https://youtu.api.qcloud.com/youtu/",
+      "handWritePointUrl":"https://api.youtu.qq.com/youtu/ocrapi/handwritingocr/",
+      "userId":"2287644391"
+    },
+    "haiKang" : {
+      "hkHost":"https://open.ys7.com",
+      "appKey":"9b893e70515f413c82fa209952ff08c1",
+      "appSecret":"5e3df328ee2a2cb8fbdef55ca6579a71"
+    },
+    "leCheng": {
+      "lcPort":"443",
+      "lcHost":"https://openapi.lechange.cn",
+      "appId":"lc15e2a9a5e0cc497c",
+      "secret":"4b3db280fc67483480666a65aa03e7",
+      "phone":"687f0efbc9fb4e27"
+    },
+    "mqtt": {
+      "mqHost":"tcp://121.43.35.181",
+      "mqPort":"1883",
+      "client":"zjtx_zhantingA",
+      "clientId":"zjtx_zhantingAABBCCezd5BY7X5brd",
+      "userName":"test",
+      "passWord":"test"
+    }
+  },
+  "30":{
+    "youTu" : {
+      "appId":"10143988",
+      "secretId":"AKID0oeHhtga5MPDl4vwV2KM9gy1oLdfqxDE",
+      "secretKey":"xhCSTEjz0lTzHK8gz3rQkqhIg2C9xb2D",
+      "endPointUrl":"https://api.youtu.qq.com/youtu/",
+      "chargePointUrl":"https://vip-api.youtu.qq.com/youtu/",
+      "tencentPointUrl":"https://youtu.api.qcloud.com/youtu/",
+      "handWritePointUrl":"https://api.youtu.qq.com/youtu/ocrapi/handwritingocr/",
+      "userId":"2287644391"
+    },
+    "haiKang" : {
+      "hkHost":"https://open.ys7.com",
+      "appKey":"9b893e70515f413c82fa209952ff08c1",
+      "appSecret":"5e3df328ee2a2cb8fbdef55ca6579a71"
+    },
+    "leCheng": {
+      "lcPort":"443",
+      "lcHost":"https://openapi.lechange.cn",
+      "appId":"lc15e2a9a5e0cc497c",
+      "secret":"4b3db280fc67483480666a65aa03e7",
+      "phone":"687f0efbc9fb4e27"
+    },
+    "mqtt": {
+      "mqHost":"tcp://121.43.35.181",
+      "mqPort":"1883",
+      "client":"zjtx_zhantingA",
+      "clientId":"zjtx_zhantingAABBCCezd5BY7X5brd",
+      "userName":"test",
+      "passWord":"test"
+    }
+  },
+  "31":{
+    "youTu" : {
+      "appId":"10143988",
+      "secretId":"AKID0oeHhtga5MPDl4vwV2KM9gy1oLdfqxDE",
+      "secretKey":"xhCSTEjz0lTzHK8gz3rQkqhIg2C9xb2D",
+      "endPointUrl":"https://api.youtu.qq.com/youtu/",
+      "chargePointUrl":"https://vip-api.youtu.qq.com/youtu/",
+      "tencentPointUrl":"https://youtu.api.qcloud.com/youtu/",
+      "handWritePointUrl":"https://api.youtu.qq.com/youtu/ocrapi/handwritingocr/",
+      "userId":"2287644391"
+    },
+    "haiKang" : {
+      "hkHost":"https://open.ys7.com",
+      "appKey":"9b893e70515f413c82fa209952ff08c1",
+      "appSecret":"5e3df328ee2a2cb8fbdef55ca6579a71"
+    },
+    "leCheng": {
+      "lcPort":"443",
+      "lcHost":"https://openapi.lechange.cn",
+      "appId":"lc15e2a9a5e0cc497c",
+      "secret":"4b3db280fc67483480666a65aa03e7",
+      "phone":"687f0efbc9fb4e27"
+    },
+    "mqtt": {
+      "mqHost":"tcp://121.43.35.181",
+      "mqPort":"1883",
+      "client":"zjtx_zhantingA",
+      "clientId":"zjtx_zhantingAABBCCezd5BY7X5brd",
+      "userName":"test",
+      "passWord":"test"
+    }
+  },
+  "32":{
+    "youTu" : {
+      "appId":"10143988",
+      "secretId":"AKID0oeHhtga5MPDl4vwV2KM9gy1oLdfqxDE",
+      "secretKey":"xhCSTEjz0lTzHK8gz3rQkqhIg2C9xb2D",
+      "endPointUrl":"https://api.youtu.qq.com/youtu/",
+      "chargePointUrl":"https://vip-api.youtu.qq.com/youtu/",
+      "tencentPointUrl":"https://youtu.api.qcloud.com/youtu/",
+      "handWritePointUrl":"https://api.youtu.qq.com/youtu/ocrapi/handwritingocr/",
+      "userId":"2287644391"
+    },
+    "haiKang" : {
+      "hkHost":"https://open.ys7.com",
+      "appKey":"9b893e70515f413c82fa209952ff08c1",
+      "appSecret":"5e3df328ee2a2cb8fbdef55ca6579a71"
+    },
+    "leCheng": {
+      "lcPort":"443",
+      "lcHost":"https://openapi.lechange.cn",
+      "appId":"lc15e2a9a5e0cc497c",
+      "secret":"4b3db280fc67483480666a65aa03e7",
+      "phone":"687f0efbc9fb4e27"
+    },
+    "mqtt": {
+      "mqHost":"tcp://121.43.35.181",
+      "mqPort":"1883",
+      "client":"zjtx_zhantingA",
+      "clientId":"zjtx_zhantingAABBCCezd5BY7X5brd",
+      "userName":"test",
+      "passWord":"test"
+    }
+  },
+  "33":{
+    "youTu" : {
+      "appId":"10143988",
+      "secretId":"AKID0oeHhtga5MPDl4vwV2KM9gy1oLdfqxDE",
+      "secretKey":"xhCSTEjz0lTzHK8gz3rQkqhIg2C9xb2D",
+      "endPointUrl":"https://api.youtu.qq.com/youtu/",
+      "chargePointUrl":"https://vip-api.youtu.qq.com/youtu/",
+      "tencentPointUrl":"https://youtu.api.qcloud.com/youtu/",
+      "handWritePointUrl":"https://api.youtu.qq.com/youtu/ocrapi/handwritingocr/",
+      "userId":"2287644391"
+    },
+    "haiKang" : {
+      "hkHost":"https://open.ys7.com",
+      "appKey":"9b893e70515f413c82fa209952ff08c1",
+      "appSecret":"5e3df328ee2a2cb8fbdef55ca6579a71"
+    },
+    "leCheng": {
+      "lcPort":"443",
+      "lcHost":"https://openapi.lechange.cn",
+      "appId":"lc15e2a9a5e0cc497c",
+      "secret":"4b3db280fc67483480666a65aa03e7",
+      "phone":"687f0efbc9fb4e27"
+    },
+    "mqtt": {
+      "mqHost":"tcp://121.43.35.181",
+      "mqPort":"1883",
+      "client":"zjtx_zhantingA",
+      "clientId":"zjtx_zhantingAABBCCezd5BY7X5brd",
+      "userName":"test",
+      "passWord":"test"
+    }
+  },
+  "34":{
+    "youTu" : {
+      "appId":"10143988",
+      "secretId":"AKID0oeHhtga5MPDl4vwV2KM9gy1oLdfqxDE",
+      "secretKey":"xhCSTEjz0lTzHK8gz3rQkqhIg2C9xb2D",
+      "endPointUrl":"https://api.youtu.qq.com/youtu/",
+      "chargePointUrl":"https://vip-api.youtu.qq.com/youtu/",
+      "tencentPointUrl":"https://youtu.api.qcloud.com/youtu/",
+      "handWritePointUrl":"https://api.youtu.qq.com/youtu/ocrapi/handwritingocr/",
+      "userId":"2287644391"
+    },
+    "haiKang" : {
+      "hkHost":"https://open.ys7.com",
+      "appKey":"9b893e70515f413c82fa209952ff08c1",
+      "appSecret":"5e3df328ee2a2cb8fbdef55ca6579a71"
+    },
+    "leCheng": {
+      "lcPort":"443",
+      "lcHost":"https://openapi.lechange.cn",
+      "appId":"lc15e2a9a5e0cc497c",
+      "secret":"4b3db280fc67483480666a65aa03e7",
+      "phone":"687f0efbc9fb4e27"
+    },
+    "mqtt": {
+      "mqHost":"tcp://121.43.35.181",
+      "mqPort":"1883",
+      "client":"zjtx_zhantingA",
+      "clientId":"zjtx_zhantingAABBCCezd5BY7X5brd",
+      "userName":"test",
+      "passWord":"test"
+    }
+  },
+  "35":{
+    "youTu" : {
+      "appId":"10143988",
+      "secretId":"AKID0oeHhtga5MPDl4vwV2KM9gy1oLdfqxDE",
+      "secretKey":"xhCSTEjz0lTzHK8gz3rQkqhIg2C9xb2D",
+      "endPointUrl":"https://api.youtu.qq.com/youtu/",
+      "chargePointUrl":"https://vip-api.youtu.qq.com/youtu/",
+      "tencentPointUrl":"https://youtu.api.qcloud.com/youtu/",
+      "handWritePointUrl":"https://api.youtu.qq.com/youtu/ocrapi/handwritingocr/",
+      "userId":"2287644391"
+    },
+    "haiKang" : {
+      "hkHost":"https://open.ys7.com",
+      "appKey":"9b893e70515f413c82fa209952ff08c1",
+      "appSecret":"5e3df328ee2a2cb8fbdef55ca6579a71"
+    },
+    "leCheng": {
+      "lcPort":"443",
+      "lcHost":"https://openapi.lechange.cn",
+      "appId":"lc15e2a9a5e0cc497c",
+      "secret":"4b3db280fc67483480666a65aa03e7",
+      "phone":"687f0efbc9fb4e27"
+    },
+    "mqtt": {
+      "mqHost":"tcp://121.43.35.181",
+      "mqPort":"1883",
+      "client":"zjtx_zhantingA",
+      "clientId":"zjtx_zhantingAABBCCezd5BY7X5brd",
+      "userName":"test",
+      "passWord":"test"
+    }
+  },
+  "36":{
+    "youTu" : {
+      "appId":"10143988",
+      "secretId":"AKID0oeHhtga5MPDl4vwV2KM9gy1oLdfqxDE",
+      "secretKey":"xhCSTEjz0lTzHK8gz3rQkqhIg2C9xb2D",
+      "endPointUrl":"https://api.youtu.qq.com/youtu/",
+      "chargePointUrl":"https://vip-api.youtu.qq.com/youtu/",
+      "tencentPointUrl":"https://youtu.api.qcloud.com/youtu/",
+      "handWritePointUrl":"https://api.youtu.qq.com/youtu/ocrapi/handwritingocr/",
+      "userId":"2287644391"
+    },
+    "haiKang" : {
+      "hkHost":"https://open.ys7.com",
+      "appKey":"9b893e70515f413c82fa209952ff08c1",
+      "appSecret":"5e3df328ee2a2cb8fbdef55ca6579a71"
+    },
+    "leCheng": {
+      "lcPort":"443",
+      "lcHost":"https://openapi.lechange.cn",
+      "appId":"lc15e2a9a5e0cc497c",
+      "secret":"4b3db280fc67483480666a65aa03e7",
+      "phone":"687f0efbc9fb4e27"
+    },
+    "mqtt": {
+      "mqHost":"tcp://121.43.35.181",
+      "mqPort":"1883",
+      "client":"zjtx_zhantingA",
+      "clientId":"zjtx_zhantingAABBCCezd5BY7X5brd",
+      "userName":"test",
+      "passWord":"test"
+    }
+  },
+  "37":{
+    "youTu" : {
+      "appId":"10143988",
+      "secretId":"AKID0oeHhtga5MPDl4vwV2KM9gy1oLdfqxDE",
+      "secretKey":"xhCSTEjz0lTzHK8gz3rQkqhIg2C9xb2D",
+      "endPointUrl":"https://api.youtu.qq.com/youtu/",
+      "chargePointUrl":"https://vip-api.youtu.qq.com/youtu/",
+      "tencentPointUrl":"https://youtu.api.qcloud.com/youtu/",
+      "handWritePointUrl":"https://api.youtu.qq.com/youtu/ocrapi/handwritingocr/",
+      "userId":"2287644391"
+    },
+    "haiKang" : {
+      "hkHost":"https://open.ys7.com",
+      "appKey":"9b893e70515f413c82fa209952ff08c1",
+      "appSecret":"5e3df328ee2a2cb8fbdef55ca6579a71"
+    },
+    "leCheng": {
+      "lcPort":"443",
+      "lcHost":"https://openapi.lechange.cn",
+      "appId":"lc15e2a9a5e0cc497c",
+      "secret":"4b3db280fc67483480666a65aa03e7",
+      "phone":"687f0efbc9fb4e27"
+    },
+    "mqtt": {
+      "mqHost":"tcp://121.43.35.181",
+      "mqPort":"1883",
+      "client":"zjtx_zhantingA",
+      "clientId":"zjtx_zhantingAABBCCezd5BY7X5brd",
+      "userName":"test",
+      "passWord":"test"
+    }
+  },
+  "38":{
+    "youTu" : {
+      "appId":"10143988",
+      "secretId":"AKID0oeHhtga5MPDl4vwV2KM9gy1oLdfqxDE",
+      "secretKey":"xhCSTEjz0lTzHK8gz3rQkqhIg2C9xb2D",
+      "endPointUrl":"https://api.youtu.qq.com/youtu/",
+      "chargePointUrl":"https://vip-api.youtu.qq.com/youtu/",
+      "tencentPointUrl":"https://youtu.api.qcloud.com/youtu/",
+      "handWritePointUrl":"https://api.youtu.qq.com/youtu/ocrapi/handwritingocr/",
+      "userId":"2287644391"
+    },
+    "haiKang" : {
+      "hkHost":"https://open.ys7.com",
+      "appKey":"9b893e70515f413c82fa209952ff08c1",
+      "appSecret":"5e3df328ee2a2cb8fbdef55ca6579a71"
+    },
+    "leCheng": {
+      "lcPort":"443",
+      "lcHost":"https://openapi.lechange.cn",
+      "appId":"lc15e2a9a5e0cc497c",
+      "secret":"4b3db280fc67483480666a65aa03e7",
+      "phone":"687f0efbc9fb4e27"
+    },
+    "mqtt": {
+      "mqHost":"tcp://121.43.35.181",
+      "mqPort":"1883",
+      "client":"zjtx_zhantingA",
+      "clientId":"zjtx_zhantingAABBCCezd5BY7X5brd",
+      "userName":"test",
+      "passWord":"test"
+    }
+  },
+  "39":{
+    "youTu" : {
+      "appId":"10143988",
+      "secretId":"AKID0oeHhtga5MPDl4vwV2KM9gy1oLdfqxDE",
+      "secretKey":"xhCSTEjz0lTzHK8gz3rQkqhIg2C9xb2D",
+      "endPointUrl":"https://api.youtu.qq.com/youtu/",
+      "chargePointUrl":"https://vip-api.youtu.qq.com/youtu/",
+      "tencentPointUrl":"https://youtu.api.qcloud.com/youtu/",
+      "handWritePointUrl":"https://api.youtu.qq.com/youtu/ocrapi/handwritingocr/",
+      "userId":"2287644391"
+    },
+    "haiKang" : {
+      "hkHost":"https://open.ys7.com",
+      "appKey":"9b893e70515f413c82fa209952ff08c1",
+      "appSecret":"5e3df328ee2a2cb8fbdef55ca6579a71"
+    },
+    "leCheng": {
+      "lcPort":"443",
+      "lcHost":"https://openapi.lechange.cn",
+      "appId":"lc15e2a9a5e0cc497c",
+      "secret":"4b3db280fc67483480666a65aa03e7",
+      "phone":"687f0efbc9fb4e27"
+    },
+    "mqtt": {
+      "mqHost":"tcp://121.43.35.181",
+      "mqPort":"1883",
+      "client":"zjtx_zhantingA",
+      "clientId":"zjtx_zhantingAABBCCezd5BY7X5brd",
+      "userName":"test",
+      "passWord":"test"
+    }
+  },
+  "40":{
+    "youTu" : {
+      "appId":"10143988",
+      "secretId":"AKID0oeHhtga5MPDl4vwV2KM9gy1oLdfqxDE",
+      "secretKey":"xhCSTEjz0lTzHK8gz3rQkqhIg2C9xb2D",
+      "endPointUrl":"https://api.youtu.qq.com/youtu/",
+      "chargePointUrl":"https://vip-api.youtu.qq.com/youtu/",
+      "tencentPointUrl":"https://youtu.api.qcloud.com/youtu/",
+      "handWritePointUrl":"https://api.youtu.qq.com/youtu/ocrapi/handwritingocr/",
+      "userId":"2287644391"
+    },
+    "haiKang" : {
+      "hkHost":"https://open.ys7.com",
+      "appKey":"9b893e70515f413c82fa209952ff08c1",
+      "appSecret":"5e3df328ee2a2cb8fbdef55ca6579a71"
+    },
+    "leCheng": {
+      "lcPort":"443",
+      "lcHost":"https://openapi.lechange.cn",
+      "appId":"lc15e2a9a5e0cc497c",
+      "secret":"4b3db280fc67483480666a65aa03e7",
+      "phone":"687f0efbc9fb4e27"
+    },
+    "mqtt": {
+      "mqHost":"tcp://121.43.35.181",
+      "mqPort":"1883",
+      "client":"zjtx_zhantingA",
+      "clientId":"zjtx_zhantingAABBCCezd5BY7X5brd",
+      "userName":"test",
+      "passWord":"test"
+    }
+  }
+}

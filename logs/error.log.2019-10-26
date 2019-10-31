@@ -1,0 +1,1296 @@
+2019-10-26-16-02 [DubboServerHandler-192.168.137.1:20881-thread-10] [com.alibaba.dubbo.rpc.filter.ExceptionFilter] [ERROR] -  [DUBBO] Got unchecked and undeclared exception which called by 192.168.137.1. service: cn.zhixiangsingle.service.purchase.scjcxx.IngredientBaseService, method: findAllIngredientBase, exception: org.springframework.jdbc.BadSqlGrammarException: 
+### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ',
+			
+            
+            
+			
+				ib.scspimgpath scspImgPath,
+			
+			
+			
+' at line 15
+### The error may exist in file [E:\hhp_zhixiang_idea_single\zhixiangsingle\zhixiangsingle-impl\main-impl\target\classes\mapper\IngredientBaseMapper.xml]
+### The error may involve defaultParameterMap
+### The error occurred while setting parameters
+### SQL: SELECT               ib.id,                      ib.ingredientname ingredientName,                               ib.meteringname meteringName,                      IFNULL((l.librarysurplus-l.libraryexpired),0) total,             w.unitprice unitPrice,,                                       ib.scspimgpath scspImgPath,                                                  ib.sdid sdId,                               ib.deletestatus deleteStatus,                                                                                                              ? siteName,             ? sitePhoto,             ? picturePrefix          FROM    ingredientbase ib                        LEFT JOIN    warehousdetails w    ON    w.ingredientid = i.id    AND    w.id = (SELECT max(id) FROM warehousdetails w2 WHERE w2.ingredientid = w.ingredientid)            LEFT JOIN    librarys l    ON l.ingredientbaseid = i.id                  WHERE  ib.ingredientname like CONCAT('%', ? , '%')                                                                     AND ib.sdid = ?                          AND ib.deletestatus = ?        ORDER BY    ib.id DESC
+### Cause: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ',
+			
+            
+            
+			
+				ib.scspimgpath scspImgPath,
+			
+			
+			
+' at line 15
+; bad SQL grammar []; nested exception is java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ',
+			
+            
+            
+			
+				ib.scspimgpath scspImgPath,
+			
+			
+			
+' at line 15, dubbo version: 2.5.5, current host: 127.0.0.1
+  org.springframework.jdbc.BadSqlGrammarException: 
+### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ',
+			
+            
+            
+			
+				ib.scspimgpath scspImgPath,
+			
+			
+			
+' at line 15
+### The error may exist in file [E:\hhp_zhixiang_idea_single\zhixiangsingle\zhixiangsingle-impl\main-impl\target\classes\mapper\IngredientBaseMapper.xml]
+### The error may involve defaultParameterMap
+### The error occurred while setting parameters
+### SQL: SELECT               ib.id,                      ib.ingredientname ingredientName,                               ib.meteringname meteringName,                      IFNULL((l.librarysurplus-l.libraryexpired),0) total,             w.unitprice unitPrice,,                                       ib.scspimgpath scspImgPath,                                                  ib.sdid sdId,                               ib.deletestatus deleteStatus,                                                                                                              ? siteName,             ? sitePhoto,             ? picturePrefix          FROM    ingredientbase ib                        LEFT JOIN    warehousdetails w    ON    w.ingredientid = i.id    AND    w.id = (SELECT max(id) FROM warehousdetails w2 WHERE w2.ingredientid = w.ingredientid)            LEFT JOIN    librarys l    ON l.ingredientbaseid = i.id                  WHERE  ib.ingredientname like CONCAT('%', ? , '%')                                                                     AND ib.sdid = ?                          AND ib.deletestatus = ?        ORDER BY    ib.id DESC
+### Cause: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ',
+			
+            
+            
+			
+				ib.scspimgpath scspImgPath,
+			
+			
+			
+' at line 15
+; bad SQL grammar []; nested exception is java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ',
+			
+            
+            
+			
+				ib.scspimgpath scspImgPath,
+			
+			
+			
+' at line 15
+	at org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.doTranslate(SQLErrorCodeSQLExceptionTranslator.java:234)
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:72)
+	at org.mybatis.spring.MyBatisExceptionTranslator.translateExceptionIfPossible(MyBatisExceptionTranslator.java:73)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:446)
+	at com.sun.proxy.$Proxy95.selectList(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.selectList(SqlSessionTemplate.java:230)
+	at org.apache.ibatis.binding.MapperMethod.executeForMany(MapperMethod.java:139)
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:76)
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:59)
+	at com.sun.proxy.$Proxy146.findIngredientBaseList(Unknown Source)
+	at cn.zhixiangsingle.impl.purchase.scjcxx.IngredientBaseServiceImpl.findAllIngredientBase(IngredientBaseServiceImpl.java:781)
+	at cn.zhixiangsingle.impl.purchase.scjcxx.IngredientBaseServiceImpl$$FastClassBySpringCGLIB$$d84a6202.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:749)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:295)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:98)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
+	at cn.zhixiangsingle.impl.purchase.scjcxx.IngredientBaseServiceImpl$$EnhancerBySpringCGLIB$$fcbed8ed.findAllIngredientBase(<generated>)
+	at com.alibaba.dubbo.common.bytecode.Wrapper18.invokeMethod(Wrapper18.java)
+	at com.alibaba.dubbo.rpc.proxy.javassist.JavassistProxyFactory$1.doInvoke(JavassistProxyFactory.java:46)
+	at com.alibaba.dubbo.rpc.proxy.AbstractProxyInvoker.invoke(AbstractProxyInvoker.java:72)
+	at com.alibaba.dubbo.rpc.protocol.InvokerWrapper.invoke(InvokerWrapper.java:53)
+	at com.alibaba.dubbo.rpc.filter.ExceptionFilter.invoke(ExceptionFilter.java:64)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:69)
+	at com.alibaba.dubbo.monitor.support.MonitorFilter.invoke(MonitorFilter.java:75)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:69)
+	at com.alibaba.dubbo.rpc.filter.TimeoutFilter.invoke(TimeoutFilter.java:42)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:69)
+	at com.alibaba.dubbo.rpc.protocol.dubbo.filter.TraceFilter.invoke(TraceFilter.java:78)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:69)
+	at com.alibaba.dubbo.rpc.filter.ContextFilter.invoke(ContextFilter.java:61)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:69)
+	at com.alibaba.dubbo.rpc.filter.GenericFilter.invoke(GenericFilter.java:132)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:69)
+	at com.alibaba.dubbo.rpc.filter.ClassLoaderFilter.invoke(ClassLoaderFilter.java:38)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:69)
+	at com.alibaba.dubbo.rpc.filter.EchoFilter.invoke(EchoFilter.java:38)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:69)
+	at com.alibaba.dubbo.rpc.protocol.dubbo.DubboProtocol$1.reply(DubboProtocol.java:102)
+	at com.alibaba.dubbo.remoting.exchange.support.header.HeaderExchangeHandler.handleRequest(HeaderExchangeHandler.java:98)
+	at com.alibaba.dubbo.remoting.exchange.support.header.HeaderExchangeHandler.received(HeaderExchangeHandler.java:170)
+	at com.alibaba.dubbo.remoting.transport.DecodeHandler.received(DecodeHandler.java:52)
+	at com.alibaba.dubbo.remoting.transport.dispatcher.ChannelEventRunnable.run(ChannelEventRunnable.java:81)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ',
+			
+            
+            
+			
+				ib.scspimgpath scspImgPath,
+			
+			
+			
+' at line 15
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:953)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:370)
+	at com.alibaba.druid.pool.DruidPooledPreparedStatement.execute(DruidPooledPreparedStatement.java:498)
+	at sun.reflect.GeneratedMethodAccessor304.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.ibatis.logging.jdbc.PreparedStatementLogger.invoke(PreparedStatementLogger.java:59)
+	at com.sun.proxy.$Proxy158.execute(Unknown Source)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.query(PreparedStatementHandler.java:63)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.query(RoutingStatementHandler.java:79)
+	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:63)
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:326)
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:156)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:109)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:83)
+	at sun.reflect.GeneratedMethodAccessor302.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.ibatis.plugin.Invocation.proceed(Invocation.java:49)
+	at com.github.pagehelper.SqlUtil._processPage(SqlUtil.java:351)
+	at com.github.pagehelper.SqlUtil.processPage(SqlUtil.java:329)
+	at com.github.pagehelper.PageHelper.intercept(PageHelper.java:150)
+	at org.apache.ibatis.plugin.Plugin.invoke(Plugin.java:61)
+	at com.sun.proxy.$Proxy156.query(Unknown Source)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:148)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:141)
+	at sun.reflect.GeneratedMethodAccessor325.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:433)
+	... 44 more
+2019-10-26-16-03 [DubboServerHandler-192.168.137.1:20881-thread-12] [com.alibaba.dubbo.rpc.filter.ExceptionFilter] [ERROR] -  [DUBBO] Got unchecked and undeclared exception which called by 192.168.137.1. service: cn.zhixiangsingle.service.purchase.scjcxx.IngredientBaseService, method: findAllIngredientBase, exception: org.springframework.jdbc.BadSqlGrammarException: 
+### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ',
+			
+            
+            
+			
+				ib.scspimgpath scspImgPath,
+			
+			
+			
+' at line 15
+### The error may exist in file [E:\hhp_zhixiang_idea_single\zhixiangsingle\zhixiangsingle-impl\main-impl\target\classes\mapper\IngredientBaseMapper.xml]
+### The error may involve defaultParameterMap
+### The error occurred while setting parameters
+### SQL: SELECT               ib.id,                      ib.ingredientname ingredientName,                               ib.meteringname meteringName,                      IFNULL((l.librarysurplus-l.libraryexpired),0) total,             w.unitprice unitPrice,,                                       ib.scspimgpath scspImgPath,                                                  ib.sdid sdId,                               ib.deletestatus deleteStatus,                                                                                                              ? siteName,             ? sitePhoto,             ? picturePrefix          FROM    ingredientbase ib                        LEFT JOIN    warehousdetails w    ON    w.ingredientid = i.id    AND    w.id = (SELECT max(id) FROM warehousdetails w2 WHERE w2.ingredientid = w.ingredientid)            LEFT JOIN    librarys l    ON l.ingredientbaseid = i.id                  WHERE  ib.ingredientname like CONCAT('%', ? , '%')                                                                     AND ib.sdid = ?                          AND ib.deletestatus = ?        ORDER BY    ib.id DESC
+### Cause: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ',
+			
+            
+            
+			
+				ib.scspimgpath scspImgPath,
+			
+			
+			
+' at line 15
+; bad SQL grammar []; nested exception is java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ',
+			
+            
+            
+			
+				ib.scspimgpath scspImgPath,
+			
+			
+			
+' at line 15, dubbo version: 2.5.5, current host: 127.0.0.1
+  org.springframework.jdbc.BadSqlGrammarException: 
+### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ',
+			
+            
+            
+			
+				ib.scspimgpath scspImgPath,
+			
+			
+			
+' at line 15
+### The error may exist in file [E:\hhp_zhixiang_idea_single\zhixiangsingle\zhixiangsingle-impl\main-impl\target\classes\mapper\IngredientBaseMapper.xml]
+### The error may involve defaultParameterMap
+### The error occurred while setting parameters
+### SQL: SELECT               ib.id,                      ib.ingredientname ingredientName,                               ib.meteringname meteringName,                      IFNULL((l.librarysurplus-l.libraryexpired),0) total,             w.unitprice unitPrice,,                                       ib.scspimgpath scspImgPath,                                                  ib.sdid sdId,                               ib.deletestatus deleteStatus,                                                                                                              ? siteName,             ? sitePhoto,             ? picturePrefix          FROM    ingredientbase ib                        LEFT JOIN    warehousdetails w    ON    w.ingredientid = i.id    AND    w.id = (SELECT max(id) FROM warehousdetails w2 WHERE w2.ingredientid = w.ingredientid)            LEFT JOIN    librarys l    ON l.ingredientbaseid = i.id                  WHERE  ib.ingredientname like CONCAT('%', ? , '%')                                                                     AND ib.sdid = ?                          AND ib.deletestatus = ?        ORDER BY    ib.id DESC
+### Cause: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ',
+			
+            
+            
+			
+				ib.scspimgpath scspImgPath,
+			
+			
+			
+' at line 15
+; bad SQL grammar []; nested exception is java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ',
+			
+            
+            
+			
+				ib.scspimgpath scspImgPath,
+			
+			
+			
+' at line 15
+	at org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.doTranslate(SQLErrorCodeSQLExceptionTranslator.java:234)
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:72)
+	at org.mybatis.spring.MyBatisExceptionTranslator.translateExceptionIfPossible(MyBatisExceptionTranslator.java:73)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:446)
+	at com.sun.proxy.$Proxy95.selectList(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.selectList(SqlSessionTemplate.java:230)
+	at org.apache.ibatis.binding.MapperMethod.executeForMany(MapperMethod.java:139)
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:76)
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:59)
+	at com.sun.proxy.$Proxy146.findIngredientBaseList(Unknown Source)
+	at cn.zhixiangsingle.impl.purchase.scjcxx.IngredientBaseServiceImpl.findAllIngredientBase(IngredientBaseServiceImpl.java:781)
+	at cn.zhixiangsingle.impl.purchase.scjcxx.IngredientBaseServiceImpl$$FastClassBySpringCGLIB$$d84a6202.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:749)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:295)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:98)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
+	at cn.zhixiangsingle.impl.purchase.scjcxx.IngredientBaseServiceImpl$$EnhancerBySpringCGLIB$$fcbed8ed.findAllIngredientBase(<generated>)
+	at com.alibaba.dubbo.common.bytecode.Wrapper18.invokeMethod(Wrapper18.java)
+	at com.alibaba.dubbo.rpc.proxy.javassist.JavassistProxyFactory$1.doInvoke(JavassistProxyFactory.java:46)
+	at com.alibaba.dubbo.rpc.proxy.AbstractProxyInvoker.invoke(AbstractProxyInvoker.java:72)
+	at com.alibaba.dubbo.rpc.protocol.InvokerWrapper.invoke(InvokerWrapper.java:53)
+	at com.alibaba.dubbo.rpc.filter.ExceptionFilter.invoke(ExceptionFilter.java:64)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:69)
+	at com.alibaba.dubbo.monitor.support.MonitorFilter.invoke(MonitorFilter.java:75)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:69)
+	at com.alibaba.dubbo.rpc.filter.TimeoutFilter.invoke(TimeoutFilter.java:42)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:69)
+	at com.alibaba.dubbo.rpc.protocol.dubbo.filter.TraceFilter.invoke(TraceFilter.java:78)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:69)
+	at com.alibaba.dubbo.rpc.filter.ContextFilter.invoke(ContextFilter.java:61)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:69)
+	at com.alibaba.dubbo.rpc.filter.GenericFilter.invoke(GenericFilter.java:132)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:69)
+	at com.alibaba.dubbo.rpc.filter.ClassLoaderFilter.invoke(ClassLoaderFilter.java:38)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:69)
+	at com.alibaba.dubbo.rpc.filter.EchoFilter.invoke(EchoFilter.java:38)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:69)
+	at com.alibaba.dubbo.rpc.protocol.dubbo.DubboProtocol$1.reply(DubboProtocol.java:102)
+	at com.alibaba.dubbo.remoting.exchange.support.header.HeaderExchangeHandler.handleRequest(HeaderExchangeHandler.java:98)
+	at com.alibaba.dubbo.remoting.exchange.support.header.HeaderExchangeHandler.received(HeaderExchangeHandler.java:170)
+	at com.alibaba.dubbo.remoting.transport.DecodeHandler.received(DecodeHandler.java:52)
+	at com.alibaba.dubbo.remoting.transport.dispatcher.ChannelEventRunnable.run(ChannelEventRunnable.java:81)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ',
+			
+            
+            
+			
+				ib.scspimgpath scspImgPath,
+			
+			
+			
+' at line 15
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:953)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:370)
+	at com.alibaba.druid.pool.DruidPooledPreparedStatement.execute(DruidPooledPreparedStatement.java:498)
+	at sun.reflect.GeneratedMethodAccessor304.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.ibatis.logging.jdbc.PreparedStatementLogger.invoke(PreparedStatementLogger.java:59)
+	at com.sun.proxy.$Proxy158.execute(Unknown Source)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.query(PreparedStatementHandler.java:63)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.query(RoutingStatementHandler.java:79)
+	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:63)
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:326)
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:156)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:109)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:83)
+	at sun.reflect.GeneratedMethodAccessor302.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.ibatis.plugin.Invocation.proceed(Invocation.java:49)
+	at com.github.pagehelper.SqlUtil._processPage(SqlUtil.java:351)
+	at com.github.pagehelper.SqlUtil.processPage(SqlUtil.java:329)
+	at com.github.pagehelper.PageHelper.intercept(PageHelper.java:150)
+	at org.apache.ibatis.plugin.Plugin.invoke(Plugin.java:61)
+	at com.sun.proxy.$Proxy156.query(Unknown Source)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:148)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:141)
+	at sun.reflect.GeneratedMethodAccessor325.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:433)
+	... 44 more
+2019-10-26-16-05 [DubboServerHandler-192.168.137.1:20881-thread-14] [com.alibaba.dubbo.rpc.filter.ExceptionFilter] [ERROR] -  [DUBBO] Got unchecked and undeclared exception which called by 192.168.137.1. service: cn.zhixiangsingle.service.purchase.scjcxx.IngredientBaseService, method: findAllIngredientBase, exception: org.springframework.jdbc.BadSqlGrammarException: 
+### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ',
+			
+            
+            
+			
+				ib.scspimgpath scspImgPath,
+			
+			
+			
+' at line 15
+### The error may exist in file [E:\hhp_zhixiang_idea_single\zhixiangsingle\zhixiangsingle-impl\main-impl\target\classes\mapper\IngredientBaseMapper.xml]
+### The error may involve defaultParameterMap
+### The error occurred while setting parameters
+### SQL: SELECT               ib.id,                      ib.ingredientname ingredientName,                               ib.meteringname meteringName,                      IFNULL((l.librarysurplus-l.libraryexpired),0) total,             w.unitprice unitPrice,,                                       ib.scspimgpath scspImgPath,                                                  ib.sdid sdId,                               ib.deletestatus deleteStatus,                                                                                                              ? siteName,             ? sitePhoto,             ? picturePrefix          FROM    ingredientbase ib                        LEFT JOIN    warehousdetails w    ON    w.ingredientid = i.id    AND    w.id = (SELECT max(id) FROM warehousdetails w2 WHERE w2.ingredientid = w.ingredientid)            LEFT JOIN    librarys l    ON l.ingredientbaseid = i.id                  WHERE  ib.ingredientname like CONCAT('%', ? , '%')                                                                     AND ib.sdid = ?                          AND ib.deletestatus = ?        ORDER BY    ib.id DESC
+### Cause: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ',
+			
+            
+            
+			
+				ib.scspimgpath scspImgPath,
+			
+			
+			
+' at line 15
+; bad SQL grammar []; nested exception is java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ',
+			
+            
+            
+			
+				ib.scspimgpath scspImgPath,
+			
+			
+			
+' at line 15, dubbo version: 2.5.5, current host: 127.0.0.1
+  org.springframework.jdbc.BadSqlGrammarException: 
+### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ',
+			
+            
+            
+			
+				ib.scspimgpath scspImgPath,
+			
+			
+			
+' at line 15
+### The error may exist in file [E:\hhp_zhixiang_idea_single\zhixiangsingle\zhixiangsingle-impl\main-impl\target\classes\mapper\IngredientBaseMapper.xml]
+### The error may involve defaultParameterMap
+### The error occurred while setting parameters
+### SQL: SELECT               ib.id,                      ib.ingredientname ingredientName,                               ib.meteringname meteringName,                      IFNULL((l.librarysurplus-l.libraryexpired),0) total,             w.unitprice unitPrice,,                                       ib.scspimgpath scspImgPath,                                                  ib.sdid sdId,                               ib.deletestatus deleteStatus,                                                                                                              ? siteName,             ? sitePhoto,             ? picturePrefix          FROM    ingredientbase ib                        LEFT JOIN    warehousdetails w    ON    w.ingredientid = i.id    AND    w.id = (SELECT max(id) FROM warehousdetails w2 WHERE w2.ingredientid = w.ingredientid)            LEFT JOIN    librarys l    ON l.ingredientbaseid = i.id                  WHERE  ib.ingredientname like CONCAT('%', ? , '%')                                                                     AND ib.sdid = ?                          AND ib.deletestatus = ?        ORDER BY    ib.id DESC
+### Cause: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ',
+			
+            
+            
+			
+				ib.scspimgpath scspImgPath,
+			
+			
+			
+' at line 15
+; bad SQL grammar []; nested exception is java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ',
+			
+            
+            
+			
+				ib.scspimgpath scspImgPath,
+			
+			
+			
+' at line 15
+	at org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.doTranslate(SQLErrorCodeSQLExceptionTranslator.java:234)
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:72)
+	at org.mybatis.spring.MyBatisExceptionTranslator.translateExceptionIfPossible(MyBatisExceptionTranslator.java:73)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:446)
+	at com.sun.proxy.$Proxy95.selectList(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.selectList(SqlSessionTemplate.java:230)
+	at org.apache.ibatis.binding.MapperMethod.executeForMany(MapperMethod.java:139)
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:76)
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:59)
+	at com.sun.proxy.$Proxy146.findIngredientBaseList(Unknown Source)
+	at cn.zhixiangsingle.impl.purchase.scjcxx.IngredientBaseServiceImpl.findAllIngredientBase(IngredientBaseServiceImpl.java:781)
+	at cn.zhixiangsingle.impl.purchase.scjcxx.IngredientBaseServiceImpl$$FastClassBySpringCGLIB$$d84a6202.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:749)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:295)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:98)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
+	at cn.zhixiangsingle.impl.purchase.scjcxx.IngredientBaseServiceImpl$$EnhancerBySpringCGLIB$$fcbed8ed.findAllIngredientBase(<generated>)
+	at com.alibaba.dubbo.common.bytecode.Wrapper18.invokeMethod(Wrapper18.java)
+	at com.alibaba.dubbo.rpc.proxy.javassist.JavassistProxyFactory$1.doInvoke(JavassistProxyFactory.java:46)
+	at com.alibaba.dubbo.rpc.proxy.AbstractProxyInvoker.invoke(AbstractProxyInvoker.java:72)
+	at com.alibaba.dubbo.rpc.protocol.InvokerWrapper.invoke(InvokerWrapper.java:53)
+	at com.alibaba.dubbo.rpc.filter.ExceptionFilter.invoke(ExceptionFilter.java:64)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:69)
+	at com.alibaba.dubbo.monitor.support.MonitorFilter.invoke(MonitorFilter.java:75)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:69)
+	at com.alibaba.dubbo.rpc.filter.TimeoutFilter.invoke(TimeoutFilter.java:42)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:69)
+	at com.alibaba.dubbo.rpc.protocol.dubbo.filter.TraceFilter.invoke(TraceFilter.java:78)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:69)
+	at com.alibaba.dubbo.rpc.filter.ContextFilter.invoke(ContextFilter.java:61)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:69)
+	at com.alibaba.dubbo.rpc.filter.GenericFilter.invoke(GenericFilter.java:132)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:69)
+	at com.alibaba.dubbo.rpc.filter.ClassLoaderFilter.invoke(ClassLoaderFilter.java:38)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:69)
+	at com.alibaba.dubbo.rpc.filter.EchoFilter.invoke(EchoFilter.java:38)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:69)
+	at com.alibaba.dubbo.rpc.protocol.dubbo.DubboProtocol$1.reply(DubboProtocol.java:102)
+	at com.alibaba.dubbo.remoting.exchange.support.header.HeaderExchangeHandler.handleRequest(HeaderExchangeHandler.java:98)
+	at com.alibaba.dubbo.remoting.exchange.support.header.HeaderExchangeHandler.received(HeaderExchangeHandler.java:170)
+	at com.alibaba.dubbo.remoting.transport.DecodeHandler.received(DecodeHandler.java:52)
+	at com.alibaba.dubbo.remoting.transport.dispatcher.ChannelEventRunnable.run(ChannelEventRunnable.java:81)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ',
+			
+            
+            
+			
+				ib.scspimgpath scspImgPath,
+			
+			
+			
+' at line 15
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:953)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:370)
+	at com.alibaba.druid.pool.DruidPooledPreparedStatement.execute(DruidPooledPreparedStatement.java:498)
+	at sun.reflect.GeneratedMethodAccessor304.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.ibatis.logging.jdbc.PreparedStatementLogger.invoke(PreparedStatementLogger.java:59)
+	at com.sun.proxy.$Proxy158.execute(Unknown Source)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.query(PreparedStatementHandler.java:63)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.query(RoutingStatementHandler.java:79)
+	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:63)
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:326)
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:156)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:109)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:83)
+	at sun.reflect.GeneratedMethodAccessor302.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.ibatis.plugin.Invocation.proceed(Invocation.java:49)
+	at com.github.pagehelper.SqlUtil._processPage(SqlUtil.java:351)
+	at com.github.pagehelper.SqlUtil.processPage(SqlUtil.java:329)
+	at com.github.pagehelper.PageHelper.intercept(PageHelper.java:150)
+	at org.apache.ibatis.plugin.Plugin.invoke(Plugin.java:61)
+	at com.sun.proxy.$Proxy156.query(Unknown Source)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:148)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:141)
+	at sun.reflect.GeneratedMethodAccessor325.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:433)
+	... 44 more
+2019-10-26-16-06 [DubboServerHandler-192.168.137.1:20881-thread-16] [com.alibaba.dubbo.rpc.filter.ExceptionFilter] [ERROR] -  [DUBBO] Got unchecked and undeclared exception which called by 192.168.137.1. service: cn.zhixiangsingle.service.purchase.scjcxx.IngredientBaseService, method: findAllIngredientBase, exception: org.springframework.jdbc.BadSqlGrammarException: 
+### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ',
+			
+            
+            
+			
+				ib.scspimgpath scspImgPath,
+			
+			
+			
+' at line 15
+### The error may exist in file [E:\hhp_zhixiang_idea_single\zhixiangsingle\zhixiangsingle-impl\main-impl\target\classes\mapper\IngredientBaseMapper.xml]
+### The error may involve defaultParameterMap
+### The error occurred while setting parameters
+### SQL: SELECT               ib.id,                      ib.ingredientname ingredientName,                               ib.meteringname meteringName,                      IFNULL((l.librarysurplus-l.libraryexpired),0) total,             w.unitprice unitPrice,,                                       ib.scspimgpath scspImgPath,                                                  ib.sdid sdId,                               ib.deletestatus deleteStatus,                                                                                                              ? siteName,             ? sitePhoto,             ? picturePrefix          FROM    ingredientbase ib                        LEFT JOIN    warehousdetails w    ON    w.ingredientid = i.id    AND    w.id = (SELECT max(id) FROM warehousdetails w2 WHERE w2.ingredientid = w.ingredientid)            LEFT JOIN    librarys l    ON l.ingredientbaseid = i.id                  WHERE  ib.ingredientname like CONCAT('%', ? , '%')                                                                     AND ib.sdid = ?                          AND ib.deletestatus = ?        ORDER BY    ib.id DESC
+### Cause: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ',
+			
+            
+            
+			
+				ib.scspimgpath scspImgPath,
+			
+			
+			
+' at line 15
+; bad SQL grammar []; nested exception is java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ',
+			
+            
+            
+			
+				ib.scspimgpath scspImgPath,
+			
+			
+			
+' at line 15, dubbo version: 2.5.5, current host: 127.0.0.1
+  org.springframework.jdbc.BadSqlGrammarException: 
+### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ',
+			
+            
+            
+			
+				ib.scspimgpath scspImgPath,
+			
+			
+			
+' at line 15
+### The error may exist in file [E:\hhp_zhixiang_idea_single\zhixiangsingle\zhixiangsingle-impl\main-impl\target\classes\mapper\IngredientBaseMapper.xml]
+### The error may involve defaultParameterMap
+### The error occurred while setting parameters
+### SQL: SELECT               ib.id,                      ib.ingredientname ingredientName,                               ib.meteringname meteringName,                      IFNULL((l.librarysurplus-l.libraryexpired),0) total,             w.unitprice unitPrice,,                                       ib.scspimgpath scspImgPath,                                                  ib.sdid sdId,                               ib.deletestatus deleteStatus,                                                                                                              ? siteName,             ? sitePhoto,             ? picturePrefix          FROM    ingredientbase ib                        LEFT JOIN    warehousdetails w    ON    w.ingredientid = i.id    AND    w.id = (SELECT max(id) FROM warehousdetails w2 WHERE w2.ingredientid = w.ingredientid)            LEFT JOIN    librarys l    ON l.ingredientbaseid = i.id                  WHERE  ib.ingredientname like CONCAT('%', ? , '%')                                                                     AND ib.sdid = ?                          AND ib.deletestatus = ?        ORDER BY    ib.id DESC
+### Cause: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ',
+			
+            
+            
+			
+				ib.scspimgpath scspImgPath,
+			
+			
+			
+' at line 15
+; bad SQL grammar []; nested exception is java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ',
+			
+            
+            
+			
+				ib.scspimgpath scspImgPath,
+			
+			
+			
+' at line 15
+	at org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.doTranslate(SQLErrorCodeSQLExceptionTranslator.java:234)
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:72)
+	at org.mybatis.spring.MyBatisExceptionTranslator.translateExceptionIfPossible(MyBatisExceptionTranslator.java:73)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:446)
+	at com.sun.proxy.$Proxy95.selectList(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.selectList(SqlSessionTemplate.java:230)
+	at org.apache.ibatis.binding.MapperMethod.executeForMany(MapperMethod.java:139)
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:76)
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:59)
+	at com.sun.proxy.$Proxy146.findIngredientBaseList(Unknown Source)
+	at cn.zhixiangsingle.impl.purchase.scjcxx.IngredientBaseServiceImpl.findAllIngredientBase(IngredientBaseServiceImpl.java:781)
+	at cn.zhixiangsingle.impl.purchase.scjcxx.IngredientBaseServiceImpl$$FastClassBySpringCGLIB$$d84a6202.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:749)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:295)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:98)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
+	at cn.zhixiangsingle.impl.purchase.scjcxx.IngredientBaseServiceImpl$$EnhancerBySpringCGLIB$$fcbed8ed.findAllIngredientBase(<generated>)
+	at com.alibaba.dubbo.common.bytecode.Wrapper18.invokeMethod(Wrapper18.java)
+	at com.alibaba.dubbo.rpc.proxy.javassist.JavassistProxyFactory$1.doInvoke(JavassistProxyFactory.java:46)
+	at com.alibaba.dubbo.rpc.proxy.AbstractProxyInvoker.invoke(AbstractProxyInvoker.java:72)
+	at com.alibaba.dubbo.rpc.protocol.InvokerWrapper.invoke(InvokerWrapper.java:53)
+	at com.alibaba.dubbo.rpc.filter.ExceptionFilter.invoke(ExceptionFilter.java:64)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:69)
+	at com.alibaba.dubbo.monitor.support.MonitorFilter.invoke(MonitorFilter.java:75)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:69)
+	at com.alibaba.dubbo.rpc.filter.TimeoutFilter.invoke(TimeoutFilter.java:42)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:69)
+	at com.alibaba.dubbo.rpc.protocol.dubbo.filter.TraceFilter.invoke(TraceFilter.java:78)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:69)
+	at com.alibaba.dubbo.rpc.filter.ContextFilter.invoke(ContextFilter.java:61)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:69)
+	at com.alibaba.dubbo.rpc.filter.GenericFilter.invoke(GenericFilter.java:132)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:69)
+	at com.alibaba.dubbo.rpc.filter.ClassLoaderFilter.invoke(ClassLoaderFilter.java:38)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:69)
+	at com.alibaba.dubbo.rpc.filter.EchoFilter.invoke(EchoFilter.java:38)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:69)
+	at com.alibaba.dubbo.rpc.protocol.dubbo.DubboProtocol$1.reply(DubboProtocol.java:102)
+	at com.alibaba.dubbo.remoting.exchange.support.header.HeaderExchangeHandler.handleRequest(HeaderExchangeHandler.java:98)
+	at com.alibaba.dubbo.remoting.exchange.support.header.HeaderExchangeHandler.received(HeaderExchangeHandler.java:170)
+	at com.alibaba.dubbo.remoting.transport.DecodeHandler.received(DecodeHandler.java:52)
+	at com.alibaba.dubbo.remoting.transport.dispatcher.ChannelEventRunnable.run(ChannelEventRunnable.java:81)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ',
+			
+            
+            
+			
+				ib.scspimgpath scspImgPath,
+			
+			
+			
+' at line 15
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:953)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:370)
+	at com.alibaba.druid.pool.DruidPooledPreparedStatement.execute(DruidPooledPreparedStatement.java:498)
+	at sun.reflect.GeneratedMethodAccessor304.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.ibatis.logging.jdbc.PreparedStatementLogger.invoke(PreparedStatementLogger.java:59)
+	at com.sun.proxy.$Proxy158.execute(Unknown Source)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.query(PreparedStatementHandler.java:63)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.query(RoutingStatementHandler.java:79)
+	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:63)
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:326)
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:156)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:109)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:83)
+	at sun.reflect.GeneratedMethodAccessor302.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.ibatis.plugin.Invocation.proceed(Invocation.java:49)
+	at com.github.pagehelper.SqlUtil._processPage(SqlUtil.java:351)
+	at com.github.pagehelper.SqlUtil.processPage(SqlUtil.java:329)
+	at com.github.pagehelper.PageHelper.intercept(PageHelper.java:150)
+	at org.apache.ibatis.plugin.Plugin.invoke(Plugin.java:61)
+	at com.sun.proxy.$Proxy156.query(Unknown Source)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:148)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:141)
+	at sun.reflect.GeneratedMethodAccessor325.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:433)
+	... 44 more
+2019-10-26-16-08 [DubboServerHandler-192.168.137.1:20881-thread-18] [com.alibaba.dubbo.rpc.filter.ExceptionFilter] [ERROR] -  [DUBBO] Got unchecked and undeclared exception which called by 192.168.137.1. service: cn.zhixiangsingle.service.purchase.scjcxx.IngredientBaseService, method: findAllIngredientBase, exception: org.springframework.jdbc.BadSqlGrammarException: 
+### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ',
+			
+            
+            
+			
+				ib.scspimgpath scspImgPath,
+			
+			
+			
+' at line 15
+### The error may exist in file [E:\hhp_zhixiang_idea_single\zhixiangsingle\zhixiangsingle-impl\main-impl\target\classes\mapper\IngredientBaseMapper.xml]
+### The error may involve defaultParameterMap
+### The error occurred while setting parameters
+### SQL: SELECT               ib.id,                      ib.ingredientname ingredientName,                               ib.meteringname meteringName,                      IFNULL((l.librarysurplus-l.libraryexpired),0) total,             w.unitprice unitPrice,,                                       ib.scspimgpath scspImgPath,                                                  ib.sdid sdId,                               ib.deletestatus deleteStatus,                                                                                                              ? siteName,             ? sitePhoto,             ? picturePrefix          FROM    ingredientbase ib                        LEFT JOIN    warehousdetails w    ON    w.ingredientid = i.id    AND    w.id = (SELECT max(id) FROM warehousdetails w2 WHERE w2.ingredientid = w.ingredientid)            LEFT JOIN    librarys l    ON l.ingredientbaseid = i.id                  WHERE  ib.ingredientname like CONCAT('%', ? , '%')                                                                     AND ib.sdid = ?                          AND ib.deletestatus = ?        ORDER BY    ib.id DESC
+### Cause: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ',
+			
+            
+            
+			
+				ib.scspimgpath scspImgPath,
+			
+			
+			
+' at line 15
+; bad SQL grammar []; nested exception is java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ',
+			
+            
+            
+			
+				ib.scspimgpath scspImgPath,
+			
+			
+			
+' at line 15, dubbo version: 2.5.5, current host: 127.0.0.1
+  org.springframework.jdbc.BadSqlGrammarException: 
+### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ',
+			
+            
+            
+			
+				ib.scspimgpath scspImgPath,
+			
+			
+			
+' at line 15
+### The error may exist in file [E:\hhp_zhixiang_idea_single\zhixiangsingle\zhixiangsingle-impl\main-impl\target\classes\mapper\IngredientBaseMapper.xml]
+### The error may involve defaultParameterMap
+### The error occurred while setting parameters
+### SQL: SELECT               ib.id,                      ib.ingredientname ingredientName,                               ib.meteringname meteringName,                      IFNULL((l.librarysurplus-l.libraryexpired),0) total,             w.unitprice unitPrice,,                                       ib.scspimgpath scspImgPath,                                                  ib.sdid sdId,                               ib.deletestatus deleteStatus,                                                                                                              ? siteName,             ? sitePhoto,             ? picturePrefix          FROM    ingredientbase ib                        LEFT JOIN    warehousdetails w    ON    w.ingredientid = i.id    AND    w.id = (SELECT max(id) FROM warehousdetails w2 WHERE w2.ingredientid = w.ingredientid)            LEFT JOIN    librarys l    ON l.ingredientbaseid = i.id                  WHERE  ib.ingredientname like CONCAT('%', ? , '%')                                                                     AND ib.sdid = ?                          AND ib.deletestatus = ?        ORDER BY    ib.id DESC
+### Cause: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ',
+			
+            
+            
+			
+				ib.scspimgpath scspImgPath,
+			
+			
+			
+' at line 15
+; bad SQL grammar []; nested exception is java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ',
+			
+            
+            
+			
+				ib.scspimgpath scspImgPath,
+			
+			
+			
+' at line 15
+	at org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.doTranslate(SQLErrorCodeSQLExceptionTranslator.java:234)
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:72)
+	at org.mybatis.spring.MyBatisExceptionTranslator.translateExceptionIfPossible(MyBatisExceptionTranslator.java:73)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:446)
+	at com.sun.proxy.$Proxy95.selectList(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.selectList(SqlSessionTemplate.java:230)
+	at org.apache.ibatis.binding.MapperMethod.executeForMany(MapperMethod.java:139)
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:76)
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:59)
+	at com.sun.proxy.$Proxy146.findIngredientBaseList(Unknown Source)
+	at cn.zhixiangsingle.impl.purchase.scjcxx.IngredientBaseServiceImpl.findAllIngredientBase(IngredientBaseServiceImpl.java:781)
+	at cn.zhixiangsingle.impl.purchase.scjcxx.IngredientBaseServiceImpl$$FastClassBySpringCGLIB$$d84a6202.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:749)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:295)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:98)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
+	at cn.zhixiangsingle.impl.purchase.scjcxx.IngredientBaseServiceImpl$$EnhancerBySpringCGLIB$$fcbed8ed.findAllIngredientBase(<generated>)
+	at com.alibaba.dubbo.common.bytecode.Wrapper18.invokeMethod(Wrapper18.java)
+	at com.alibaba.dubbo.rpc.proxy.javassist.JavassistProxyFactory$1.doInvoke(JavassistProxyFactory.java:46)
+	at com.alibaba.dubbo.rpc.proxy.AbstractProxyInvoker.invoke(AbstractProxyInvoker.java:72)
+	at com.alibaba.dubbo.rpc.protocol.InvokerWrapper.invoke(InvokerWrapper.java:53)
+	at com.alibaba.dubbo.rpc.filter.ExceptionFilter.invoke(ExceptionFilter.java:64)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:69)
+	at com.alibaba.dubbo.monitor.support.MonitorFilter.invoke(MonitorFilter.java:75)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:69)
+	at com.alibaba.dubbo.rpc.filter.TimeoutFilter.invoke(TimeoutFilter.java:42)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:69)
+	at com.alibaba.dubbo.rpc.protocol.dubbo.filter.TraceFilter.invoke(TraceFilter.java:78)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:69)
+	at com.alibaba.dubbo.rpc.filter.ContextFilter.invoke(ContextFilter.java:61)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:69)
+	at com.alibaba.dubbo.rpc.filter.GenericFilter.invoke(GenericFilter.java:132)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:69)
+	at com.alibaba.dubbo.rpc.filter.ClassLoaderFilter.invoke(ClassLoaderFilter.java:38)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:69)
+	at com.alibaba.dubbo.rpc.filter.EchoFilter.invoke(EchoFilter.java:38)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:69)
+	at com.alibaba.dubbo.rpc.protocol.dubbo.DubboProtocol$1.reply(DubboProtocol.java:102)
+	at com.alibaba.dubbo.remoting.exchange.support.header.HeaderExchangeHandler.handleRequest(HeaderExchangeHandler.java:98)
+	at com.alibaba.dubbo.remoting.exchange.support.header.HeaderExchangeHandler.received(HeaderExchangeHandler.java:170)
+	at com.alibaba.dubbo.remoting.transport.DecodeHandler.received(DecodeHandler.java:52)
+	at com.alibaba.dubbo.remoting.transport.dispatcher.ChannelEventRunnable.run(ChannelEventRunnable.java:81)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ',
+			
+            
+            
+			
+				ib.scspimgpath scspImgPath,
+			
+			
+			
+' at line 15
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:953)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:370)
+	at com.alibaba.druid.pool.DruidPooledPreparedStatement.execute(DruidPooledPreparedStatement.java:498)
+	at sun.reflect.GeneratedMethodAccessor304.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.ibatis.logging.jdbc.PreparedStatementLogger.invoke(PreparedStatementLogger.java:59)
+	at com.sun.proxy.$Proxy158.execute(Unknown Source)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.query(PreparedStatementHandler.java:63)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.query(RoutingStatementHandler.java:79)
+	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:63)
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:326)
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:156)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:109)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:83)
+	at sun.reflect.GeneratedMethodAccessor302.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.ibatis.plugin.Invocation.proceed(Invocation.java:49)
+	at com.github.pagehelper.SqlUtil._processPage(SqlUtil.java:351)
+	at com.github.pagehelper.SqlUtil.processPage(SqlUtil.java:329)
+	at com.github.pagehelper.PageHelper.intercept(PageHelper.java:150)
+	at org.apache.ibatis.plugin.Plugin.invoke(Plugin.java:61)
+	at com.sun.proxy.$Proxy156.query(Unknown Source)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:148)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:141)
+	at sun.reflect.GeneratedMethodAccessor325.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:433)
+	... 44 more
+2019-10-26-16-10 [DubboServerHandler-192.168.137.1:20881-thread-20] [com.alibaba.dubbo.rpc.filter.ExceptionFilter] [ERROR] -  [DUBBO] Got unchecked and undeclared exception which called by 192.168.137.1. service: cn.zhixiangsingle.service.purchase.scjcxx.IngredientBaseService, method: findAllIngredientBase, exception: org.springframework.jdbc.BadSqlGrammarException: 
+### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ',
+			
+            
+            
+			
+				ib.scspimgpath scspImgPath,
+			
+			
+			
+' at line 15
+### The error may exist in file [E:\hhp_zhixiang_idea_single\zhixiangsingle\zhixiangsingle-impl\main-impl\target\classes\mapper\IngredientBaseMapper.xml]
+### The error may involve defaultParameterMap
+### The error occurred while setting parameters
+### SQL: SELECT               ib.id,                      ib.ingredientname ingredientName,                               ib.meteringname meteringName,                      IFNULL((l.librarysurplus-l.libraryexpired),0) total,             w.unitprice unitPrice,,                                       ib.scspimgpath scspImgPath,                                                  ib.sdid sdId,                               ib.deletestatus deleteStatus,                                                                                                              ? siteName,             ? sitePhoto,             ? picturePrefix          FROM    ingredientbase ib                        LEFT JOIN    warehousdetails w    ON    w.ingredientid = i.id    AND    w.id = (SELECT max(id) FROM warehousdetails w2 WHERE w2.ingredientid = w.ingredientid)            LEFT JOIN    librarys l    ON l.ingredientbaseid = i.id                  WHERE  ib.ingredientname like CONCAT('%', ? , '%')                                                                     AND ib.sdid = ?                          AND ib.deletestatus = ?        ORDER BY    ib.id DESC
+### Cause: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ',
+			
+            
+            
+			
+				ib.scspimgpath scspImgPath,
+			
+			
+			
+' at line 15
+; bad SQL grammar []; nested exception is java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ',
+			
+            
+            
+			
+				ib.scspimgpath scspImgPath,
+			
+			
+			
+' at line 15, dubbo version: 2.5.5, current host: 127.0.0.1
+  org.springframework.jdbc.BadSqlGrammarException: 
+### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ',
+			
+            
+            
+			
+				ib.scspimgpath scspImgPath,
+			
+			
+			
+' at line 15
+### The error may exist in file [E:\hhp_zhixiang_idea_single\zhixiangsingle\zhixiangsingle-impl\main-impl\target\classes\mapper\IngredientBaseMapper.xml]
+### The error may involve defaultParameterMap
+### The error occurred while setting parameters
+### SQL: SELECT               ib.id,                      ib.ingredientname ingredientName,                               ib.meteringname meteringName,                      IFNULL((l.librarysurplus-l.libraryexpired),0) total,             w.unitprice unitPrice,,                                       ib.scspimgpath scspImgPath,                                                  ib.sdid sdId,                               ib.deletestatus deleteStatus,                                                                                                              ? siteName,             ? sitePhoto,             ? picturePrefix          FROM    ingredientbase ib                        LEFT JOIN    warehousdetails w    ON    w.ingredientid = i.id    AND    w.id = (SELECT max(id) FROM warehousdetails w2 WHERE w2.ingredientid = w.ingredientid)            LEFT JOIN    librarys l    ON l.ingredientbaseid = i.id                  WHERE  ib.ingredientname like CONCAT('%', ? , '%')                                                                     AND ib.sdid = ?                          AND ib.deletestatus = ?        ORDER BY    ib.id DESC
+### Cause: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ',
+			
+            
+            
+			
+				ib.scspimgpath scspImgPath,
+			
+			
+			
+' at line 15
+; bad SQL grammar []; nested exception is java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ',
+			
+            
+            
+			
+				ib.scspimgpath scspImgPath,
+			
+			
+			
+' at line 15
+	at org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.doTranslate(SQLErrorCodeSQLExceptionTranslator.java:234)
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:72)
+	at org.mybatis.spring.MyBatisExceptionTranslator.translateExceptionIfPossible(MyBatisExceptionTranslator.java:73)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:446)
+	at com.sun.proxy.$Proxy95.selectList(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.selectList(SqlSessionTemplate.java:230)
+	at org.apache.ibatis.binding.MapperMethod.executeForMany(MapperMethod.java:139)
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:76)
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:59)
+	at com.sun.proxy.$Proxy146.findIngredientBaseList(Unknown Source)
+	at cn.zhixiangsingle.impl.purchase.scjcxx.IngredientBaseServiceImpl.findAllIngredientBase(IngredientBaseServiceImpl.java:781)
+	at cn.zhixiangsingle.impl.purchase.scjcxx.IngredientBaseServiceImpl$$FastClassBySpringCGLIB$$d84a6202.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:749)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:295)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:98)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
+	at cn.zhixiangsingle.impl.purchase.scjcxx.IngredientBaseServiceImpl$$EnhancerBySpringCGLIB$$fcbed8ed.findAllIngredientBase(<generated>)
+	at com.alibaba.dubbo.common.bytecode.Wrapper18.invokeMethod(Wrapper18.java)
+	at com.alibaba.dubbo.rpc.proxy.javassist.JavassistProxyFactory$1.doInvoke(JavassistProxyFactory.java:46)
+	at com.alibaba.dubbo.rpc.proxy.AbstractProxyInvoker.invoke(AbstractProxyInvoker.java:72)
+	at com.alibaba.dubbo.rpc.protocol.InvokerWrapper.invoke(InvokerWrapper.java:53)
+	at com.alibaba.dubbo.rpc.filter.ExceptionFilter.invoke(ExceptionFilter.java:64)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:69)
+	at com.alibaba.dubbo.monitor.support.MonitorFilter.invoke(MonitorFilter.java:75)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:69)
+	at com.alibaba.dubbo.rpc.filter.TimeoutFilter.invoke(TimeoutFilter.java:42)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:69)
+	at com.alibaba.dubbo.rpc.protocol.dubbo.filter.TraceFilter.invoke(TraceFilter.java:78)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:69)
+	at com.alibaba.dubbo.rpc.filter.ContextFilter.invoke(ContextFilter.java:61)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:69)
+	at com.alibaba.dubbo.rpc.filter.GenericFilter.invoke(GenericFilter.java:132)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:69)
+	at com.alibaba.dubbo.rpc.filter.ClassLoaderFilter.invoke(ClassLoaderFilter.java:38)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:69)
+	at com.alibaba.dubbo.rpc.filter.EchoFilter.invoke(EchoFilter.java:38)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:69)
+	at com.alibaba.dubbo.rpc.protocol.dubbo.DubboProtocol$1.reply(DubboProtocol.java:102)
+	at com.alibaba.dubbo.remoting.exchange.support.header.HeaderExchangeHandler.handleRequest(HeaderExchangeHandler.java:98)
+	at com.alibaba.dubbo.remoting.exchange.support.header.HeaderExchangeHandler.received(HeaderExchangeHandler.java:170)
+	at com.alibaba.dubbo.remoting.transport.DecodeHandler.received(DecodeHandler.java:52)
+	at com.alibaba.dubbo.remoting.transport.dispatcher.ChannelEventRunnable.run(ChannelEventRunnable.java:81)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ',
+			
+            
+            
+			
+				ib.scspimgpath scspImgPath,
+			
+			
+			
+' at line 15
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:953)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:370)
+	at com.alibaba.druid.pool.DruidPooledPreparedStatement.execute(DruidPooledPreparedStatement.java:498)
+	at sun.reflect.GeneratedMethodAccessor304.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.ibatis.logging.jdbc.PreparedStatementLogger.invoke(PreparedStatementLogger.java:59)
+	at com.sun.proxy.$Proxy158.execute(Unknown Source)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.query(PreparedStatementHandler.java:63)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.query(RoutingStatementHandler.java:79)
+	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:63)
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:326)
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:156)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:109)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:83)
+	at sun.reflect.GeneratedMethodAccessor302.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.ibatis.plugin.Invocation.proceed(Invocation.java:49)
+	at com.github.pagehelper.SqlUtil._processPage(SqlUtil.java:351)
+	at com.github.pagehelper.SqlUtil.processPage(SqlUtil.java:329)
+	at com.github.pagehelper.PageHelper.intercept(PageHelper.java:150)
+	at org.apache.ibatis.plugin.Plugin.invoke(Plugin.java:61)
+	at com.sun.proxy.$Proxy156.query(Unknown Source)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:148)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:141)
+	at sun.reflect.GeneratedMethodAccessor325.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:433)
+	... 44 more
+2019-10-26-16-10 [DubboServerHandler-192.168.137.1:20881-thread-22] [com.alibaba.dubbo.rpc.filter.ExceptionFilter] [ERROR] -  [DUBBO] Got unchecked and undeclared exception which called by 192.168.137.1. service: cn.zhixiangsingle.service.purchase.scjcxx.IngredientBaseService, method: findAllIngredientBase, exception: org.springframework.jdbc.BadSqlGrammarException: 
+### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ',
+			
+            
+            
+			
+				ib.scspimgpath scspImgPath,
+			
+			
+			
+' at line 15
+### The error may exist in file [E:\hhp_zhixiang_idea_single\zhixiangsingle\zhixiangsingle-impl\main-impl\target\classes\mapper\IngredientBaseMapper.xml]
+### The error may involve defaultParameterMap
+### The error occurred while setting parameters
+### SQL: SELECT               ib.id,                      ib.ingredientname ingredientName,                               ib.meteringname meteringName,                      IFNULL((l.librarysurplus-l.libraryexpired),0) total,             w.unitprice unitPrice,,                                       ib.scspimgpath scspImgPath,                                                  ib.sdid sdId,                               ib.deletestatus deleteStatus,                                                                                                              ? siteName,             ? sitePhoto,             ? picturePrefix          FROM    ingredientbase ib                        LEFT JOIN    warehousdetails w    ON    w.ingredientid = i.id    AND    w.id = (SELECT max(id) FROM warehousdetails w2 WHERE w2.ingredientid = w.ingredientid)            LEFT JOIN    librarys l    ON l.ingredientbaseid = i.id                  WHERE  ib.ingredientname like CONCAT('%', ? , '%')                                                                     AND ib.sdid = ?                          AND ib.deletestatus = ?        ORDER BY    ib.id DESC
+### Cause: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ',
+			
+            
+            
+			
+				ib.scspimgpath scspImgPath,
+			
+			
+			
+' at line 15
+; bad SQL grammar []; nested exception is java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ',
+			
+            
+            
+			
+				ib.scspimgpath scspImgPath,
+			
+			
+			
+' at line 15, dubbo version: 2.5.5, current host: 127.0.0.1
+  org.springframework.jdbc.BadSqlGrammarException: 
+### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ',
+			
+            
+            
+			
+				ib.scspimgpath scspImgPath,
+			
+			
+			
+' at line 15
+### The error may exist in file [E:\hhp_zhixiang_idea_single\zhixiangsingle\zhixiangsingle-impl\main-impl\target\classes\mapper\IngredientBaseMapper.xml]
+### The error may involve defaultParameterMap
+### The error occurred while setting parameters
+### SQL: SELECT               ib.id,                      ib.ingredientname ingredientName,                               ib.meteringname meteringName,                      IFNULL((l.librarysurplus-l.libraryexpired),0) total,             w.unitprice unitPrice,,                                       ib.scspimgpath scspImgPath,                                                  ib.sdid sdId,                               ib.deletestatus deleteStatus,                                                                                                              ? siteName,             ? sitePhoto,             ? picturePrefix          FROM    ingredientbase ib                        LEFT JOIN    warehousdetails w    ON    w.ingredientid = i.id    AND    w.id = (SELECT max(id) FROM warehousdetails w2 WHERE w2.ingredientid = w.ingredientid)            LEFT JOIN    librarys l    ON l.ingredientbaseid = i.id                  WHERE  ib.ingredientname like CONCAT('%', ? , '%')                                                                     AND ib.sdid = ?                          AND ib.deletestatus = ?        ORDER BY    ib.id DESC
+### Cause: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ',
+			
+            
+            
+			
+				ib.scspimgpath scspImgPath,
+			
+			
+			
+' at line 15
+; bad SQL grammar []; nested exception is java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ',
+			
+            
+            
+			
+				ib.scspimgpath scspImgPath,
+			
+			
+			
+' at line 15
+	at org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.doTranslate(SQLErrorCodeSQLExceptionTranslator.java:234)
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:72)
+	at org.mybatis.spring.MyBatisExceptionTranslator.translateExceptionIfPossible(MyBatisExceptionTranslator.java:73)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:446)
+	at com.sun.proxy.$Proxy95.selectList(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.selectList(SqlSessionTemplate.java:230)
+	at org.apache.ibatis.binding.MapperMethod.executeForMany(MapperMethod.java:139)
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:76)
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:59)
+	at com.sun.proxy.$Proxy146.findIngredientBaseList(Unknown Source)
+	at cn.zhixiangsingle.impl.purchase.scjcxx.IngredientBaseServiceImpl.findAllIngredientBase(IngredientBaseServiceImpl.java:781)
+	at cn.zhixiangsingle.impl.purchase.scjcxx.IngredientBaseServiceImpl$$FastClassBySpringCGLIB$$d84a6202.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:749)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:295)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:98)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
+	at cn.zhixiangsingle.impl.purchase.scjcxx.IngredientBaseServiceImpl$$EnhancerBySpringCGLIB$$fcbed8ed.findAllIngredientBase(<generated>)
+	at com.alibaba.dubbo.common.bytecode.Wrapper18.invokeMethod(Wrapper18.java)
+	at com.alibaba.dubbo.rpc.proxy.javassist.JavassistProxyFactory$1.doInvoke(JavassistProxyFactory.java:46)
+	at com.alibaba.dubbo.rpc.proxy.AbstractProxyInvoker.invoke(AbstractProxyInvoker.java:72)
+	at com.alibaba.dubbo.rpc.protocol.InvokerWrapper.invoke(InvokerWrapper.java:53)
+	at com.alibaba.dubbo.rpc.filter.ExceptionFilter.invoke(ExceptionFilter.java:64)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:69)
+	at com.alibaba.dubbo.monitor.support.MonitorFilter.invoke(MonitorFilter.java:75)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:69)
+	at com.alibaba.dubbo.rpc.filter.TimeoutFilter.invoke(TimeoutFilter.java:42)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:69)
+	at com.alibaba.dubbo.rpc.protocol.dubbo.filter.TraceFilter.invoke(TraceFilter.java:78)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:69)
+	at com.alibaba.dubbo.rpc.filter.ContextFilter.invoke(ContextFilter.java:61)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:69)
+	at com.alibaba.dubbo.rpc.filter.GenericFilter.invoke(GenericFilter.java:132)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:69)
+	at com.alibaba.dubbo.rpc.filter.ClassLoaderFilter.invoke(ClassLoaderFilter.java:38)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:69)
+	at com.alibaba.dubbo.rpc.filter.EchoFilter.invoke(EchoFilter.java:38)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:69)
+	at com.alibaba.dubbo.rpc.protocol.dubbo.DubboProtocol$1.reply(DubboProtocol.java:102)
+	at com.alibaba.dubbo.remoting.exchange.support.header.HeaderExchangeHandler.handleRequest(HeaderExchangeHandler.java:98)
+	at com.alibaba.dubbo.remoting.exchange.support.header.HeaderExchangeHandler.received(HeaderExchangeHandler.java:170)
+	at com.alibaba.dubbo.remoting.transport.DecodeHandler.received(DecodeHandler.java:52)
+	at com.alibaba.dubbo.remoting.transport.dispatcher.ChannelEventRunnable.run(ChannelEventRunnable.java:81)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ',
+			
+            
+            
+			
+				ib.scspimgpath scspImgPath,
+			
+			
+			
+' at line 15
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:953)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:370)
+	at com.alibaba.druid.pool.DruidPooledPreparedStatement.execute(DruidPooledPreparedStatement.java:498)
+	at sun.reflect.GeneratedMethodAccessor304.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.ibatis.logging.jdbc.PreparedStatementLogger.invoke(PreparedStatementLogger.java:59)
+	at com.sun.proxy.$Proxy158.execute(Unknown Source)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.query(PreparedStatementHandler.java:63)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.query(RoutingStatementHandler.java:79)
+	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:63)
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:326)
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:156)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:109)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:83)
+	at sun.reflect.GeneratedMethodAccessor302.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.ibatis.plugin.Invocation.proceed(Invocation.java:49)
+	at com.github.pagehelper.SqlUtil._processPage(SqlUtil.java:351)
+	at com.github.pagehelper.SqlUtil.processPage(SqlUtil.java:329)
+	at com.github.pagehelper.PageHelper.intercept(PageHelper.java:150)
+	at org.apache.ibatis.plugin.Plugin.invoke(Plugin.java:61)
+	at com.sun.proxy.$Proxy156.query(Unknown Source)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:148)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:141)
+	at sun.reflect.GeneratedMethodAccessor325.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:433)
+	... 44 more
+2019-10-26-16-11 [DubboServerHandler-192.168.137.1:20881-thread-24] [com.alibaba.dubbo.rpc.filter.ExceptionFilter] [ERROR] -  [DUBBO] Got unchecked and undeclared exception which called by 192.168.137.1. service: cn.zhixiangsingle.service.purchase.scjcxx.IngredientBaseService, method: findAllIngredientBase, exception: org.springframework.jdbc.BadSqlGrammarException: 
+### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ',
+			
+            
+            
+			
+				ib.scspimgpath scspImgPath,
+			
+			
+			
+' at line 15
+### The error may exist in file [E:\hhp_zhixiang_idea_single\zhixiangsingle\zhixiangsingle-impl\main-impl\target\classes\mapper\IngredientBaseMapper.xml]
+### The error may involve defaultParameterMap
+### The error occurred while setting parameters
+### SQL: SELECT               ib.id,                      ib.ingredientname ingredientName,                               ib.meteringname meteringName,                      IFNULL((l.librarysurplus-l.libraryexpired),0) total,             w.unitprice unitPrice,,                                       ib.scspimgpath scspImgPath,                                                  ib.sdid sdId,                               ib.deletestatus deleteStatus,                                                                                                              ? siteName,             ? sitePhoto,             ? picturePrefix          FROM    ingredientbase ib                        LEFT JOIN    warehousdetails w    ON    w.ingredientid = i.id    AND    w.id = (SELECT max(id) FROM warehousdetails w2 WHERE w2.ingredientid = w.ingredientid)            LEFT JOIN    librarys l    ON l.ingredientbaseid = i.id                  WHERE  ib.ingredientname like CONCAT('%', ? , '%')                                                                     AND ib.sdid = ?                          AND ib.deletestatus = ?        ORDER BY    ib.id DESC
+### Cause: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ',
+			
+            
+            
+			
+				ib.scspimgpath scspImgPath,
+			
+			
+			
+' at line 15
+; bad SQL grammar []; nested exception is java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ',
+			
+            
+            
+			
+				ib.scspimgpath scspImgPath,
+			
+			
+			
+' at line 15, dubbo version: 2.5.5, current host: 127.0.0.1
+  org.springframework.jdbc.BadSqlGrammarException: 
+### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ',
+			
+            
+            
+			
+				ib.scspimgpath scspImgPath,
+			
+			
+			
+' at line 15
+### The error may exist in file [E:\hhp_zhixiang_idea_single\zhixiangsingle\zhixiangsingle-impl\main-impl\target\classes\mapper\IngredientBaseMapper.xml]
+### The error may involve defaultParameterMap
+### The error occurred while setting parameters
+### SQL: SELECT               ib.id,                      ib.ingredientname ingredientName,                               ib.meteringname meteringName,                      IFNULL((l.librarysurplus-l.libraryexpired),0) total,             w.unitprice unitPrice,,                                       ib.scspimgpath scspImgPath,                                                  ib.sdid sdId,                               ib.deletestatus deleteStatus,                                                                                                              ? siteName,             ? sitePhoto,             ? picturePrefix          FROM    ingredientbase ib                        LEFT JOIN    warehousdetails w    ON    w.ingredientid = i.id    AND    w.id = (SELECT max(id) FROM warehousdetails w2 WHERE w2.ingredientid = w.ingredientid)            LEFT JOIN    librarys l    ON l.ingredientbaseid = i.id                  WHERE  ib.ingredientname like CONCAT('%', ? , '%')                                                                     AND ib.sdid = ?                          AND ib.deletestatus = ?        ORDER BY    ib.id DESC
+### Cause: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ',
+			
+            
+            
+			
+				ib.scspimgpath scspImgPath,
+			
+			
+			
+' at line 15
+; bad SQL grammar []; nested exception is java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ',
+			
+            
+            
+			
+				ib.scspimgpath scspImgPath,
+			
+			
+			
+' at line 15
+	at org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.doTranslate(SQLErrorCodeSQLExceptionTranslator.java:234)
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:72)
+	at org.mybatis.spring.MyBatisExceptionTranslator.translateExceptionIfPossible(MyBatisExceptionTranslator.java:73)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:446)
+	at com.sun.proxy.$Proxy95.selectList(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.selectList(SqlSessionTemplate.java:230)
+	at org.apache.ibatis.binding.MapperMethod.executeForMany(MapperMethod.java:139)
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:76)
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:59)
+	at com.sun.proxy.$Proxy146.findIngredientBaseList(Unknown Source)
+	at cn.zhixiangsingle.impl.purchase.scjcxx.IngredientBaseServiceImpl.findAllIngredientBase(IngredientBaseServiceImpl.java:781)
+	at cn.zhixiangsingle.impl.purchase.scjcxx.IngredientBaseServiceImpl$$FastClassBySpringCGLIB$$d84a6202.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:749)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:295)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:98)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
+	at cn.zhixiangsingle.impl.purchase.scjcxx.IngredientBaseServiceImpl$$EnhancerBySpringCGLIB$$fcbed8ed.findAllIngredientBase(<generated>)
+	at com.alibaba.dubbo.common.bytecode.Wrapper18.invokeMethod(Wrapper18.java)
+	at com.alibaba.dubbo.rpc.proxy.javassist.JavassistProxyFactory$1.doInvoke(JavassistProxyFactory.java:46)
+	at com.alibaba.dubbo.rpc.proxy.AbstractProxyInvoker.invoke(AbstractProxyInvoker.java:72)
+	at com.alibaba.dubbo.rpc.protocol.InvokerWrapper.invoke(InvokerWrapper.java:53)
+	at com.alibaba.dubbo.rpc.filter.ExceptionFilter.invoke(ExceptionFilter.java:64)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:69)
+	at com.alibaba.dubbo.monitor.support.MonitorFilter.invoke(MonitorFilter.java:75)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:69)
+	at com.alibaba.dubbo.rpc.filter.TimeoutFilter.invoke(TimeoutFilter.java:42)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:69)
+	at com.alibaba.dubbo.rpc.protocol.dubbo.filter.TraceFilter.invoke(TraceFilter.java:78)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:69)
+	at com.alibaba.dubbo.rpc.filter.ContextFilter.invoke(ContextFilter.java:61)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:69)
+	at com.alibaba.dubbo.rpc.filter.GenericFilter.invoke(GenericFilter.java:132)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:69)
+	at com.alibaba.dubbo.rpc.filter.ClassLoaderFilter.invoke(ClassLoaderFilter.java:38)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:69)
+	at com.alibaba.dubbo.rpc.filter.EchoFilter.invoke(EchoFilter.java:38)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:69)
+	at com.alibaba.dubbo.rpc.protocol.dubbo.DubboProtocol$1.reply(DubboProtocol.java:102)
+	at com.alibaba.dubbo.remoting.exchange.support.header.HeaderExchangeHandler.handleRequest(HeaderExchangeHandler.java:98)
+	at com.alibaba.dubbo.remoting.exchange.support.header.HeaderExchangeHandler.received(HeaderExchangeHandler.java:170)
+	at com.alibaba.dubbo.remoting.transport.DecodeHandler.received(DecodeHandler.java:52)
+	at com.alibaba.dubbo.remoting.transport.dispatcher.ChannelEventRunnable.run(ChannelEventRunnable.java:81)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ',
+			
+            
+            
+			
+				ib.scspimgpath scspImgPath,
+			
+			
+			
+' at line 15
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:953)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:370)
+	at com.alibaba.druid.pool.DruidPooledPreparedStatement.execute(DruidPooledPreparedStatement.java:498)
+	at sun.reflect.GeneratedMethodAccessor304.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.ibatis.logging.jdbc.PreparedStatementLogger.invoke(PreparedStatementLogger.java:59)
+	at com.sun.proxy.$Proxy158.execute(Unknown Source)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.query(PreparedStatementHandler.java:63)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.query(RoutingStatementHandler.java:79)
+	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:63)
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:326)
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:156)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:109)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:83)
+	at sun.reflect.GeneratedMethodAccessor302.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.ibatis.plugin.Invocation.proceed(Invocation.java:49)
+	at com.github.pagehelper.SqlUtil._processPage(SqlUtil.java:351)
+	at com.github.pagehelper.SqlUtil.processPage(SqlUtil.java:329)
+	at com.github.pagehelper.PageHelper.intercept(PageHelper.java:150)
+	at org.apache.ibatis.plugin.Plugin.invoke(Plugin.java:61)
+	at com.sun.proxy.$Proxy156.query(Unknown Source)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:148)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:141)
+	at sun.reflect.GeneratedMethodAccessor325.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:433)
+	... 44 more

@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.zhixiangsingle.dao.gasBase.GasBaseMapper">
+	<sql id="Base_Column_List">
+		id, gas_area gasArea, gas_val gasVal, gasyh_val gasYhVal,
+		 gas_sensor gasSensor, time, sdid sdId
+	</sql>
+	<sql id="selectPrintAllKey">
+		<trim suffixOverrides=",">
+			<if test="id != null" >
+				g.id,
+			</if>
+			<if test="gasArea != null and gasArea != ''" >
+				IFNULL(g.gas_area,"-") gasArea,
+			</if>
+			<if test="gasVal != null and gasVal != ''" >
+				IFNULL(g.gas_val,'-') gasVal,
+			</if>
+			<if test="gasYhVal != null and gasYhVal != ''" >
+				IFNULL(g.gasyh_val,'-') gasYhVal,
+			</if>
+			<if test="gasSensor != null and gasSensor != ''" >
+				IFNULL(g.gas_sensor,'-') gasSensor,
+			</if>
+			<if test="time != null and time != ''" >
+				g.time,
+			</if>
+			<if test="sdId != null" >
+				g.sdid sdId,
+			</if>
+			<if test="siteName != null and siteName != ''" >
+				#{siteName} siteName,
+			</if>
+			<if test="sitePhoto != null and sitePhoto != ''" >
+				#{sitePhoto} sitePhoto,
+			</if>
+			<if test="picturePrefix != null and picturePrefix != ''" >
+				#{picturePrefix} picturePrefix,
+			</if>
+		</trim>
+	</sql>
+    <sql id="selectAllKey">
+        <trim suffixOverrides=",">
+			<if test="id != null" >
+				g.id,
+			</if>
+			<if test="gasArea != null and gasArea != ''" >
+				IFNULL(g.gas_area,null) gasArea,
+			</if>
+			<if test="gasVal != null and gasVal != ''" >
+				IFNULL(g.gas_val,null) gasVal,
+			</if>
+			<if test="gasYhVal != null and gasYhVal != ''" >
+				IFNULL(g.gasyh_val,null) gasYhVal,
+			</if>
+			<if test="gasSensor != null and gasSensor != ''" >
+				IFNULL(g.gas_sensor,null) gasSensor,
+			</if>
+			<if test="time != null and time != ''" >
+				g.time,
+			</if>
+			<if test="sdId != null" >
+				g.sdid sdId,
+			</if>
+			<if test="siteName != null and siteName != ''" >
+				#{siteName} siteName,
+			</if>
+			<if test="sitePhoto != null and sitePhoto != ''" >
+				#{sitePhoto} sitePhoto,
+			</if>
+			<if test="picturePrefix != null and picturePrefix != ''" >
+				#{picturePrefix} picturePrefix,
+			</if>
+        </trim>
+    </sql>
+	<sql id="insertAllKey">
+		<trim suffixOverrides=",">
+			<if test="gasArea != null and gasArea != ''" >
+				gas_area,
+			</if>
+			<if test="gasVal != null and gasVal != ''" >
+				gas_val,
+			</if>
+			<if test="gasYhVal != null and gasYhVal != ''" >
+				gasyh_val,
+			</if>
+			<if test="gasSensor != null and gasSensor != ''" >
+				gas_sensor,
+			</if>
+			<if test="time != null and time != ''" >
+				time,
+			</if>
+			<if test="sdId != null" >
+				sdid,
+			</if>
+		</trim>
+	</sql>
+	<sql id="insertAllValue">
+		<trim suffixOverrides=",">
+			<if test="gasArea != null and gasArea != ''" >
+				#{gasArea},
+			</if>
+			<if test="gasVal != null and gasVal != ''" >
+				#{gasVal},
+			</if>
+			<if test="gasYhVal != null and gasYhVal != ''" >
+				#{gasYhVal},
+			</if>
+			<if test="gasSensor != null and gasSensor != ''" >
+				#{gasSensor},
+			</if>
+			<if test="time != null and time != ''" >
+				#{time},
+			</if>
+			<if test="sdId != null" >
+				#{sdId},
+			</if>
+		</trim>
+	</sql>
+	<sql id="updateAllValue">
+		<trim suffixOverrides=",">
+			<if test="gasArea != null and gasArea != ''" >
+				gas_area = #{gasArea,jdbcType=VARCHAR},
+			</if>
+			<if test="gasVal != null and gasVal != ''" >
+				gas_val = #{gasVal,jdbcType=VARCHAR},
+			</if>
+			<if test="gasYhVal != null and gasYhVal != ''" >
+				gasyh_val = #{gasYhVal,jdbcType=VARCHAR},
+			</if>
+			<if test="gasSensor != null and gasSensor != ''" >
+				gas_sensor = #{gasSensor,jdbcType=VARCHAR},
+			</if>
+			<if test="time != null and time != ''" >
+				time = #{time,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</sql>
+    <sql id="whereAllValue">
+        <where>
+			<if test='gasArea != null and gasArea != "" and gasArea != "g" ' >
+				AND g.gas_area = #{temperatureArea}
+			</if>
+			<if test='gasSensor != null and gasSensor != "" and gasSensor != "g" ' >
+				AND g.gas_sensor = #{gasSensor}
+			</if>
+			<if test="startTime != null and startTime != ''">
+				AND g.time &gt;= #{startTime}
+			</if>
+			<if test="endTime != null and endTime != ''">
+				AND g.time &lt;= #{endTime}
+			</if>
+			<if test="id != null and id != -1" >
+				AND g.id = #{id}
+			</if>
+			<if test="sdId != null and sdId != -1" >
+				AND g.sdid = #{sdId}
+			</if>
+			ORDER BY
+			g.id DESC
+			<if test='end != null and end != -1'>
+				LIMIT #{start},#{end}
+			</if>
+        </where>
+    </sql>
+	<sql id="whereFullNameAllValue">
+		<where>
+			<if test='gasArea != null and gasArea != "" and gasArea != "g" ' >
+				AND g.gas_area = #{temperatureArea}
+			</if>
+			<if test='gasSensor != null and gasSensor != "" and gasSensor != "g" ' >
+				AND g.gas_sensor = #{gasSensor}
+			</if>
+			<if test="startTime != null and startTime != ''">
+				AND g.time &gt;= #{startTime}
+			</if>
+			<if test="endTime != null and endTime != ''">
+				AND g.time &lt;= #{endTime}
+			</if>
+			<if test="id != null and id != -1" >
+				AND g.id = #{id}
+			</if>
+			<if test="sdId != null and sdId != -1" >
+				AND g.sdid = #{sdId}
+			</if>
+		</where>
+	</sql>
+	<!-- 查找所有食材记录条数 start -->
+	<select id="findGasBaseTotal" resultType="java.lang.Integer">
+		SELECT
+			COUNT(g.id)
+		FROM
+		gas_data g
+		<include refid="whereAllValue"/>
+	</select>
+	<!-- 查找所有食材记录条数 end -->
+	<!-- 查找所有食材记录 start -->
+	<select id="findGasBaseList" resultType="java.util.Map">
+		SELECT
+			<include refid="selectAllKey"/>
+		FROM
+		gas_data g
+		<include refid="whereAllValue"/>
+	</select>
+	<!-- 查找所有食材记录 end -->
+
+	<!-- 查找所有记录(打印用) 返回值是实体类 -->
+	<!--<select id="findManagementSystem" resultType="java.util.Map">
+		SELECT
+		<include refid="selectPrintAllKey"/>
+		FROM
+		managementsystem m
+		<include refid="whereAllValue"/>
+	</select>-->
+	<!-- 查找所有记录(打印用) 返回值是实体类 end -->
+
+	<!-- 查找单个 start -->
+	<select id="findGasBase" resultType="java.util.Map">
+		SELECT
+		<include refid="selectAllKey"/>
+		FROM
+		gas_data g
+		<include refid="whereFullNameAllValue"/>
+	</select>
+	<!-- 查找单个 end -->
+
+	<select id="findGasBaseFullNameTotal" resultType="java.lang.Integer">
+		SELECT
+			COUNT(g.id)
+		FROM
+		gas_data g
+		<include refid="whereFullNameAllValue"/>
+	</select>
+	<!-- 查找所有食材记录条数 end -->
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		DELETE FROM gas_data
+        WHERE id = #{id,jdbcType=INTEGER} and sdid = #{sdId,jdbcType=INTEGER}
+	</delete>
+	<insert id="insertSelective" useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO gas_data(<include refid="insertAllKey"/>) VALUES(<include refid="insertAllValue"/>);
+	</insert>
+	<update id="updateByPrimaryKey">
+		UPDATE gas_data
+		<set>
+			<include refid="updateAllValue"/>
+		</set>
+		WHERE id = #{id,jdbcType=INTEGER} and sdid = #{sdId,jdbcType=INTEGER}
+	</update>
+</mapper>

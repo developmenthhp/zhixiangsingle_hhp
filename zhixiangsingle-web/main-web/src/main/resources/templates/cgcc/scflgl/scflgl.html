@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>智飨科技食品餐饮安全网管理后台</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="智飨科技-食品餐饮安全网 " />
+    <meta name="author" content="hhp" />
+    <meta name="keyword" content="智能化餐饮,智飨科技,物联网,食品安全,智能厨房,家宴,餐饮标准化管理" />
+    <link rel="icon" href="../images/logo1.png" type="image/x-icon"/>
+    <script src="../../../js/common/css/commonCss.js" type="text/javascript"></script>
+    <link href="../../../css/userList/userList.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="skin-blue">
+<script src="../js/common/head.js" type="text/javascript"></script>
+<div class="wrapper row-offcanvas row-offcanvas-left">
+    <script src="../js/common/leftNav.js" type="text/javascript"></script>
+    <div class="copyrights">
+        Collect from <a href='http://www.zhixiangyun.cn/'  title='智飨科技'>智飨科技</a>
+        <span id='teShiro' style='display:none'><shiro:principal property='userName'></shiro:principal></span>
+        <span id='teShiro2' style='display:none'><shiro:principal property='insertTime'></shiro:principal></span>
+        <div style='display:none;' id='currentUser'><shiro:principal property='id'></shiro:principal></div>
+        <div style='display:none;' id='currentUserSdId'><shiro:principal property='sdId'></shiro:principal></div>
+        <div style='display:none;' id='currentUserIsZX'><shiro:principal property='zx'></shiro:principal></div>
+        <div style='display:none;' id='currentUserProfession'><shiro:principal property='profession'></shiro:principal></div>
+    </div>
+    <aside class="right-side" id="main">
+        <script src="../js/common/message/message.js" type="text/javascript"></script>
+        <section class="col-lg-12 connectedSortable">
+            <!-- 隐藏式搜索 -->
+            <svg class="hidden">
+                <defs>
+                    <symbol id="icon-search">
+                        <title>search</title><!-- 这个是search-->
+                        <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                    </symbol>
+                    <symbol id="icon-cross">
+                        <title>cross</title><!-- 这个是x-->
+                        <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                    </symbol>
+                </defs>
+            </svg>
+            <main>
+
+                <div class="search" style="overflow-y: scroll;">
+                    <div class="search__inner" style="height: 100%;">
+                        <form class="search__form" id="scjcxxSearchForm">
+                            <input id="alertSdId" type="hidden" name="sdIds"/>
+                            <input id="ingSdId" type="hidden" name="ingSdId"/>
+                            <!--<div class="input-group">
+
+                            </div>-->
+                            <select id="userSites" name="clas" multiple>
+
+                            </select>
+                            <!--<div class="input-group" style="top: 1.6em;width:100%;">
+                                <input type="text" name="area" class="form-control" placeholder="岗位职责名称"/>
+                            </div>-->
+
+                            <div class="box-tools input-group" style="top: 3.2em;width:100%;" >
+                                <button type="button" class="btn btn-alt btn-sm btn-flat" style="text-align: center;" onclick="reloadMyDateTable()">
+                                    <i class="iconfont iconmagnifiersearch" data-toggle="tooltip" title="搜索" style="color:blue;font-size: 1.3em;cursor: pointer;"></i>
+                                </button>
+                            </div>
+
+                        </form>
+                    </div><!-- /search__inner -->
+                </div><!-- /search -->
+            </main><!-- /main-wrap -->
+            <!-- 隐藏式搜索 -->
+
+            <!-- /jQuery 弹幕样式消息 -->
+            <div class="box box-primary">
+                <div class="box-header">
+                    <span class="box-title" style="font-size: 1.5em;" >食材分类管理</span>
+                    <div class="pull-right box-tools">
+                        <button id="btn-search" class="btn btn-alt btn-sm" data-toggle="tooltip" title="搜索" onclick="showOpenColor()"><i class="iconfont iconzhinengsousuo" style="font-size: 1em;"></i></button>
+                        <button id="btn-search-close" class="btn btn-alt btn-sm btn--search-close btn--hidden" style="z-index: 9999999;" onclick="setOpenColor()"><i class="iconfont iconjibing" style="font-size: 1em;"></i></button>
+
+                        <!--<button class="btn btn-alt btn-sm refresh-btn" data-toggle="tooltip" title="导出食材信息" onclick="exportSingle(null)"><i class="iconfont iconexport1" style="font-size: 1em;"></i></button>-->
+                        <button class="btn btn-alt btn-sm refresh-btn" data-toggle="tooltip" title="重新加载" onclick="loadUserList()"><i class="fa fa-refresh"></i></button>
+                        <button class="btn btn-alt btn-sm" data-widget='collapse' data-toggle="tooltip" title="隐藏"><i class="fa fa-minus"></i></button>
+                        <button class="btn btn-alt btn-sm" data-widget='remove' data-toggle="tooltip" title="关闭"><i class="fa fa-times"></i></button>
+                    </div><!-- /. tools -->
+                </div><!-- /.box-header -->
+                <div class="box-body no-padding main-wrap">
+                    <table id="sort" class="my-table">
+                        <tbody id="userListUl">
+                        </tbody>
+                    </table>
+                </div><!-- /.box-body -->
+                <div class="box-footer clearfix no-border">
+                    <div style="height: 2em;"></div>
+                    <button class="btn btn-alt pull-right" onclick="addSun(0,0,null)" style="margin-top: -2.3em;" data-toggle="tooltip" title="新增类别"><i class="iconfont icontianjia2" style="font-weight: bold;color: blue;"></i></button>
+                </div>
+
+            </div><!-- 站点角色列表 -->
+        </section>
+    </aside><!-- /.right-side -->
+</div><!-- ./wrapper -->
+
+<!-- COMPOSE MESSAGE MODAL -->
+<div class="modal fade" id="comInfo-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 id="chgBusTitle" class="modal-title"></h4>
+            </div>
+            <form id="comInfoForm" action="#" method="post" onsubmit="return showRequest()">
+                <input id="id" type="hidden" name="id"/>
+                <input id="pId" type="hidden" name="pId"/>
+                <input id="sdId" type="hidden" name="sdId">
+                <input id="sdIds" type="hidden" name="sdIds">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">类别名称:</span>
+                            <input id="categoryName" name="categoryName" type="text" class="form-control validate[required,maxSize[40],custom[chineseEngNum]]" data-errormessage-value-missing="必填" data-errormessage-custom-error="只接受中文、英文字母、数字" data-errormessage-range-overflow="最多40位" placeholder="类别名称(必填)">
+                        </div>
+                    </div>
+                    <!--<div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">图例<i class="fa fa-plus" style="padding-left: 3em;font-size: 1.3em;" data-toggle='tooltip' title='添加图例' data-original-title='添加图例' onclick="createImgDiv()"></i></span>
+                        </div>
+                    </div>-->
+                    <div id="form-group-sdId" class="form-group" style="display: none;">
+                        <div class="input-group">
+                            <span class="input-group-addon" style="letter-spacing: 0.66em;">试点:</span>
+                            <select id="selectSites" name="clase" multiple>
+
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer clearfix">
+
+                    <button type="button" class="btn btn-danger" onclick="myResetForm()"><i class="fa fa-eraser"></i>&nbsp;重置</button>
+
+                    <button type="submit" class="btn btn-primary pull-left"><i class="fa fa-mail-forward"></i>&nbsp;立即提交</button>
+                </div>
+            </form>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div class="am-modal am-modal-no-btn up-modal-frame modal fade" tabindex="-1" role="dialog" aria-hidden="true" id="up-modal-frame">
+    <div class="am-modal-dialog up-frame-parent up-frame-radius modal-content">
+        <div class="modal-body am-modal-bd  up-frame-body">
+            <div class="am-modal-hd up-frame-header">
+                <label>上传图片</label>
+                <button type="button" class="close am-close am-close-spin" data-am-modal-close data-dismiss="modal" aria-hidden="true">&times;</button>
+                <!--<i class="am-close am-close-spin" data-am-modal-close>&times;</i>-->
+            </div>
+            <div class="am-g am-fl">
+                <div class="am-form-group am-form-file">
+                    <div class="am-fl">
+                        <button type="button" class="am-btn am-btn-default am-btn-sm btn-alt" style="color:#FFFFFF">
+                            <i class="am-icon-cloud-upload"></i> 选择要上传的文件</button>
+                    </div>
+                    <input type="file" class="up-img-file">
+                </div>
+            </div>
+            <div class="am-g am-fl">
+                <div class="up-pre-before up-frame-radius">
+                    <img alt="" src="" class="up-img-show" id="up-img-show">
+                </div>
+                <div class="up-pre-after up-frame-radius">
+                </div>
+            </div>
+            <div class="am-g am-fl">
+                <div class="up-control-btns">
+                    <span class="am-icon-rotate-left" id="up-btn-left"></span>
+                    <span class="am-icon-rotate-right" id="up-btn-right"></span>
+                    <span class="am-icon-check up-btn-ok" url="/uploadFileImg" parameter="{width:'200',height:'200'}"></span>
+                </div>
+            </div>
+        </div>
+    </div><!-- /.modal-content --><!-- /.modal-dialog -->
+</div>
+
+<script src="../../../js/common/hideSearch_noInput.js" type="text/javascript"></script>
+<script src="../../../js/common/js/commonJs.js" type="text/javascript"></script>
+<script src="../../../js/cgcc/scflgl/scflgl.js" type="text/javascript"></script>
+</body>
+</html>

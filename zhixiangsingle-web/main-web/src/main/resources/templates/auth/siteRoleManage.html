@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>智飨科技食品餐饮安全网管理后台</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="智飨科技-食品餐饮安全网 " />
+    <meta name="author" content="hhp" />
+    <meta name="keyword" content="智能化餐饮,智飨科技,物联网,食品安全,智能厨房,家宴,餐饮标准化管理" />
+    <link rel="icon" href="../images/logo1.png" type="image/x-icon"/>
+    <script src="../js/common/css/commonCss.js" type="text/javascript"></script>
+    <link href="../css/userList/userList.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="skin-blue">
+<script src="../js/common/head.js" type="text/javascript"></script>
+<div class="wrapper row-offcanvas row-offcanvas-left">
+    <script src="../js/common/leftNav.js" type="text/javascript"></script>
+    <div class="copyrights">
+        Collect from <a href='http://www.zhixiangyun.cn/'  title='智飨科技'>智飨科技</a>
+        <span id='teShiro' style='display:none'><shiro:principal property='userName'></shiro:principal></span>
+        <span id='teShiro2' style='display:none'><shiro:principal property='insertTime'></shiro:principal></span>
+        <div style='display:none;' id='currentUser'><shiro:principal property='id'></shiro:principal></div>
+        <div style='display:none;' id='currentUserSdId'><shiro:principal property='sdId'></shiro:principal></div>
+        <div style='display:none;' id='currentUserIsZX'><shiro:principal property='zx'></shiro:principal></div>
+        <div style='display:none;' id='currentUserProfession'><shiro:principal property='profession'></shiro:principal></div>
+    </div>
+    <aside class="right-side" id="main">
+        <script src="../js/common/message/message.js" type="text/javascript"></script>
+        <section class="col-lg-12 connectedSortable">
+            <!-- 隐藏式搜索 -->
+            <svg class="hidden">
+                <defs>
+                    <symbol id="icon-search">
+                        <title>search</title><!-- 这个是search-->
+                        <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                    </symbol>
+                    <symbol id="icon-cross">
+                        <title>cross</title><!-- 这个是x-->
+                        <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                    </symbol>
+                </defs>
+            </svg>
+            <main>
+
+                <div class="search">
+                    <div class="search__inner">
+                        <form class="search__form" id="scjcxxSearchForm">
+                            <input id="alertSdId" type="hidden" name="sdIds"/>
+                            <div class="input-group">
+                                <input type="text" name="roleName" class="form-control" placeholder="角色名"/>
+                            </div>
+                            <div class="box-tools input-group" style="top: 1.8em;" >
+                                <input type="text" name="code" class="form-control" placeholder="角色编号"/>
+                            </div>
+                            <button type="button" class="btn btn-alt btn-sm btn-flat" style="text-align: center;margin-top: 6.8em;" onclick="reloadMyDateTable()">
+                                <i class="iconfont iconmagnifiersearch" data-toggle="tooltip" title="搜索" style="color:blue;font-size: 1.3em;cursor: pointer;"></i>
+                            </button>
+                        </form>
+                    </div><!-- /search__inner -->
+                </div><!-- /search -->
+            </main><!-- /main-wrap -->
+            <!-- 隐藏式搜索 -->
+
+            <!-- /jQuery 弹幕样式消息 -->
+            <div class="box box-primary">
+                <div class="box-header">
+                    <span class="box-title" style="font-size: 1.5em;" >站点角色管理</span>
+                    <div class="pull-right box-tools">
+                        <button id="btn-search" class="btn btn-alt btn-sm" data-toggle="tooltip" title="搜索"><i class="iconfont iconzhinengsousuo" style="font-size: 1em;"></i></button>
+                        <button id="btn-search-close" class="btn btn-alt btn-sm btn--search-close btn--hidden" style="z-index: 9999999;"><i class="iconfont iconjibing" style="font-size: 1em;"></i></button>
+
+                        <button class="btn btn-alt btn-sm refresh-btn" data-toggle="tooltip" title="重新加载" onclick="loadUserList()"><i class="fa fa-refresh"></i></button>
+                        <button class="btn btn-alt btn-sm" data-widget='collapse' data-toggle="tooltip" title="隐藏"><i class="fa fa-minus"></i></button>
+                        <button class="btn btn-alt btn-sm" data-widget='remove' data-toggle="tooltip" title="关闭"><i class="fa fa-times"></i></button>
+                    </div><!-- /. tools -->
+                </div><!-- /.box-header -->
+                <div class="box-body no-padding main-wrap">
+
+                    <table id="sort" class="my-table">
+                        <thead>
+                        <tr>
+                            <th>角色编号</th>
+                            <th>角色名称</th>
+                            <th>角色描述</th>
+                            <th>添加时间</th>
+                            <th>操作</th>
+                        </tr>
+                        <thead>
+                        <tbody id="userListUl">
+                        </tbody>
+                    </table>
+                </div><!-- /.box-body -->
+                <div class="box-footer clearfix no-border">
+                    <div class="ht-page"></div>
+                    <button class="btn btn-alt pull-right" onclick="befShowAddMod()" style="margin-top: -2.3em;" data-toggle="tooltip" title="开通站点角色"><i class="iconfont icontianjia2" style="font-weight: bold;color: blue;"></i></button>
+                </div>
+
+            </div><!-- 站点角色列表 -->
+        </section>
+    </aside><!-- /.right-side -->
+</div><!-- ./wrapper -->
+
+<!-- COMPOSE MESSAGE MODAL -->
+<div class="modal fade" id="compose-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title"><i class="fa fa-users"></i>&nbsp;<span id="chgUpdTitle"></span></h4>
+            </div>
+            <form id="roleForm" action="#" method="post" onsubmit="return showRequest()">
+                <input id="rolePermIds" type="hidden" name="roleSiteRole"/>
+                <input id="id" type="hidden" name="id"/>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">角色名称:</span>
+                            <input id="roleName" name="roleName" type="text" class="form-control validate[required,maxSize[20]]" data-errormessage-value-missing="必填" data-errormessage-range-overflow="最多20位" placeholder="角色名称(必填)">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">角色编号:</span>
+                            <input id="code" name="code" type="text" class="form-control validate[required,custom[onlyLetterNumber],maxSize[18]]" data-errormessage-custom-error="只接受数字和英文字母" data-errormessage-value-missing="必填" data-errormessage-range-overflow="最多18位" placeholder="角色编号">
+                        </div>
+                    </div>
+                    <div id="form-group-sdId" class="form-group" style="display: none;">
+                        <div class="input-group">
+                            <span class="input-group-addon">试&nbsp;&nbsp;点&nbsp;&nbsp;id:</span>
+                            <input id="sdId" name="sdId" type="text" class="form-control validate[custom[integer],maxSize[11]]" data-errormessage-custom-error="只接受整数" data-errormessage-range-overflow="最多11位" placeholder="站点id">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="descpt" id="descpt" class="form-control validate[maxSize[100]]" data-errormessage-range-overflow="最多100位" placeholder="角色描述" style="height: 120px;"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <div id="rolesDivs" class="input-group" style="width: 100%;">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer clearfix">
+
+                    <button type="button" class="btn btn-danger" onclick="myResetForm()"><i class="fa fa-eraser"></i>&nbsp;重置</button>
+
+                    <button type="submit" class="btn btn-primary pull-left"><i class="fa fa-mail-forward"></i>&nbsp;立即提交</button>
+                </div>
+            </form>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<script src="../js/common/hideSearch_noInput.js" type="text/javascript"></script>
+<script src="../js/common/js/commonJs.js" type="text/javascript"></script>
+<script src="../js/auth/siteRoleManage.js" type="text/javascript"></script>
+</body>
+</html>

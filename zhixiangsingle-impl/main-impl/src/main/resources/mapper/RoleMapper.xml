@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.zhixiangsingle.dao.role.RoleMapper" >
+  <resultMap id="BaseResultMap" type="cn.zhixiangsingle.entity.base.role.Role" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="role_name" property="roleName" jdbcType="VARCHAR" />
+    <result column="descpt" property="descpt" jdbcType="VARCHAR" />
+    <result column="code" property="code" jdbcType="VARCHAR" />
+    <result column="insert_uid" property="insertUid" jdbcType="INTEGER" />
+    <result column="insert_time" property="insertTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="sdid" property="sdId" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, role_name, descpt, code, insert_uid, insert_time, update_time,sdid
+  </sql>
+  <!-- 定义sql片段，且唯一 动态查询 start -->
+  <sql id="selectAllKey">
+    <trim suffixOverrides=",">
+      <if test="id != null" >
+        r.id,
+      </if>
+      <if test="roleName != null and roleName != ''" >
+        r.role_name,
+      </if>
+      <if test="descpt != null and descpt != ''" >
+        r.descpt,
+      </if>
+      <if test="code != null and code != ''" >
+        r.code,
+      </if>
+      <if test="insertUid != null" >
+        r.insert_uid insertUid,
+      </if>
+      <if test="insertTime != null" >
+        r.insert_time insertTime,
+      </if>
+      <if test="updateTime != null" >
+        r.update_time updateTime,
+      </if>
+      <if test="sdId != null" >
+        r.sdid sdId,
+      </if>
+    </trim>
+  </sql>
+  <!-- 定义sql片段，且唯一 动态查询 end -->
+
+  <!-- 定义sql片段，且唯一 动态insert start -->
+  <sql id="insertAllKey">
+    <trim suffixOverrides=",">
+      <if test="roleName != null and roleName != ''" >
+        role_name,
+      </if>
+      <if test="descpt != null and descpt != ''" >
+        descpt,
+      </if>
+      <if test="code != null and code != ''" >
+        code,
+      </if>
+      <if test="insertUid != null" >
+        insert_uid,
+      </if>
+      <if test="insertTime != null" >
+        insert_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="sdId != null" >
+        sdid,
+      </if>
+    </trim>
+  </sql>
+  <!-- 定义sql片段，且唯一 动态insert end -->
+
+  <!-- 定义sql片段，且唯一 value值 start -->
+  <sql id="insertAllValue">
+    <trim suffixOverrides=",">
+      <if test="roleName != null and roleName != ''" >
+        #{roleName},
+      </if>
+      <if test="descpt != null and descpt != ''" >
+        #{descpt},
+      </if>
+      <if test="code != null and code != ''" >
+        #{code},
+      </if>
+      <if test="insertUid != null" >
+        #{insertUid},
+      </if>
+      <if test="insertTime != null" >
+        #{insertTime},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime},
+      </if>
+      <if test="sdId != null" >
+        #{sdId},
+      </if>
+    </trim>
+  </sql>
+  <!-- 定义sql片段，且唯一 value值 end -->
+
+  <!-- 定义更新sql片段，且唯一 value值 start -->
+  <sql id="updateAllValue">
+    <trim suffixOverrides=",">
+      <if test="roleName != null and roleName != ''" >
+        role_name = #{roleName,jdbcType=VARCHAR},
+      </if>
+      <if test="descpt != null and descpt != ''" >
+        descpt = #{descpt,jdbcType=VARCHAR},
+      </if>
+      <if test="code != null and code != ''" >
+        code = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="insertUid != null" >
+        insert_uid = #{insertUid,jdbcType=INTEGER},
+      </if>
+      <if test="insertTime != null" >
+        insert_time = #{insertTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sdId != null" >
+        sdid = #{sdId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </sql>
+  <!-- 定义更新sql片段，且唯一 value值 end -->
+
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap">
+    SELECT
+    <include refid="selectAllKey" />
+    FROM role r
+    WHERE id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    DELETE FROM role
+    WHERE id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insertSelective" useGeneratedKeys="true" keyProperty="id" parameterType="cn.zhixiangsingle.entity.base.role.Role" >
+    INSERT INTO role(<include refid="insertAllKey"/>) VALUES(<include refid="insertAllValue"/>);
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.zhixiangsingle.entity.base.role.Role" >
+    UPDATE role
+    <set >
+      <include refid="updateAllValue"/>
+    </set>
+    WHERE id = #{id,jdbcType=INTEGER}
+  </update>
+
+  <!--=Start findList 分页查询角色列表-->
+  <select id="findList" resultType="java.util.Map">
+    SELECT
+      r.id,
+      r.role_name roleName,
+      r.descpt,
+      r.code,
+      r.insert_time insertTime,
+      r.sdid sdId
+    FROM role r
+    <where>
+      <if test="sdId!=null">
+        AND sdid = #{sdId}
+      </if>
+      <if test="roleName!=null and roleName!=''">
+        AND role_name like CONCAT('%', #{roleName} , '%')
+      </if>
+      <if test="code!=null and code!=''">
+        AND code = #{code}
+      </if>
+    </where>
+  </select>
+  <!--=End findList 分页查询角色列表-->
+
+  <!--=Start findRoleAndPerms 查询角色列表-->
+  <resultMap id="rolePerms" type="cn.zhixiangsingle.entity.base.role.vo.RoleVO" >
+    <id column="id" property="id" />
+    <result column="role_name" property="roleName"/>
+    <result column="code" property="code"/>
+    <result column="descpt" property="descpt"/>
+    <result column="insert_uid" property="insertUid"/>
+    <result column="insert_time" property="insertTime"/>
+    <result column="sdid" property="sdId"/>
+    <collection property="rolePerms" ofType="cn.zhixiangsingle.entity.base.rolePermission.RolePermissionKey">
+      <result  column="role_id" property="roleId"/>
+      <result column="permit_id" property="permitId"/>
+    </collection>
+  </resultMap>
+
+  <select id="findRoleAndPerms" resultMap="rolePerms">
+    SELECT
+    r.*,rp.role_id,rp.permit_id
+    FROM role r
+    INNER JOIN role_permission rp ON r.id=rp.role_id
+    WHERE r.id=#{id}
+  </select>
+  <!--=End findRoleAndPerms 查询角色列表-->
+
+  <!--=Start getRoleByUserId 根据用户id查询角色数据-->
+  <select id="getRoleByUserId" resultType="cn.zhixiangsingle.entity.base.role.Role">
+    SELECT
+    ur.role_id id,r.role_name,r.code
+    FROM user_role ur
+    INNER JOIN role r ON r.id=ur.role_id
+    WHERE ur.user_id=#{userId}
+  </select>
+  <!--=End getRoleByUserId 根据用户id查询角色数据-->
+
+  <!--=Start getRoles 查询角色列表-->
+  <select id="getRoles" resultMap="BaseResultMap">
+    SELECT
+    <include refid="selectAllKey" />
+    FROM role r
+    <where>
+      <if test="sdId!=null">
+        AND sdid = #{sdId}
+      </if>
+    </where>
+  </select>
+  <!--=End getRoles 查询角色列表-->
+</mapper>

@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.zhixiangsingle.dao.managementSystem.ManagementSystemMapper">
+	<sql id="Base_Column_List">
+		id, executiontime executionTime, systemname systemName, contentdescribe contentDescribe, img_path imgPath,sdid sdId
+	</sql>
+	<sql id="selectPrintAllKey">
+		<trim suffixOverrides=",">
+			<if test="id != null" >
+				m.id,
+			</if>
+			<if test="executionTime != null and executionTime != ''" >
+				IFNULL(m.executiontime,'-') executionTime,
+			</if>
+			<if test="systemName != null and systemName != ''" >
+				IFNULL(m.systemname,'-') systemName,
+			</if>
+			<if test="contentDescribe != null and contentDescribe != ''" >
+				IFNULL(m.contentdescribe,'-') contentDescribe,
+			</if>
+			<if test="imgPath != null" >
+				IFNULL(m.img_path,'-') imgPath,
+			</if>
+			<if test="sdId != null" >
+				m.sdid sdId,
+			</if>
+			<if test="siteName != null and siteName != ''" >
+				#{siteName} siteName,
+			</if>
+			<if test="sitePhoto != null and sitePhoto != ''" >
+				#{sitePhoto} sitePhoto,
+			</if>
+			<if test="picturePrefix != null and picturePrefix != ''" >
+				#{picturePrefix} picturePrefix,
+			</if>
+		</trim>
+	</sql>
+    <sql id="selectAllKey">
+        <trim suffixOverrides=",">
+			<if test="id != null" >
+				m.id,
+			</if>
+			<if test="executionTime != null and executionTime != ''" >
+				IFNULL(m.executiontime,null) executionTime,
+			</if>
+			<if test="systemName != null and systemName != ''" >
+				IFNULL(m.systemname,null) systemName,
+			</if>
+			<if test="contentDescribe != null and contentDescribe != ''" >
+				IFNULL(m.contentdescribe,null) contentDescribe,
+			</if>
+			<if test="imgPath != null" >
+				IFNULL(m.img_path,null) imgPath,
+			</if>
+			<if test="sdId != null" >
+				m.sdid sdId,
+			</if>
+			<if test="siteName != null and siteName != ''" >
+				#{siteName} siteName,
+			</if>
+			<if test="sitePhoto != null and sitePhoto != ''" >
+				#{sitePhoto} sitePhoto,
+			</if>
+			<if test="picturePrefix != null and picturePrefix != ''" >
+				#{picturePrefix} picturePrefix,
+			</if>
+        </trim>
+    </sql>
+	<sql id="insertAllKey">
+		<trim suffixOverrides=",">
+			<if test="executionTime != null and executionTime != ''" >
+				executiontime,
+			</if>
+			<if test="systemName != null and systemName != ''" >
+				systemname,
+			</if>
+			<if test="contentDescribe != null and contentDescribe != ''" >
+				contentdescribe,
+			</if>
+			<if test="imgPath != null" >
+				img_path,
+			</if>
+			<if test="sdId != null" >
+				sdid,
+			</if>
+		</trim>
+	</sql>
+	<sql id="insertAllValue">
+		<trim suffixOverrides=",">
+			<if test="executionTime != null and executionTime != ''" >
+				#{executionTime},
+			</if>
+			<if test="systemName != null and systemName != ''" >
+				#{systemName},
+			</if>
+			<if test="contentDescribe != null and contentDescribe != ''" >
+				#{contentDescribe},
+			</if>
+			<if test="imgPath != null" >
+				#{imgPath},
+			</if>
+			<if test="sdId != null" >
+				#{sdId},
+			</if>
+		</trim>
+	</sql>
+	<sql id="updateAllValue">
+		<trim suffixOverrides=",">
+			contentdescribe = #{contentDescribe,jdbcType=VARCHAR},
+			<if test="systemName != null and systemName != ''" >
+				systemname = #{systemName,jdbcType=VARCHAR},
+			</if>
+			<if test="imgPath != null and imgPath != ''" >
+				img_path = #{imgPath,jdbcType=VARCHAR},
+			</if>
+			<!--<if test="sdId != null" >
+				sdid = #{sdId,jdbcType=INTEGER},
+			</if>-->
+		</trim>
+	</sql>
+    <sql id="whereAllValue">
+        <where>
+            <if test='systemName != null and systemName != "" and systemName != "s" ' >
+                AND m.systemname like CONCAT('%', #{systemName} , '%')
+            </if>
+			<if test="id != null and id != -1" >
+				AND m.id = #{id}
+			</if>
+			<if test="sdId != null and sdId != -1" >
+				AND m.sdid = #{sdId}
+			</if>
+			ORDER BY
+			m.id DESC
+			<if test='end != null and end != -1'>
+				LIMIT #{start},#{end}
+			</if>
+        </where>
+    </sql>
+	<sql id="whereFullNameAllValue">
+		<where>
+			<if test='systemName != null and systemName != "" and systemName != "s" ' >
+				AND m.systemname =#{systemName}
+			</if>
+			<if test="id != null and id != -1" >
+				AND m.id = #{id}
+			</if>
+			<if test="sdId != null and sdId != -1" >
+				AND m.sdid = #{sdId}
+			</if>
+		</where>
+	</sql>
+	<!-- 查找所有食材记录条数 start -->
+	<select id="findManagementSystemTotal" resultType="java.lang.Integer">
+		SELECT
+			COUNT(m.id)
+		FROM
+		managementsystem m
+		<include refid="whereAllValue"/>
+	</select>
+	<!-- 查找所有食材记录条数 end -->
+	<!-- 查找所有食材记录 start -->
+	<select id="findManagementSystemList" resultType="java.util.Map">
+		SELECT
+			<include refid="selectAllKey"/>
+		FROM
+		managementsystem m
+		<include refid="whereAllValue"/>
+	</select>
+	<!-- 查找所有食材记录 end -->
+
+	<!-- 查找所有记录(打印用) 返回值是实体类 -->
+	<select id="findAllManagementSystem" resultType="cn.zhixiangsingle.entity.managementSystem.vo.ManagementSystemVO">
+		SELECT
+		<include refid="selectPrintAllKey"/>
+		FROM
+		managementsystem m
+		<include refid="whereAllValue"/>
+	</select>
+	<!-- 查找所有记录(打印用) 返回值是实体类 end -->
+
+	<!-- 查找单个 start -->
+	<select id="findManagementSystem" resultType="java.util.Map">
+		SELECT
+		<include refid="selectAllKey"/>
+		FROM
+		managementsystem m
+		<include refid="whereFullNameAllValue"/>
+	</select>
+	<!-- 查找单个 end -->
+
+	<select id="findManagementSystemFullNameTotal" resultType="java.lang.Integer">
+		SELECT
+			COUNT(id)
+		FROM
+		managementsystem m
+		<include refid="whereFullNameAllValue"/>
+	</select>
+	<!-- 查找所有食材记录条数 end -->
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		DELETE FROM managementsystem
+        WHERE id = #{id,jdbcType=INTEGER} and sdid = #{sdId,jdbcType=INTEGER}
+	</delete>
+	<insert id="insertSelective" useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO managementsystem(<include refid="insertAllKey"/>) VALUES(<include refid="insertAllValue"/>);
+	</insert>
+	<update id="updateByPrimaryKey">
+		UPDATE managementsystem
+		<set>
+			<include refid="updateAllValue"/>
+		</set>
+		WHERE id = #{id,jdbcType=INTEGER} and sdid = #{sdId,jdbcType=INTEGER}
+	</update>
+</mapper>

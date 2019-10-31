@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>智飨科技食品餐饮安全网管理后台</title>
+
+    <!--告诉IE浏览器，IE8/9及以后的版本都会以最高版本IE来渲染页面。  -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="description" content="智飨科技-食品餐饮安全网 " />
+
+    <meta name="author" content="hhp" />
+
+    <!-- 网站关键字，排名关键 -->
+    <meta name="keyword" content="智能化餐饮,智飨科技,物联网,食品安全,智能厨房,家宴,餐饮标准化管理" />
+
+    <!-- 设置标签栏公司logo -->
+    <link rel="icon" href="/images/logo1.png" type="image/x-icon"/>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <script type="application/x-javascript">
+        addEventListener("load",
+            function() {
+                setTimeout(hideURLbar, 0);
+            }, false
+        );
+        function hideURLbar(){
+            window.scrollTo(0,1);
+        }
+    </script>
+
+    <style>
+        .error {
+            color: red;
+            border-color:red;
+        }
+
+        .valid {
+            color: black;
+        }
+        canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+    <link href="css/style.css" rel="stylesheet">
+    <!-- Custom Theme files -->
+    <link href="/css/common/bootstrap/bootstrap.css" type="text/css" rel="stylesheet" media="all">
+    <!-- 菜单拖拽css -->
+    <link href="/css/common/buttonMenu/asidenav.css" type="text/css" rel="stylesheet" media="all">
+
+
+    <!-- //Custom Theme files -->
+    <!-- js -->
+    <script src="/js/common/jquery/jquery-2.2.3.min.js"></script>
+    <script src="/js/common/jquery/jquery.form.js"></script>
+    <!-- //js -->
+    <!-- web-fonts -->
+    <!--<link href="http://fonts.googleapis.com/css?family=Berkshire+Swash" rel="stylesheet">
+    <link href="http://fonts.googleapis.com/css?family=Yantramanav:100,300,400,500,700,900" rel="stylesheet">-->
+    <!-- //web-fonts -->
+</head>
+<body id="skin-blur-violate">
+<div style="width:100%;height:100%;background-color:blue;">
+    <canvas id=c style="width:100%;height:100%;"></canvas>
+</div>
+
+<!-- login-page -->
+<svg width="0" height="0">
+    <defs>
+        <filter id="goo">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur"></feGaussianBlur>
+            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo"></feColorMatrix>
+            <feComposite in="SourceGraphic" in2="goo" operator="atop"></feComposite>
+        </filter>
+    </defs>
+</svg>
+<div class="aside-nav bounceInUp animated" id="aside-nav" style="width:60%;height:60%;left:20%;top:20%;">
+    <label for="" class="aside-menu" title="按住拖动" style="max-width:none !important;">系统</label>
+
+    <a href="http://121.43.35.179:8077/" title="响应适配版" class="menu-item menu-first">响应适配版</a>
+    <!--<a href="javascript:void(0)" title="QQ咨询" class="menu-item menu-second"></a>
+    <a href="javascript:void(0)" title="一键预约" class="menu-item menu-third">预约</a>-->
+    <a href="http://121.43.35.179:8078/" title="大屏专享版" class="menu-item menu-line menu-fourth" style="line-height:7em;padding-top:0px;">大屏专享版</a> <!-- *跳到商家微信推广* -->
+</div>
+<!-- //login-page -->
+<!-- subscribe -->
+
+<!-- 返回顶部 -->
+<div class="toTopRocket"><a href="javascript:void(0);" title="返回顶部"></a></div>
+<!--<script type="text/javascript" src="/js/common/foot/foot.js"></script>-->
+<!-- //footer -->
+<!-- cart-js -->
+<script src="/js/common/minicart/minicart.js"></script>
+<script>
+    w3ls.render();
+
+    w3ls.cart.on('w3sb_checkout', function (evt) {
+        var items, len, i;
+
+        if (this.subtotal() > 0) {
+            items = this.items();
+
+            for (i = 0, len = items.length; i < len; i++) {
+            }
+        }
+    });
+</script>
+<!-- //cart-js -->
+<!-- start-smooth-scrolling -->
+<script src="/js/common/smoothScroll/SmoothScroll.min.js"></script>
+<!--<script type="text/javascript" src="/js/common/moveTop/move-top.js"></script>-->
+
+<!-- UX -->
+<script src="js/scroll.min.js"></script> <!-- Custom Scrollbar -->
+
+<!-- All JS functions -->
+<script src="js/functions-login.js"></script>
+
+<script type="text/javascript" src="/js/common/easing/easing.js"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function($) {
+        $(".scroll").click(function(event){
+            event.preventDefault();
+            $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+        });
+    });
+
+    var w = c.width = window.innerWidth,
+        h = c.height = window.innerHeight,
+        ctx = c.getContext( '2d' ),
+
+        opts = {
+            phrases: [ "智飨科技", "为您提供全方位\n食品安全检测", "各环节把控 预警 溯源", "24h持续为您护航" ],
+            balloons: 10,
+            baseVelY: -1,
+            addedVelY: -1,
+            baseVelX: -.25,
+            addedVelX: .5,
+            baseSize: 20,
+            addedSize: 10,
+            baseSizeAdder: 2,
+            addedSizeAdder: 2,
+            baseIncrementer: .01,
+            addedIncrementer: .03,
+            baseHue: -10,
+            addedHue: 30,
+            font: '15px Verdana'
+        },
+
+        cycle = 0,
+        balloons = [];
+
+    ctx.font = opts.font;
+
+    function Balloon(){
+        this.reset();
+    }
+    Balloon.prototype.reset = function(){
+
+        this.size = opts.baseSize + opts.addedSize * Math.random();
+        this.sizeAdder = opts.baseSizeAdder + opts.addedSizeAdder * Math.random();
+        this.incrementer = opts.baseIncrementer + opts.addedIncrementer * Math.random();
+
+        this.tick = 0;
+
+        this.x = Math.random() * w;
+        this.y = h + this.size;
+
+        this.vx = opts.baseVelX + opts.addedVelX * Math.random();
+        this.vy = opts.baseVelY + opts.addedVelY * Math.random();
+
+        this.color = 'hsla(hue,70%,60%,.8)'.replace( 'hue', opts.baseHue + opts.addedHue * Math.random() );
+        this.phrase = opts.phrases[ ++cycle % opts.phrases.length ].split( '\n' );
+        this.lengths = [];
+
+        for( var i = 0; i < this.phrase.length; ++i )
+            this.lengths.push( -ctx.measureText( this.phrase[ i ] ).width / 2 );
+    }
+    Balloon.prototype.step = function(){
+
+        this.tick += this.incrementer;
+        this.x += this.vx;
+        this.y += this.vy;
+
+        var size = this.size + this.sizeAdder * Math.sin( this.tick );
+
+        ctx.lineWidth = size / 40;
+        ctx.strokeStyle = '#eee';
+        ctx.beginPath();
+        ctx.moveTo( this.x, this.y - 2 );
+        ctx.lineTo( this.x, this.y + size );
+        ctx.stroke();
+        ctx.fillStyle = this.color;
+
+        ctx.translate( this.x, this.y );
+        ctx.rotate( Math.PI / 4 );
+        //ctx.fillRect( -size / 2, -size / 2, size / 2, size / 2 );
+        ctx.beginPath();
+        ctx.moveTo( 0, 0 );
+        ctx.arc( -size / 2, -size / 2 + size / 4, size / 4, Math.PI / 2, Math.PI * 3 / 2 );
+        ctx.arc( -size / 2 + size / 4, -size / 2, size / 4, Math.PI, Math.PI * 2 );
+        ctx.lineTo( 0, 0 );
+        ctx.fill();
+        ctx.rotate( -Math.PI / 4 );
+        ctx.translate( -this.x, -this.y );
+
+        ctx.translate( this.x, this.y + size + 15 );
+        ctx.scale( size / this.size, size / this.size );
+        ctx.fillStyle = '#eee';
+        for( var i = 0; i < this.phrase.length; ++i )
+            ctx.fillText( this.phrase[ i ], this.lengths[ i ], i * 15 );
+        ctx.scale( this.size / size, this.size / size );
+        ctx.translate( -this.x, -( this.y + size + 15 ) );
+
+        if( this.y < -size * 3 )
+            this.reset();
+
+    }
+
+    function anim(){
+
+        window.requestAnimationFrame( anim );
+
+        ctx.fillStyle = '#222';
+        ctx.fillRect( 0, 0, w, h );
+
+        if( balloons.length < opts.balloons && Math.random() < .01 )
+            balloons.push( new Balloon );
+
+        for( var i = 0; i < balloons.length; ++i )
+            balloons[ i ].step();
+    }
+    anim();
+</script>
+<!-- //end-smooth-scrolling -->
+<!-- smooth-scrolling-of-move-up -->
+
+<!-- //smooth-scrolling-of-move-up -->
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="/js/common/bootstrap/bootstrap.js"></script>
+
+<!-- 菜单拖拽js -->
+<script src="/js/common/buttonMenuMove/asidenav.js" type="text/javascript"></script>
+<script src="/js/common/myCommon.js" type="text/javascript"></script>
+
+</body>
+</html>

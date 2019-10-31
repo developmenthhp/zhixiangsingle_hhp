@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.zhixiangsingle.dao.permission.PermissionMapper" >
+  <resultMap id="BaseResultMap" type="cn.zhixiangsingle.entity.base.permission.Permission" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="pid" property="pid" jdbcType="INTEGER" />
+    <result column="zindex" property="zindex" jdbcType="INTEGER" />
+    <result column="istype" property="isType" jdbcType="INTEGER" />
+    <result column="descpt" property="descpt" jdbcType="VARCHAR" />
+    <result column="code" property="code" jdbcType="VARCHAR" />
+    <result column="icon" property="icon" jdbcType="VARCHAR" />
+    <result column="page" property="page" jdbcType="VARCHAR" />
+    <result column="insert_time" property="insertTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, name, pid, zindex, istype, descpt, code, icon, page, insert_time, update_time
+  </sql>
+  <!-- 定义sql片段，且唯一 动态查询 start -->
+  <sql id="selectAllKey">
+    <trim suffixOverrides=",">
+      <if test="id != null" >
+        p.id,
+      </if>
+      <if test="name != null and name != ''" >
+        p.name,
+      </if>
+      <if test="pid != null" >
+        p.pid,
+      </if>
+      <if test="zindex != null" >
+        p.zindex,
+      </if>
+      <if test="isType != null" >
+        p.istype isType,
+      </if>
+      <if test="descpt != null and descpt != ''" >
+        p.descpt,
+      </if>
+      <if test="code != null and code != ''" >
+        p.code,
+      </if>
+      <if test="icon != null and icon != ''" >
+        p.icon,
+      </if>
+      <if test="page != null and page != ''" >
+        p.page,
+      </if>
+      <if test="insertTime != null" >
+        p.insert_time insertTime,
+      </if>
+      <if test="updateTime != null" >
+        p.update_time updateTime,
+      </if>
+    </trim>
+  </sql>
+  <!-- 定义sql片段，且唯一 动态查询 end -->
+
+  <!-- 定义sql片段，且唯一 动态insert start -->
+  <sql id="insertAllKey">
+    <trim suffixOverrides=",">
+      <if test="name != null and name != ''" >
+        name,
+      </if>
+      <if test="pid != null" >
+        pid,
+      </if>
+      <if test="zindex != null" >
+        zindex,
+      </if>
+      <if test="isType != null" >
+        istype,
+      </if>
+      <if test="descpt != null and descpt != ''" >
+        descpt,
+      </if>
+      <if test="code != null and code != ''" >
+        code,
+      </if>
+      <if test="icon != null and icon != ''" >
+        icon,
+      </if>
+      <if test="page != null and page != ''" >
+        page,
+      </if>
+      <if test="insertTime != null" >
+        insert_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+    </trim>
+  </sql>
+  <!-- 定义sql片段，且唯一 动态insert end -->
+
+  <!-- 定义sql片段，且唯一 value值 start -->
+  <sql id="insertAllValue">
+    <trim suffixOverrides=",">
+      <if test="name != null and name != ''" >
+        #{name},
+      </if>
+      <if test="pid != null" >
+        #{pid},
+      </if>
+      <if test="zindex != null" >
+        #{zindex},
+      </if>
+      <if test="isType != null" >
+        #{isType},
+      </if>
+      <if test="descpt != null and descpt != ''" >
+        #{descpt},
+      </if>
+      <if test="code != null and code != ''" >
+        #{code},
+      </if>
+      <if test="icon != null and icon != ''" >
+        #{icon},
+      </if>
+      <if test="page != null and page != ''" >
+        #{page},
+      </if>
+      <if test="insertTime != null" >
+        #{insertTime},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime},
+      </if>
+    </trim>
+  </sql>
+  <!-- 定义sql片段，且唯一 value值 end -->
+
+  <!-- 定义更新sql片段，且唯一 value值 start -->
+  <sql id="updateAllValue">
+    <trim suffixOverrides=",">
+      <if test="name != null and name != ''" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="pid != null" >
+        pid = #{pid,jdbcType=INTEGER},
+      </if>
+      <if test="zindex != null" >
+        zindex = #{zindex,jdbcType=INTEGER},
+      </if>
+      <if test="isType != null" >
+        istype = #{isType,jdbcType=INTEGER},
+      </if>
+      <if test="descpt != null and descpt != ''" >
+        descpt = #{descpt,jdbcType=VARCHAR},
+      </if>
+      <if test="code != null and code != ''" >
+        code = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="icon != null and icon != ''" >
+        icon = #{icon,jdbcType=VARCHAR},
+      </if>
+      <if test="page != null and page != ''" >
+        page = #{page,jdbcType=INTEGER},
+      </if>
+      <if test="insertTime != null" >
+        insert_time = #{insertTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </sql>
+  <!-- 定义更新sql片段，且唯一 value值 end -->
+
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap">
+    SELECT
+    <include refid="selectAllKey" />
+    FROM permission p
+    WHERE p.id = #{userId,jdbcType=INTEGER}
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    DELETE FROM permission
+    WHERE id = #{id,jdbcType=INTEGER}
+  </delete>
+
+  <insert id="insert" parameterType="cn.zhixiangsingle.entity.base.permission.Permission" >
+    INSERT INTO permission(<include refid="insertAllKey"/>) VALUES(<include refid="insertAllValue"/>);
+  </insert>
+
+  <update id="updateByPrimaryKeySelective" parameterType="cn.zhixiangsingle.entity.base.permission.Permission" >
+    UPDATE permission
+    <set >
+      <include refid="updateAllValue"/>
+    </set>
+    WHERE id = #{id,jdbcType=INTEGER}
+  </update>
+
+  <!--=Start findAll 查找所有权限-->
+  <select id="findAll" resultMap="BaseResultMap">
+    SELECT
+    <include refid="selectAllKey" />
+    FROM permission p
+    ORDER BY id
+  </select>
+  <!--=End findAll 查找所有权限-->
+
+  <!--=Start findChildPerm 查找所有子节点权限-->
+  <select id="findChildPerm" resultMap="BaseResultMap">
+    SELECT
+    <include refid="selectAllKey" />
+    FROM permission p
+    WHERE pid=#{id}
+  </select>
+  <!--=End findChildPerm 查找所有子节点权限-->
+
+  <!--=Start findPerms 查找权限树列表-->
+  <select id="findPerms" resultType="cn.zhixiangsingle.entity.base.permission.vo.PermissionVO">
+    SELECT
+    <include refid="selectAllKey" />
+    FROM permission p
+  </select>
+  <!--=End findPerms 查找权限树列表-->
+
+  <!--=Start findPermsByRole 根据角色ID查找权限树列表-->
+  <select id="findPermsByRole" resultType="cn.zhixiangsingle.entity.base.permission.Permission">
+    SELECT
+    <include refid="selectAllKey" />
+    FROM permission p
+    LEFT JOIN role_permission rp ON rp.permit_id=p.id
+    WHERE rp.role_id=#{id}
+  </select>
+  <!--=End findPermsByRole 根据角色ID查找权限树列表-->
+
+  <!--=Start getUserPerms 根据用户ID查找权限树列表-->
+  <select id="getUserPerms" resultType="cn.zhixiangsingle.entity.base.permission.vo.PermissionVO">
+    SELECT
+    <include refid="selectAllKey" />
+    FROM permission p
+    LEFT JOIN role_permission rp ON rp.permit_id=p.id
+    LEFT JOIN role r ON r.id=rp.role_id
+    LEFT JOIN user_role ur ON ur.role_id=r.id
+    WHERE ur.user_id=#{userId}
+    GROUP BY p.id
+    order by p.zindex
+  </select>
+  <!--=End getUserPerms 根据用户ID查找权限树列表-->
+</mapper>

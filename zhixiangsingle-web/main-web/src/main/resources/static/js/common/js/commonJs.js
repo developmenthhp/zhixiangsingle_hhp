@@ -1,0 +1,45 @@
+document.writeln("<div class=\'toTopRocket\'><a href=\'javascript:void(0);\' title=\'返回顶部\'></a></div>");
+document.writeln("<script src=\'../../../js/common/jquery/jquery-2.2.3.min.js\'></script>");
+document.writeln("<script src=\'../../../js/common/jBox/jBox.min.js\'></script>");
+document.writeln("<script src=\'../../../js/common/jBox/jBox.Notice.min.js\'></script>");
+document.writeln("<script type=\'text/javascript\'>");
+document.writeln("    $(\'.myHideMsg\').css(\'display\',\'none\');");
+document.writeln("    $(\'.myHideYJ\').css(\'display\',\'none\');");
+document.writeln("</script>");
+document.writeln("<script src=\'../../../js/common/jquery/jquery-ui-1.10.3.js\' type=\'text/javascript\'></script>");
+document.writeln("<script src=\'../../../js/common/jquery/jquery.form.js\'></script>");
+/*document.writeln("<script src=\'http://api.map.baidu.com/api?v=2.0&ak=IpUYrmLOEKPvfZt74ZG9KO1Sinn1YtW7\'></script>");
+document.writeln("<script src=\'http://api.map.baidu.com/library/DrawingManager/1.4/src/DrawingManager_min.js\'></script>");
+document.writeln("<link rel=\"stylesheet\" src=\'http://api.map.baidu.com/library/DrawingManager/1.4/src/DrawingManager_min.css\'/>");*/
+document.writeln("<script src=\'../../../js/common/bootstrap/bootstrap.min.js\' type=\'text/javascript\'></script>");
+document.writeln("<script src=\'../../../js/common/fileUpload/cropper.min.js\'></script>");
+document.writeln("<script src=\'../../../js/common/fileUpload/custom_up_img.js\'></script>");
+document.writeln("<script src=\'../../../js/common/raphael/raphael-min.js\'></script>");
+document.writeln("<script src=\'../../../js/common/plugins/morris/morris.min.js\' type=\'text/javascript\'></script>");
+document.writeln("<script src=\'../../../js/common/plugins/sparkline/jquery.sparkline.min.js\' type=\'text/javascript\'></script>");
+document.writeln("<script src=\'../../../js/common/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js\' type=\'text/javascript\'></script>");
+document.writeln("<script src=\'../../../js/common/plugins/jvectormap/jquery-jvectormap-world-mill-en.js\' type=\'text/javascript\'></script>");
+document.writeln("<script src=\'../../../js/common/plugins/fullcalendar/fullcalendar.min.js\' type=\'text/javascript\'></script>");
+document.writeln("<script src=\'../../../js/common/plugins/jqueryKnob/jquery.knob.js\' type=\'text/javascript\'></script>");
+document.writeln("<script src=\'../../../js/common/plugins/daterangepicker/daterangepicker.js\' type=\'text/javascript\'></script>");
+document.writeln("<script src=\'../../../js/common/fm.selectator.jquery.js\' type=\'text/javascript\'></script>");
+document.writeln("<script src=\'../../../js/common/dateTimePicker/DateTimePicker.js\' type=\'text/javascript\'></script>");
+document.writeln("<script src=\'../../../js/common/dateTimePicker/DateTimePicker-i18n.js\' type=\'text/javascript\'></script>");
+document.writeln("<script src=\'../../../js/common/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js\' type=\'text/javascript\'></script>");
+
+document.writeln("<script src=\'../../../js/common/plugins/iCheck/icheck.min.js\' type=\'text/javascript\'></script>");
+document.writeln("<script src=\'../../../js/common/validation/input-mask.min.js\' type=\'text/javascript\'></script>");
+document.writeln("<script src=\'../../../js/common/AdminLTE/app.js\' type=\'text/javascript\'></script>");
+document.writeln("<script src=\'../../../js/common/AdminLTE/dashboard-change.js\' type=\'text/javascript\'></script>");
+document.writeln("<script src=\'../../../js/scroll.min.js\'></script>");
+document.writeln("<script src=\'../../../js/functions.js\'></script>");
+document.writeln("<script src=\'../../../js/common/picture/viewer-jquery.min.js\'></script>");
+document.writeln("<script src=\'../../../js/common/jquery/jquery-confirm-mychange.min.js\'></script>");
+document.writeln("<script src=\'../../../js/common/dateUtil/dateUtils.js\'></script>");
+document.writeln("<script src=\'../../../js/common/sysConf/sysConf.js\' type=\'text/javascript\'></script>");
+document.writeln("<script src=\'../../../js/common/icon/iconfont.js\' type=\'text/javascript\'></script>");
+document.writeln("<script src=\'../../../js/common/myCommon.js\' type=\'text/javascript\'></script>");
+document.writeln("<script src=\'../../../js/common/pagination.js\' typ=\'text/javascript\'></script>");
+
+document.writeln("<script src=\'../../../js/common/validation/jquery.validationEngine.js\' type=\'text/javascript\'></script>");
+document.writeln("<script src=\'../../../js/common/validation/jquery.validationEngine-zh_CN.js\' type=\'text/javascript\'></script>");

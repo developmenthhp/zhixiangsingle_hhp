@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.zhixiangsingle.dao.classification.CategoryBaseMapper">
+	<sql id="Base_Column_List">
+		id, categoryname categoryName, sdid sdId,deletestatus deleteStatus,pid pId
+	</sql>
+    <sql id="selectAllKey">
+        <trim suffixOverrides=",">
+			<if test="id != null" >
+				cg.id,
+			</if>
+            <if test="categoryName != null and categoryName != ''" >
+				cg.categoryname categoryName,
+            </if>
+            <if test="sdId != null" >
+				cg.sdid sdId,
+            </if>
+            <if test="deleteStatus != null and deleteStatus != ''" >
+				cg.deletestatus deleteStatus,
+            </if>
+            <if test="pId != null" >
+				cg.pid pId,
+            </if>
+			<if test="siteName != null and siteName != ''" >
+				#{siteName} siteName,
+			</if>
+			<if test="sitePhoto != null and sitePhoto != ''" >
+				#{sitePhoto} sitePhoto,
+			</if>
+			<if test="picturePrefix != null and picturePrefix != ''" >
+				#{picturePrefix} picturePrefix,
+			</if>
+        </trim>
+    </sql>
+	<sql id="insertAllKey">
+		<trim suffixOverrides=",">
+			<if test="categoryName != null and categoryName != ''" >
+				categoryname,
+			</if>
+			<if test="sdId != null" >
+				sdid,
+			</if>
+			<if test="deleteStatus != null and deleteStatus != ''" >
+				deletestatus,
+			</if>
+			<if test="pId != null" >
+				pid,
+			</if>
+		</trim>
+	</sql>
+	<sql id="insertAllValue">
+		<trim suffixOverrides=",">
+			<if test="categoryName != null and categoryName != ''" >
+				#{categoryName},
+			</if>
+			<if test="sdId != null" >
+				#{sdId},
+			</if>
+			<if test="deleteStatus != null and deleteStatus != ''" >
+				#{deleteStatus},
+			</if>
+			<if test="pId != null" >
+				#{pId},
+			</if>
+		</trim>
+	</sql>
+	<sql id="updateAllValue">
+		<trim suffixOverrides=",">
+			<if test="categoryName != null and categoryName != ''" >
+				categoryname = #{categoryName,jdbcType=VARCHAR},
+			</if>
+			<!--<if test="sdId != null" >
+				sdid = #{sdId,jdbcType=INTEGER},
+			</if>-->
+			<if test="deleteStatus != null and deleteStatus != ''" >
+				deletestatus = #{deleteStatus,jdbcType=VARCHAR},
+			</if>
+			<!--<if test="pId != null" >
+				pid = #{pId,jdbcType=INTEGER},
+			</if>-->
+		</trim>
+	</sql>
+    <sql id="whereAllValue">
+        <where>
+            <if test='categoryName != null and categoryName != "" and categoryName != "c" ' >
+                AND cg.categoryname like CONCAT('%', #{categoryName} , '%')
+            </if>
+			<if test="id != null and id != -1" >
+				AND cg.id = #{id}
+			</if>
+			<if test="pId != null and pId != -1" >
+				AND cg.pid = #{pId}
+			</if>
+			<if test="sdId != null and sdId != -1" >
+				AND cg.sdid = #{sdId}
+			</if>
+            <if test='deleteStatus != null and deleteStatus != "" and deleteStatus !="d"' >
+                AND cg.deletestatus = #{deleteStatus}
+            </if>
+        </where>
+		ORDER BY
+		cg.id DESC
+		<if test='start != null and start != -1' >
+			LIMIT #{start},#{end}
+		</if>
+    </sql>
+	<sql id="whereFullNameAllValue">
+		<where>
+			<if test='categoryName != null and categoryName != "" and categoryName != "c" ' >
+				AND cg.categoryname = #{categoryName}
+			</if>
+			<if test="id != null and id != -1" >
+				AND cg.id = #{id}
+			</if>
+			<if test="pId != null and pId != -1" >
+				AND cg.pid = #{pId}
+			</if>
+			<if test="sdId != null and sdId != -1" >
+				AND cg.sdid = #{sdId}
+			</if>
+			<if test='deleteStatus != null and deleteStatus != "" and deleteStatus !="d"' >
+				AND cg.deletestatus = #{deleteStatus}
+			</if>
+		</where>
+	</sql>
+	<!-- 查找所有分类记录条数 start -->
+	<select id="findCategoryBaseTotal" resultType="java.lang.Integer">
+		SELECT
+			COUNT(cg.id)
+		FROM
+			categorybase cg
+		<include refid="whereAllValue"/>
+	</select>
+	<!-- 查找所有分类记录条数 end -->
+
+	<!-- 查找所有食材记录 start -->
+	<select id="findCategoryBaseList" resultType="java.util.Map">
+		SELECT
+			<include refid="selectAllKey"/>
+		FROM
+			categorybase cg
+		<include refid="whereAllValue"/>
+	</select>
+	<!-- 查找所有食材记录 end -->
+	<!-- 查找单个 start -->
+	<select id="findCategoryBase" resultType="java.util.Map">
+		SELECT
+		<include refid="selectAllKey"/>
+		FROM
+		categorybase cg
+		<include refid="whereFullNameAllValue"/>
+	</select>
+	<!-- 查找单个 end -->
+
+	<!--<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		DELETE FROM categorybase
+        WHERE id = #{id,jdbcType=INTEGER}
+	</delete>-->
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		DELETE FROM categorybase
+        WHERE id = #{id,jdbcType=INTEGER} and sdid = #{sdId,jdbcType=INTEGER}
+	</delete>
+	<insert id="insertSelective" useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO categorybase(<include refid="insertAllKey"/>) VALUES(<include refid="insertAllValue"/>);
+	</insert>
+	<update id="updateByPrimaryKey">
+		UPDATE categorybase
+		<set>
+			<include refid="updateAllValue"/>
+		</set>
+		WHERE id = #{id,jdbcType=INTEGER} and sdid = #{sdId,jdbcType=INTEGER}
+	</update>
+</mapper>

@@ -1,0 +1,58 @@
+.up-modal-frame .up-frame-radius {
+}
+.up-modal-frame .am-modal-dialog {
+    width:600px
+}
+.up-frame-parent .up-frame-header {
+    padding:0;
+}
+.up-frame-parent .up-frame-header label {
+    font-size:16px;
+    float:left;
+}
+.up-frame-parent .up-frame-body {
+}
+.up-frame-parent .up-pre-before {
+    width:327px;
+    height:327px;
+    padding:0;
+    float:left;
+    border:1px solid #e3e3e3
+}
+.up-frame-parent .up-pre-before img {
+    width:100%
+}
+.up-frame-parent .up-frame-body .up-pre-after {
+    overflow:hidden;
+    width:186px;
+    min-width:186px;
+    min-height:186px;
+    height:186px;
+    border:1px solid #e3e3e3;
+    float:left;
+    margin-left:25px
+}
+.up-frame-parent .up-control-btns {
+    width:150px;
+    height:30px;
+    margin-left:auto;
+    margin-right:auto;
+    text-align:center;
+}
+.up-frame-parent .up-control-btns span {
+    width:30%
+}
+@media screen and (max-width:1024px) {
+    .up-frame-parent .up-pre-before {
+        width:100%
+    }
+    .up-frame-parent .up-frame-body .up-pre-after {
+        margin-left:0;
+        margin-top:10px
+    }
+}
+@media screen and (max-width:600px) {
+    .up-modal-frame .am-modal-dialog {
+        width:90%
+    }
+}

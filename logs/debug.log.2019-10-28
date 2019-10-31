@@ -1,0 +1,14 @@
+2019-10-28-12-55 [main] [cn.zhixiangsingle.config.DynamicDataSourceRegister] [INFO] - Dynamic DataSource Registry
+  2019-10-28-12-59 [main] [cn.zhixiangsingle.config.DynamicDataSourceRegister] [INFO] - Dynamic DataSource Registry
+  2019-10-28-13-03 [main] [cn.zhixiangsingle.config.DynamicDataSourceRegister] [INFO] - Dynamic DataSource Registry
+  2019-10-28-13-03 [main] [cn.zhixiangsingle.config.DynamicDataSourceRegister] [INFO] - Dynamic DataSource Registry
+  2019-10-28-13-05 [main] [cn.zhixiangsingle.config.DynamicDataSourceRegister] [INFO] - Dynamic DataSource Registry
+  2019-10-28-13-05 [main] [cn.zhixiangsingle.App] [INFO] - receiver_mqtt+++++++ Start Success
+  2019-10-28-13-07 [main] [cn.zhixiangsingle.config.DynamicDataSourceRegister] [INFO] - Dynamic DataSource Registry
+  2019-10-28-13-07 [main] [cn.zhixiangsingle.App] [INFO] - receiver_mqtt+++++++ Start Success
+  2019-10-28-13-09 [http-nio-8086-exec-2] [cn.zhixiangsingle.App] [INFO] - add topic success:[Ljava.lang.String;@292ec731
+  2019-10-28-13-11 [http-nio-8086-exec-5] [cn.zhixiangsingle.App] [INFO] - add topic success:[Ljava.lang.String;@e05d176
+  2019-10-28-13-14 [main] [cn.zhixiangsingle.config.DynamicDataSourceRegister] [INFO] - Dynamic DataSource Registry
+  2019-10-28-13-14 [main] [cn.zhixiangsingle.MqttApplication] [INFO] - receiver_mqtt+++++++ Start Success
+  2019-10-28-13-14 [http-nio-8086-exec-1] [cn.zhixiangsingle.MqttApplication] [INFO] - add topic success:[Ljava.lang.String;@e1933a
+  

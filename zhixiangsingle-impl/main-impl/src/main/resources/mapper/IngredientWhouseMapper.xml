@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.zhixiangsingle.dao.warehouse.IngredientWhouseMapper">
+	<sql id="Base_Column_List">
+		id, whname whName, sdid sdId,whstatus whStatus
+	</sql>
+    <sql id="selectAllKey">
+        <trim suffixOverrides=",">
+			<if test="id != null" >
+				iw.id,
+			</if>
+            <if test="whName != null and whName != ''" >
+				iw.whname whName,
+            </if>
+            <if test="sdId != null" >
+				iw.sdid sdId,
+            </if>
+            <if test="whStatus != null and whStatus != ''" >
+				iw.whstatus deleteStatus,
+            </if>
+			<if test="siteName != null and siteName != ''" >
+				#{siteName} siteName,
+			</if>
+			<if test="sitePhoto != null and sitePhoto != ''" >
+				#{sitePhoto} sitePhoto,
+			</if>
+			<if test="picturePrefix != null and picturePrefix != ''" >
+				#{picturePrefix} picturePrefix,
+			</if>
+        </trim>
+    </sql>
+	<sql id="insertAllKey">
+		<trim suffixOverrides=",">
+			<if test="whName != null and whName != ''" >
+				whname,
+			</if>
+			<if test="sdId != null" >
+				sdid,
+			</if>
+			<if test="whStatus != null and whStatus != ''" >
+				whstatus,
+			</if>
+		</trim>
+	</sql>
+	<sql id="insertAllValue">
+		<trim suffixOverrides=",">
+			<if test="whName != null and whName != ''" >
+				#{whName},
+			</if>
+			<if test="sdId != null" >
+				#{sdId},
+			</if>
+			<if test="whStatus != null and whStatus != ''" >
+				#{whStatus},
+			</if>
+		</trim>
+	</sql>
+	<sql id="updateAllValue">
+		<trim suffixOverrides=",">
+			<if test="whName != null and whName != ''" >
+				whname = #{whName,jdbcType=VARCHAR},
+			</if>
+			<if test="sdId != null" >
+				sdid = #{sdId,jdbcType=INTEGER},
+			</if>
+			<if test="whStatus != null and whStatus != ''" >
+				whstatus = #{whStatus,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</sql>
+    <sql id="whereAllValue">
+        <where>
+            <if test='whName != null and whName != "" and whName != "w" ' >
+                AND iw.whname like CONCAT('%', #{whName} , '%')
+            </if>
+			<if test="id != null and id != -1" >
+				AND iw.id = #{id}
+			</if>
+			<if test="sdId != null and sdId != -1" >
+				AND iw.sdid = #{sdId}
+			</if>
+            <if test='whStatus != null and whStatus != "" and whStatus !="w"' >
+                AND iw.whstatus = #{whStatus}
+            </if>
+        </where>
+		ORDER BY
+		iw.id DESC
+		<if test='start != null and start != -1' >
+			LIMIT #{start},#{end}
+		</if>
+    </sql>
+	<!-- 查找所有分类记录条数 start -->
+	<select id="findCategoryBaseTotal" resultType="java.lang.Integer">
+		SELECT
+			COUNT(iw.id)
+		FROM
+			ingredientwhouse iw
+		<include refid="whereAllValue"/>
+	</select>
+	<!-- 查找所有分类记录条数 end -->
+	<!-- 查找所有食材记录 start -->
+	<select id="findIngredientWhouseList" resultType="java.util.Map">
+		SELECT
+			<include refid="selectAllKey"/>
+		FROM
+			ingredientwhouse iw
+		<include refid="whereAllValue"/>
+	</select>
+	<!-- 查找所有食材记录 end -->
+
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		DELETE FROM ingredientwhouse
+        WHERE id = #{id,jdbcType=INTEGER}
+	</delete>
+	<insert id="insertSelective" useGeneratedKeys="true" keyProperty="id" parameterType="cn.zhixiangsingle.entity.base.user.User">
+		INSERT INTO ingredientwhouse(<include refid="insertAllKey"/>) VALUES(<include refid="insertAllValue"/>);
+	</insert>
+	<update id="updateByPrimaryKey" parameterType="cn.zhixiangsingle.entity.base.user.User">
+		UPDATE ingredientwhouse
+		<set >
+			<include refid="updateAllValue"/>
+		</set>
+		WHERE id = #{id,jdbcType=INTEGER}
+	</update>
+</mapper>

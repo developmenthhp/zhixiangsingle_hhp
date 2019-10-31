@@ -1,0 +1,102 @@
+{
+  "22":{
+    "localPath" : "/home/hhp_img",
+    "singlePath" : "/hhp_zhixiang_img",
+    "imgPath": "http://127.0.0.1:100"
+  },
+  "21":{
+    "localPath" : "/home/hhp_img",
+    "singlePath" : "/hhp_zhongGuoYiDong_img",
+    "imgPath": "http://127.0.0.1:100"
+  },
+  "23":{
+    "localPath" : "/home/hhp_img",
+    "singlePath" : "/hhp_shaoXing_img",
+    "imgPath": "http://127.0.0.1:100"
+  },
+  "24":{
+    "localPath" : "/home/hhp_img",
+    "singlePath" : "/hhp_yuLanLuXiaoXue_img",
+    "imgPath": "http://127.0.0.1:100"
+  },
+  "25":{
+    "localPath" : "/home/hhp_img",
+    "singlePath" : "/hhp_guangXiYuGaoFuZhong_img",
+    "imgPath": "http://127.0.0.1:100"
+  },
+  "26":{
+    "localPath" : "/home/hhp_img",
+    "singlePath" : "/hhp_shangHaiShenNongShiCanYin_img",
+    "imgPath": "http://127.0.0.1:100"
+  },
+  "27":{
+    "localPath" : "/home/hhp_img",
+    "singlePath" : "/hhp_hongDa_img",
+    "imgPath": "http://127.0.0.1:100"
+  },
+  "28":{
+    "localPath" : "/home/hhp_img",
+    "singlePath" : "/hhp_wanYa_img",
+    "imgPath": "http://127.0.0.1:100"
+  },
+  "29":{
+    "localPath" : "/home/hhp_img",
+    "singlePath" : "/hhp_nanJingZhengDaTianQing_img",
+    "imgPath": "http://127.0.0.1:100"
+  },
+  "30":{
+    "localPath" : "/home/hhp_img/hhp_beiJingTongBang_img",
+    "singlePath" : "/hhp_beiJingTongBang_img",
+    "imgPath": "http://127.0.0.1:100"
+  },
+  "31":{
+    "localPath" : "/home/hhp_img",
+    "singlePath" : "/hhp_guangXiXinZhiXiang_img",
+    "imgPath": "http://127.0.0.1:100"
+  },
+  "32":{
+    "localPath" : "/home/hhp_img",
+    "singlePath" : "/hhp_haiNingLaoRenYuan_img",
+    "imgPath": "http://127.0.0.1:100"
+  },
+  "33":{
+    "localPath" : "/home/hhp_img",
+    "singlePath" : "/hhp_haiNingWeiXiao_img",
+    "imgPath": "http://127.0.0.1:100"
+  },
+  "34":{
+    "localPath" : "/home/hhp_img",
+    "singlePath" : "/hhp_shanDongWanFuMeiKuang_img",
+    "imgPath": "http://127.0.0.1:100"
+  },
+  "35":{
+    "localPath" : "/home/hhp_img",
+    "singlePath" : "/hhp_tongZhouFenYuan_img",
+    "imgPath": "http://127.0.0.1:100"
+  },
+  "36":{
+    "localPath" : "/home/hhp_img",
+    "singlePath" : "/hhp_suZhouZhiYeDaXue_img",
+    "imgPath": "http://127.0.0.1:100"
+  },
+  "37":{
+    "localPath" : "/home/hhp_img",
+    "singlePath" : "/hhp_jiangSuJianZhuXueYuan_img",
+    "imgPath": "http://127.0.0.1:100"
+  },
+  "38":{
+    "localPath" : "/home/hhp_img",
+    "singlePath" : "/hhp_zhongGuoYaoKeDaXue_img",
+    "imgPath": "http://127.0.0.1:100"
+  },
+  "39":{
+    "localPath" : "/home/hhp_img",
+    "singlePath" : "/hhp_suZhouDaXue_img",
+    "imgPath": "http://127.0.0.1:100"
+  },
+  "40":{
+    "localPath" : "/home/hhp_img",
+    "singlePath" : "/hhp_HangZhouDianZiKeJiDaXue_img",
+    "imgPath": "http://127.0.0.1:100"
+  }
+}
