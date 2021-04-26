@@ -38,7 +38,7 @@
 		<httpclient.version>4.5.3</httpclient.version>
 		<net.sf.oval.version>1.86</net.sf.oval.version>
 		<commons-lang3.version>3.6</commons-lang3.version>
-		<commons-io.version>2.5</commons-io.version>
+		<commons-io.version>2.7</commons-io.version>
 		<commons-codec.version>1.11</commons-codec.version>
 		<spring-boot.version>2.1.7.RELEASE</spring-boot.version>
 	</properties>
