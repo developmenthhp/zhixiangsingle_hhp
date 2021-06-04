@@ -35,7 +35,7 @@
 		<shiro-ehcache>1.2.6</shiro-ehcache>
 		<thymeleaf-extras-shiro.version>1.2.1</thymeleaf-extras-shiro.version>
 		<netty-socketio.version>1.7.7</netty-socketio.version>
-		<httpclient.version>4.5.3</httpclient.version>
+		<httpclient.version>4.5.13</httpclient.version>
 		<net.sf.oval.version>1.86</net.sf.oval.version>
 		<commons-lang3.version>3.6</commons-lang3.version>
 		<commons-io.version>2.5</commons-io.version>
