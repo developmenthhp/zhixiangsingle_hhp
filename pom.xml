@@ -31,7 +31,7 @@
 		<lombok.version>1.16.18</lombok.version>
 		<aliyun-java-sdk-core.version>4.0.6</aliyun-java-sdk-core.version>
 		<aliyun-java-sdk-dysmsapi.version>1.1.0</aliyun-java-sdk-dysmsapi.version>
-		<shiro.version>1.4.0</shiro.version>
+		<shiro.version>1.7.1</shiro.version>
 		<shiro-ehcache>1.2.6</shiro-ehcache>
 		<thymeleaf-extras-shiro.version>1.2.1</thymeleaf-extras-shiro.version>
 		<netty-socketio.version>1.7.7</netty-socketio.version>
